@@ -1,0 +1,65 @@
+﻿using Br.Bibliography.Data.Contexts.Base.Interfaces;
+using Br.Bibliography.Data.Repositories.Base.Interfaces;
+using Br.Bibliography.Model.Entities.Base.Interfaces;
+
+namespace Br.Bibliography.Data.Repositories.Base.Impl
+{
+    public abstract class RepositoryBase<TEntity> : Repository, IRepositoryBase<TEntity> where TEntity : class, IEntityBase<TEntity>
+    {
+        #region PROPERTIES
+
+        public abstract IContextBase<TEntity> Context { get; init; }
+
+        #endregion
+
+        #region CONSTRUCTOR
+
+        protected RepositoryBase(IContextBase<TEntity> context)
+        {
+            Context = context;
+        }
+
+        #endregion
+
+        #region CREATE
+
+        public TEntity? Create(TEntity entity)
+        {
+            var add = Context.DbSet.Add(entity).Entity;
+            Context.SaveChanges();
+            return add;
+        }
+
+        #endregion
+
+        #region READ
+
+        public TEntity? Read(uint key) => Context.DbSet.Find(key);
+
+        #endregion
+
+        #region UPDATE
+
+        public TEntity? Update(uint key, TEntity entity) => Read(key); // TODO: Implement Repository Update - THROW EXCEPTION
+
+        #endregion
+
+        #region DELETE
+
+        public TEntity? Delete(TEntity entity) => Context.DbSet.Remove(entity).Entity;
+
+        #endregion
+
+        #region SINGLE
+
+        public TEntity Single(uint key) => Context.DbSet.Single(x => x.Key == key);
+
+        #endregion
+
+        #region ENUMERABLE
+
+        public IEnumerable<TEntity>? Enumerable() => Context.DbSet.AsEnumerable();
+
+        #endregion
+    }
+}

@@ -1,0 +1,11 @@
+@Br.Bibliography.Web_HostAddress = http://localhost:5143
+
+GET {{Br.Bibliography.Web_HostAddress}}/openapi/v1.json
+Accept: application/json
+
+###
+
+GET {{Br.Bibliography.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

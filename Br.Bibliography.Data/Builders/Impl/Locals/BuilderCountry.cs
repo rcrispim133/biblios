@@ -1,0 +1,47 @@
+﻿using Br.Bibliography.Data.Builders.Base.Impl;
+using Br.Bibliography.Data.Builders.Interfaces.Locals;
+using Br.Bibliography.Model.Entities.Impl.Locals;
+using Microsoft.EntityFrameworkCore;
+
+namespace Br.Bibliography.Data.Builders.Impl.Locals
+{
+    public class BuilderCountry : BuilderText<BuilderCountry, EntityCountry>, IBuilderCountry<BuilderCountry>
+    {
+        public override void Build(ModelBuilder builder)
+        {
+            var e = builder.Entity<EntityCountry>();
+
+            // Table
+            e.ToTable("tbl_country");
+
+            // Key
+            e.HasKey(x => x.Key).HasName("pk_key_country");
+
+            // Index
+            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_country").IsUnique();
+
+            // Order
+            var order = 0;
+
+            // Properties
+            e.Property(x => x.Key)
+                .HasColumnName("key_country")
+                .HasColumnOrder(order++)
+                .UseAutoincrement()
+                .IsRequired();
+
+            e.Property(x => x.Text)
+                .HasColumnName("txt_country")
+                .HasMaxLength(TextMaxLength)
+                .HasColumnOrder(order++)
+                .IsRequired();
+
+            // Relationships
+            e.HasMany(x => x.EnumerableStates)
+                .WithOne(x => x.EntityCountry)
+                .HasForeignKey(x => x.KeyCountry)
+                .HasPrincipalKey(x => x.Key)
+                .HasConstraintName("fk_country_state");
+        }
+    }
+}
