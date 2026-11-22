@@ -2,7 +2,7 @@
 
 namespace Br.Bibliography.Web.Packets.Base.Interfaces
 {
-    public interface IPacketText<TEntity, TApi> : IPacketBase<TEntity, TApi> where TEntity : class, TApi, IEntityText<TEntity> where TApi : IEntityText<TEntity>
+    public interface IPacketText<TEntity> : IPacketBase<TEntity> where TEntity : class, IEntityText<TEntity>
     {
     }
 }

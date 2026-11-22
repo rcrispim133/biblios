@@ -5,7 +5,7 @@ using Br.Bibliography.Web.Packets.Base.Interfaces;
 
 namespace Br.Bibliography.Web.Controllers.Base.Impl
 {
-    public abstract class ControllerBase<TEntity, TApi, TPacket> : Controller, IControllerBase<TEntity, TApi, TPacket> where TPacket : IPacketBase<TEntity, TApi> where TEntity : class, TApi, IEntityBase<TEntity> where TApi : IEntityBase<TEntity>
+    public abstract class ControllerBase<TEntity, TPacket> : Controller, IControllerBase<TEntity, TPacket> where TPacket : IPacketBase<TEntity> where TEntity : class, IEntityBase<TEntity>
     {
         #region PROPERTIES
 
