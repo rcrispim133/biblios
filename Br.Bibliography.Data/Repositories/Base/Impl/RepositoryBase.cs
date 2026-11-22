@@ -40,13 +40,18 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         #region UPDATE
 
-        public TEntity? Update(uint key, TEntity entity) => Read(key); // TODO: Implement Repository Update - THROW EXCEPTION
+        public TEntity? Update(uint key, TEntity entity) => Read(key); // Object has only a key. No changes. Just read.
 
         #endregion
 
         #region DELETE
 
-        public TEntity? Delete(TEntity entity) => Context.DbSet.Remove(entity).Entity;
+        public TEntity? Delete(uint key)
+        {
+            var entity = Context.DbSet.Remove(Single(key)).Entity;
+            Context.SaveChanges();
+            return entity;
+        }
 
         #endregion
 

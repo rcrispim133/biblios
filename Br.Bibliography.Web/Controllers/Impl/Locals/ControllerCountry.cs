@@ -55,8 +55,8 @@ namespace Br.Bibliography.Web.Controllers.Impl.Locals
 
         #region DELETE
 
-        [HttpDelete]
-        public override IPacketCountry? HandleDelete([FromBody] EntityCountry entity) => PacketCountry.Factory(Repository.Delete(entity));
+        [HttpDelete("{key:int:min(0)}")]
+        public override IPacketCountry? HandleDelete(uint key) => PacketCountry.Factory(Repository.Delete(key));
 
         #endregion
 

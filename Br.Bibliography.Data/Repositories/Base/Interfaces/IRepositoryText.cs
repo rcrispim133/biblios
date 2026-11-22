@@ -32,7 +32,7 @@ namespace Br.Bibliography.Data.Repositories.Base.Interfaces
 
         #region DELETE
 
-        new TEntity? Delete(TEntity entity);
+        new TEntity? Delete(uint key);
 
         #endregion
 

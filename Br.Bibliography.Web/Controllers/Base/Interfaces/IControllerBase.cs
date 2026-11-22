@@ -32,7 +32,7 @@ namespace Br.Bibliography.Web.Controllers.Base.Interfaces
 
         #region DELETE
 
-        TPacket? HandleDelete(TEntity entity);
+        TPacket? HandleDelete(uint key);
 
         #endregion
 

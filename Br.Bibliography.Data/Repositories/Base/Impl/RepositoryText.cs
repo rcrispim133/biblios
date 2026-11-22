@@ -42,12 +42,12 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         #region DELETE
 
-        public new TEntity? Delete(TEntity entity) => base.Delete(entity);
+        public new TEntity? Delete(uint key) => base.Delete(key);
 
         #endregion
 
         #region SINGLE
-        
+
         public new TEntity Single(uint key) => base.Single(key);
 
         #endregion

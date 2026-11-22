@@ -34,7 +34,7 @@ namespace Br.Bibliography.Web.Controllers.Base.Impl
 
         #region DELETE
 
-        public abstract TPacket? HandleDelete(TEntity entity);
+        public abstract TPacket? HandleDelete(uint key);
 
         #endregion
 
