@@ -3,6 +3,7 @@ using Br.Bibliography.Data.Repositories.Base.Interfaces;
 using Br.Bibliography.Data.Repositories.Impl.Locals;
 using Br.Bibliography.Data.Repositories.Interfaces.Locals;
 using Br.Bibliography.Model.Entities.Impl.Locals;
+using Br.Bibliography.Model.Entities.Interfaces.Locals;
 using Br.Bibliography.Web.Controllers.Base.Impl;
 using Br.Bibliography.Web.Controllers.Interfaces.Locals;
 using Br.Bibliography.Web.Packets.Impl;
@@ -13,7 +14,7 @@ namespace Br.Bibliography.Web.Controllers.Impl.Locals
 {
     [ApiController]
     [Route("api/country")]
-    public class ControllerCountry : ControllerText<EntityCountry, IPacketCountry>, IControllerCountry
+    public class ControllerCountry : ControllerText<EntityCountry, IEntityCountry, IPacketCountry>, IControllerCountry
     {
         #region PROPERTIES
 

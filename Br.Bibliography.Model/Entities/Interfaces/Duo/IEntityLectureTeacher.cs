@@ -2,6 +2,7 @@
 using Br.Bibliography.Model.Entities.Impl.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Duo;
 using Br.Bibliography.Model.Entities.Interfaces.Alumni;
+using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Interfaces.Duo
 {
@@ -19,8 +20,10 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Duo
 
         #region Compositions
 
+        [JsonIgnore]
         EntityLecture? EntityLecture { get; }
 
+        [JsonIgnore]
         EntityTeacher? EntityTeacher { get; }
 
         #endregion
@@ -31,8 +34,10 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Duo
 
         #region Compositions
 
+        [JsonIgnore]
         IEntityLecture? IEntityLecture { get; }
 
+        [JsonIgnore]
         IEntityTeacher? IEntityTeacher { get; }
 
         #endregion

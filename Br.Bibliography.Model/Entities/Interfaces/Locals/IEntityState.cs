@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Model.Entities.Base.Interfaces;
 using Br.Bibliography.Model.Entities.Impl.Locals;
+using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Interfaces.Locals
 {
@@ -15,12 +16,14 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Locals
 
         #region Compositions
 
+        [JsonIgnore]
         EntityCountry? EntityCountry { get; }
 
         #endregion
 
         #region Associations
 
+        [JsonIgnore]
         IEnumerable<EntityCity>? EnumerableCity { get; init; }
 
         #endregion
@@ -31,12 +34,14 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Locals
 
         #region Compositions
 
+        [JsonIgnore]
         IEntityCountry? IEntityCountry { get; }
 
         #endregion
 
         #region Associations
 
+        [JsonIgnore]
         IEnumerable<IEntityCity>? IEnumerableCity { get; }
 
         #endregion

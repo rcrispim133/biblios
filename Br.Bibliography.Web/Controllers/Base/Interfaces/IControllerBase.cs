@@ -4,7 +4,7 @@ using Br.Bibliography.Web.Packets.Base.Interfaces;
 
 namespace Br.Bibliography.Web.Controllers.Base.Interfaces
 {
-    public interface IControllerBase<TEntity, TPacket> : IController where TPacket : IPacketBase<TEntity> where TEntity : class, IEntityBase<TEntity>
+    public interface IControllerBase<TEntity, TApi, TPacket> : IController where TPacket : IPacketBase<TEntity, TApi> where TEntity : class, TApi, IEntityBase<TEntity> where TApi : IEntityBase<TEntity>
     {
         #region PROPERTIES
 

@@ -2,6 +2,7 @@
 using Br.Bibliography.Model.Entities.Impl.Duo;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
 using Br.Bibliography.Model.Entities.Interfaces.Duo;
+using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Interfaces.Entitled
 {
@@ -11,6 +12,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Entitled
 
         #region Associations
 
+        [JsonIgnore]
         IEnumerable<EntityTitleUrl>? EnumerableTitleUrl { get; init; }
 
         #endregion
@@ -21,6 +23,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Entitled
 
         #region Association
 
+        [JsonIgnore]
         IEnumerable<IEntityTitleUrl>? IEnumerableTitleUrl { get; }
 
         #endregion

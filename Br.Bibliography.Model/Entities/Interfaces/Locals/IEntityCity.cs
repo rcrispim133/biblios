@@ -2,6 +2,7 @@
 using Br.Bibliography.Model.Entities.Impl.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Locals;
 using Br.Bibliography.Model.Entities.Interfaces.Entitled;
+using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Interfaces.Locals
 {
@@ -17,12 +18,14 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Locals
 
         #region Compositions
 
+        [JsonIgnore]
         EntityState? EntityState { get; }
 
         #endregion
 
         #region Associations
 
+        [JsonIgnore]
         IEnumerable<EntityPublisher>? EnumerablePublisher { get; init; }
 
         #endregion

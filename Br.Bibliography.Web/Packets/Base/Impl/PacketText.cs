@@ -3,8 +3,8 @@ using Br.Bibliography.Web.Packets.Base.Interfaces;
 
 namespace Br.Bibliography.Web.Packets.Base.Impl
 {
-    public abstract class PacketText<TEntity, TPacket> : PacketBase<TEntity, TPacket>, IPacketText<TEntity> where TPacket : IPacketText<TEntity> where TEntity : class, IEntityText<TEntity>
+    public abstract class PacketText<TEntity, TApi, TPacket> : PacketBase<TEntity, TApi, TPacket>, IPacketText<TEntity, TApi> where TPacket : IPacketText<TEntity, TApi> where TEntity : class, TApi, IEntityText<TEntity> where TApi : IEntityText<TEntity>
     {
-        protected PacketText(uint? key, TEntity? packet, string? message) : base(key, packet, message) { }
+        protected PacketText(uint? key, TApi? packet, string? message) : base(key, packet, message) { }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Model.Entities.Base.Interfaces;
 using Br.Bibliography.Model.Entities.Impl.Sector;
+using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Interfaces.Sector
 {
@@ -9,6 +10,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Sector
 
         #region Associations
 
+        [JsonIgnore]
         IEnumerable<EntitySection>? EnumerableSection { get; init; }
 
         #endregion
@@ -19,6 +21,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Sector
 
         #region Associations
 
+        [JsonIgnore]
         IEnumerable<IEntitySection>? IEnumerableSection { get; }
 
         #endregion

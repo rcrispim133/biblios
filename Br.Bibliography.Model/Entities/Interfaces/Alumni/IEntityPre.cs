@@ -2,6 +2,7 @@
 using Br.Bibliography.Model.Entities.Impl.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Duo;
 using Br.Bibliography.Model.Entities.Interfaces.Duo;
+using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Interfaces.Alumni
 {
@@ -11,6 +12,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Alumni
 
         #region Associations
 
+        [JsonIgnore]
         IEnumerable<EntityLecturePre>? EnumerableLecturePre { get; init; }
 
         #endregion
@@ -21,6 +23,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Alumni
 
         #region Associations
 
+        [JsonIgnore]
         IEnumerable<IEntityLecturePre>? IEnumerableLecturePre { get; }
 
         #endregion

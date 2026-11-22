@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Model.Entities.Impl.Sector;
+using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Interfaces.Sector
 {
@@ -14,6 +15,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Sector
 
         #region Compositions
 
+        [JsonIgnore]
         EntitySection? EntitySection { get; }
 
         #endregion
@@ -24,6 +26,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Sector
 
         #region Compositions
 
+        [JsonIgnore]
         IEntitySection? IEntitySection { get; }
 
         #endregion
