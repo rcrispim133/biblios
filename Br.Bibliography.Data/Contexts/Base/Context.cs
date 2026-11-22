@@ -393,7 +393,10 @@ namespace Br.Bibliography.Data.Contexts.Base
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite($"Data Source=C:/Users/Solus/source/repos/Br.Bibliography/Br.Bibliography.Data/database.db");
+            string relativePath = @"..\Br.Bibliography.Data\database.db";
+            string fullPath = Path.GetFullPath(relativePath);
+            string connectionString = string.Format("Data Source={0}", fullPath);
+            optionsBuilder.UseSqlite(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
