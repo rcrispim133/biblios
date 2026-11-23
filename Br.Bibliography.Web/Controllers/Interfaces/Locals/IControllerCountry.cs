@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Model.Entities.Impl.Locals;
 using Br.Bibliography.Web.Controllers.Base.Interfaces;
-using Br.Bibliography.Web.Packets.Interfaces;
+using Br.Bibliography.Web.Packets.Interfaces.Locals;
 
 namespace Br.Bibliography.Web.Controllers.Interfaces.Locals
 {

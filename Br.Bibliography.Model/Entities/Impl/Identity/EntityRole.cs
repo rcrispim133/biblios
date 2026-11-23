@@ -1,0 +1,34 @@
+﻿using Br.Bibliography.Model.Entities.Interfaces.Identity;
+using Microsoft.AspNetCore.Identity;
+using System.Text.Json.Serialization;
+
+namespace Br.Bibliography.Model.Entities.Impl.Identity
+{
+    public class EntityRole : IdentityRole<uint>, IEntityRole
+    {
+        #region Keys
+
+        public uint Key { get; set; }
+
+        [JsonIgnore]
+        public override uint Id { get => Key; set => Key = value; }
+
+        #endregion
+
+        #region Properties
+
+        public override string? Name { get; set; }
+
+        #endregion
+
+        #region Ignore
+
+        [JsonIgnore]
+        public override string? NormalizedName { get; set; }
+
+        [JsonIgnore]
+        public override string? ConcurrencyStamp { get; set; }
+
+        #endregion
+    }
+}

@@ -9,6 +9,14 @@ namespace Br.Bibliography.Data.Builders.Base
 
         protected static int AcronymMaxLength = 10;
 
+        protected static int UserNameMax = 20;
+
+        protected static int UserRoleMax = 20;
+
+        protected static int PasswordMax = 1024;
+
+        protected static int UserEmailMax = 96;
+
         protected static int DescMaxLength = 500;
 
         protected static int UrlMax = 500;

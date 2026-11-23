@@ -1,12 +1,17 @@
 using Br.Bibliography.Data.Contexts.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddDbContext<Context>();
+
+// builder.Services.AddIdentityApiEndpoints()
+//    .AddEntityFrameworkStores<Context>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -43,5 +48,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// app.MapIdentityApi();
+
+app.UseAuthorization();
 
 app.Run();

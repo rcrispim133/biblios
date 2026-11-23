@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Br.Bibliography.Data.Migrations;
 
 /// <inheritdoc />
-public partial class _20261120022716_Test : Migration
+public partial class _20261123011013_User : Migration
 {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder)
@@ -194,6 +194,20 @@ public partial class _20261120022716_Test : Migration
             });
 
         migrationBuilder.CreateTable(
+            name: "tbl_role",
+            columns: table => new
+            {
+                id_role = table.Column<uint>(type: "INTEGER", nullable: false),
+                key_role = table.Column<uint>(type: "INTEGER", nullable: false)
+                    .Annotation("Sqlite:Autoincrement", true),
+                name_role = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("pk_key_role", x => x.key_role);
+            });
+
+        migrationBuilder.CreateTable(
             name: "tbl_teacher",
             columns: table => new
             {
@@ -244,6 +258,23 @@ public partial class _20261120022716_Test : Migration
             constraints: table =>
             {
                 table.PrimaryKey("pk_key_url", x => x.key_url);
+            });
+
+        migrationBuilder.CreateTable(
+            name: "tbl_user",
+            columns: table => new
+            {
+                id_user = table.Column<uint>(type: "INTEGER", nullable: false),
+                key_user = table.Column<uint>(type: "INTEGER", nullable: false)
+                    .Annotation("Sqlite:Autoincrement", true),
+                username_user = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
+                email_user = table.Column<string>(type: "TEXT", maxLength: 96, nullable: false),
+                email_confirmed_user = table.Column<bool>(type: "INTEGER", nullable: false, defaultValue: false),
+                pwd_user = table.Column<string>(type: "TEXT", maxLength: 1024, nullable: false)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("pk_key_user", x => x.key_user);
             });
 
         migrationBuilder.CreateTable(
@@ -344,6 +375,27 @@ public partial class _20261120022716_Test : Migration
             });
 
         migrationBuilder.CreateTable(
+            name: "AspNetRoleClaims",
+            columns: table => new
+            {
+                Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    .Annotation("Sqlite:Autoincrement", true),
+                RoleId = table.Column<uint>(type: "INTEGER", nullable: false),
+                ClaimType = table.Column<string>(type: "TEXT", nullable: true),
+                ClaimValue = table.Column<string>(type: "TEXT", nullable: true)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                table.ForeignKey(
+                    name: "FK_AspNetRoleClaims_tbl_role_RoleId",
+                    column: x => x.RoleId,
+                    principalTable: "tbl_role",
+                    principalColumn: "key_role",
+                    onDelete: ReferentialAction.Cascade);
+            });
+
+        migrationBuilder.CreateTable(
             name: "tbl_course",
             columns: table => new
             {
@@ -383,6 +435,91 @@ public partial class _20261120022716_Test : Migration
                     column: x => x.key_unit,
                     principalTable: "tbl_unit",
                     principalColumn: "key_unit",
+                    onDelete: ReferentialAction.Cascade);
+            });
+
+        migrationBuilder.CreateTable(
+            name: "AspNetUserClaims",
+            columns: table => new
+            {
+                Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    .Annotation("Sqlite:Autoincrement", true),
+                UserId = table.Column<uint>(type: "INTEGER", nullable: false),
+                ClaimType = table.Column<string>(type: "TEXT", nullable: true),
+                ClaimValue = table.Column<string>(type: "TEXT", nullable: true)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                table.ForeignKey(
+                    name: "FK_AspNetUserClaims_tbl_user_UserId",
+                    column: x => x.UserId,
+                    principalTable: "tbl_user",
+                    principalColumn: "key_user",
+                    onDelete: ReferentialAction.Cascade);
+            });
+
+        migrationBuilder.CreateTable(
+            name: "AspNetUserLogins",
+            columns: table => new
+            {
+                LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                ProviderKey = table.Column<string>(type: "TEXT", nullable: false),
+                ProviderDisplayName = table.Column<string>(type: "TEXT", nullable: true),
+                UserId = table.Column<uint>(type: "INTEGER", nullable: false)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                table.ForeignKey(
+                    name: "FK_AspNetUserLogins_tbl_user_UserId",
+                    column: x => x.UserId,
+                    principalTable: "tbl_user",
+                    principalColumn: "key_user",
+                    onDelete: ReferentialAction.Cascade);
+            });
+
+        migrationBuilder.CreateTable(
+            name: "AspNetUserRoles",
+            columns: table => new
+            {
+                UserId = table.Column<uint>(type: "INTEGER", nullable: false),
+                RoleId = table.Column<uint>(type: "INTEGER", nullable: false)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                table.ForeignKey(
+                    name: "FK_AspNetUserRoles_tbl_role_RoleId",
+                    column: x => x.RoleId,
+                    principalTable: "tbl_role",
+                    principalColumn: "key_role",
+                    onDelete: ReferentialAction.Cascade);
+                table.ForeignKey(
+                    name: "FK_AspNetUserRoles_tbl_user_UserId",
+                    column: x => x.UserId,
+                    principalTable: "tbl_user",
+                    principalColumn: "key_user",
+                    onDelete: ReferentialAction.Cascade);
+            });
+
+        migrationBuilder.CreateTable(
+            name: "AspNetUserTokens",
+            columns: table => new
+            {
+                UserId = table.Column<uint>(type: "INTEGER", nullable: false),
+                LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                Name = table.Column<string>(type: "TEXT", nullable: false),
+                Value = table.Column<string>(type: "TEXT", nullable: true)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                table.ForeignKey(
+                    name: "FK_AspNetUserTokens_tbl_user_UserId",
+                    column: x => x.UserId,
+                    principalTable: "tbl_user",
+                    principalColumn: "key_user",
                     onDelete: ReferentialAction.Cascade);
             });
 
@@ -724,6 +861,26 @@ public partial class _20261120022716_Test : Migration
             });
 
         migrationBuilder.CreateIndex(
+            name: "IX_AspNetRoleClaims_RoleId",
+            table: "AspNetRoleClaims",
+            column: "RoleId");
+
+        migrationBuilder.CreateIndex(
+            name: "IX_AspNetUserClaims_UserId",
+            table: "AspNetUserClaims",
+            column: "UserId");
+
+        migrationBuilder.CreateIndex(
+            name: "IX_AspNetUserLogins_UserId",
+            table: "AspNetUserLogins",
+            column: "UserId");
+
+        migrationBuilder.CreateIndex(
+            name: "IX_AspNetUserRoles_RoleId",
+            table: "AspNetUserRoles",
+            column: "RoleId");
+
+        migrationBuilder.CreateIndex(
             name: "idx_key_author",
             table: "tbl_author",
             column: "key_author",
@@ -989,6 +1146,18 @@ public partial class _20261120022716_Test : Migration
             column: "KeyCity");
 
         migrationBuilder.CreateIndex(
+            name: "idx_id_role",
+            table: "tbl_role",
+            column: "id_role",
+            unique: true);
+
+        migrationBuilder.CreateIndex(
+            name: "idx_key_role",
+            table: "tbl_role",
+            column: "key_role",
+            unique: true);
+
+        migrationBuilder.CreateIndex(
             name: "idx_key_section",
             table: "tbl_section",
             column: "key_section",
@@ -1105,6 +1274,18 @@ public partial class _20261120022716_Test : Migration
             unique: true);
 
         migrationBuilder.CreateIndex(
+            name: "idx_id_user",
+            table: "tbl_user",
+            column: "id_user",
+            unique: true);
+
+        migrationBuilder.CreateIndex(
+            name: "idx_key_user",
+            table: "tbl_user",
+            column: "key_user",
+            unique: true);
+
+        migrationBuilder.CreateIndex(
             name: "idx_key_work",
             table: "tbl_work",
             column: "key_work",
@@ -1120,6 +1301,21 @@ public partial class _20261120022716_Test : Migration
     /// <inheritdoc />
     protected override void Down(MigrationBuilder migrationBuilder)
     {
+        migrationBuilder.DropTable(
+            name: "AspNetRoleClaims");
+
+        migrationBuilder.DropTable(
+            name: "AspNetUserClaims");
+
+        migrationBuilder.DropTable(
+            name: "AspNetUserLogins");
+
+        migrationBuilder.DropTable(
+            name: "AspNetUserRoles");
+
+        migrationBuilder.DropTable(
+            name: "AspNetUserTokens");
+
         migrationBuilder.DropTable(
             name: "tbl_biblio_author");
 
@@ -1146,6 +1342,12 @@ public partial class _20261120022716_Test : Migration
 
         migrationBuilder.DropTable(
             name: "tbl_title_url");
+
+        migrationBuilder.DropTable(
+            name: "tbl_role");
+
+        migrationBuilder.DropTable(
+            name: "tbl_user");
 
         migrationBuilder.DropTable(
             name: "tbl_author");

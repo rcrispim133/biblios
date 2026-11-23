@@ -2,6 +2,7 @@
 using Br.Bibliography.Data.Builders.Impl.Biblio;
 using Br.Bibliography.Data.Builders.Impl.Duo;
 using Br.Bibliography.Data.Builders.Impl.Entitled;
+using Br.Bibliography.Data.Builders.Impl.Identity;
 using Br.Bibliography.Data.Builders.Impl.Locals;
 using Br.Bibliography.Data.Builders.Impl.Sector;
 using Br.Bibliography.Data.Builders.Impl.Series;
@@ -10,6 +11,7 @@ using Br.Bibliography.Data.Contexts.Interfaces.Alumni;
 using Br.Bibliography.Data.Contexts.Interfaces.Biblio;
 using Br.Bibliography.Data.Contexts.Interfaces.Duo;
 using Br.Bibliography.Data.Contexts.Interfaces.Entitled;
+using Br.Bibliography.Data.Contexts.Interfaces.Identity;
 using Br.Bibliography.Data.Contexts.Interfaces.Locals;
 using Br.Bibliography.Data.Contexts.Interfaces.Sector;
 using Br.Bibliography.Data.Contexts.Interfaces.Series;
@@ -17,15 +19,17 @@ using Br.Bibliography.Model.Entities.Impl.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Biblio;
 using Br.Bibliography.Model.Entities.Impl.Duo;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
+using Br.Bibliography.Model.Entities.Impl.Identity;
 using Br.Bibliography.Model.Entities.Impl.Locals;
 using Br.Bibliography.Model.Entities.Impl.Sector;
 using Br.Bibliography.Model.Entities.Impl.Series;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Contexts.Base
 {
     public class Context : 
-        DbContext, 
+        IdentityDbContext<EntityUser, EntityRole, uint>, 
         IContext, 
         IContextCredit,
         IContextEffort,
@@ -52,6 +56,8 @@ namespace Br.Bibliography.Data.Contexts.Base
         IContextTitle,
         IContextUrl,
         IContextYear,
+        IContextUser,
+        IContextRole,
         IContextCity,
         IContextCountry,
         IContextState,
@@ -291,6 +297,26 @@ namespace Br.Bibliography.Data.Contexts.Base
 
         #endregion
 
+        #region Identity
+
+        #region Role
+
+        public DbSet<EntityRole> DbSetRow => Roles;
+
+        DbSet<EntityRole> IContextBase<EntityRole>.DbSet => DbSetRow;
+
+        #endregion
+
+        #region User
+
+        public DbSet<EntityUser> DbSetUser => Users;
+
+        DbSet<EntityUser> IContextBase<EntityUser>.DbSet => DbSetUser;
+
+        #endregion
+
+        #endregion
+
         #region Locals
 
         #region City
@@ -446,6 +472,14 @@ namespace Br.Bibliography.Data.Contexts.Base
             BuilderTitle.Singleton.Build(builder);
             BuilderUrl.Singleton.Build(builder);
             BuilderYear.Singleton.Build(builder);
+
+            #endregion
+
+            #region Identity
+
+            BuilderRole.Singleton.Build(builder);
+
+            BuilderUser.Singleton.Build(builder);
 
             #endregion
 

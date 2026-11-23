@@ -5,8 +5,8 @@ using Br.Bibliography.Data.Repositories.Interfaces.Locals;
 using Br.Bibliography.Model.Entities.Impl.Locals;
 using Br.Bibliography.Web.Controllers.Base.Impl;
 using Br.Bibliography.Web.Controllers.Interfaces.Locals;
-using Br.Bibliography.Web.Packets.Impl;
-using Br.Bibliography.Web.Packets.Interfaces;
+using Br.Bibliography.Web.Packets.Impl.Locals;
+using Br.Bibliography.Web.Packets.Interfaces.Locals;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Br.Bibliography.Web.Controllers.Impl.Locals
