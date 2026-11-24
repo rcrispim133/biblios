@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Br.Bibliography.Data.Migrations;
 
 /// <inheritdoc />
-public partial class _20261123011013_User : Migration
+public partial class _20261124160108_Util : Migration
 {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder)
@@ -200,7 +200,9 @@ public partial class _20261123011013_User : Migration
                 id_role = table.Column<uint>(type: "INTEGER", nullable: false),
                 key_role = table.Column<uint>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                name_role = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false)
+                name_role = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
+                NormalizedName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                ConcurrencyStamp = table.Column<string>(type: "TEXT", nullable: true)
             },
             constraints: table =>
             {
@@ -270,11 +272,15 @@ public partial class _20261123011013_User : Migration
                 username_user = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
                 email_user = table.Column<string>(type: "TEXT", maxLength: 96, nullable: false),
                 email_confirmed_user = table.Column<bool>(type: "INTEGER", nullable: false, defaultValue: false),
-                pwd_user = table.Column<string>(type: "TEXT", maxLength: 1024, nullable: false)
+                pwd_user = table.Column<string>(type: "TEXT", maxLength: 1024, nullable: false),
+                NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                NormalizedEmail = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                ConcurrencyStamp = table.Column<string>(type: "TEXT", nullable: true)
             },
             constraints: table =>
             {
                 table.PrimaryKey("pk_key_user", x => x.key_user);
+                table.UniqueConstraint("AK_tbl_user_id_user", x => x.id_user);
             });
 
         migrationBuilder.CreateTable(
@@ -439,27 +445,6 @@ public partial class _20261123011013_User : Migration
             });
 
         migrationBuilder.CreateTable(
-            name: "AspNetUserClaims",
-            columns: table => new
-            {
-                Id = table.Column<int>(type: "INTEGER", nullable: false)
-                    .Annotation("Sqlite:Autoincrement", true),
-                UserId = table.Column<uint>(type: "INTEGER", nullable: false),
-                ClaimType = table.Column<string>(type: "TEXT", nullable: true),
-                ClaimValue = table.Column<string>(type: "TEXT", nullable: true)
-            },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
-                table.ForeignKey(
-                    name: "FK_AspNetUserClaims_tbl_user_UserId",
-                    column: x => x.UserId,
-                    principalTable: "tbl_user",
-                    principalColumn: "key_user",
-                    onDelete: ReferentialAction.Cascade);
-            });
-
-        migrationBuilder.CreateTable(
             name: "AspNetUserLogins",
             columns: table => new
             {
@@ -518,6 +503,28 @@ public partial class _20261123011013_User : Migration
                 table.ForeignKey(
                     name: "FK_AspNetUserTokens_tbl_user_UserId",
                     column: x => x.UserId,
+                    principalTable: "tbl_user",
+                    principalColumn: "key_user",
+                    onDelete: ReferentialAction.Cascade);
+            });
+
+        migrationBuilder.CreateTable(
+            name: "tbl_user_claim",
+            columns: table => new
+            {
+                id_user_claim = table.Column<int>(type: "INTEGER", nullable: false),
+                key_user_claim = table.Column<uint>(type: "INTEGER", nullable: false)
+                    .Annotation("Sqlite:Autoincrement", true),
+                id_user = table.Column<uint>(type: "INTEGER", nullable: false),
+                txt_claim_type = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
+                txt_claim_value = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("pk_key_user_claim", x => x.key_user_claim);
+                table.ForeignKey(
+                    name: "fk_user_claim_user",
+                    column: x => x.id_user,
                     principalTable: "tbl_user",
                     principalColumn: "key_user",
                     onDelete: ReferentialAction.Cascade);
@@ -866,11 +873,6 @@ public partial class _20261123011013_User : Migration
             column: "RoleId");
 
         migrationBuilder.CreateIndex(
-            name: "IX_AspNetUserClaims_UserId",
-            table: "AspNetUserClaims",
-            column: "UserId");
-
-        migrationBuilder.CreateIndex(
             name: "IX_AspNetUserLogins_UserId",
             table: "AspNetUserLogins",
             column: "UserId");
@@ -1158,6 +1160,12 @@ public partial class _20261123011013_User : Migration
             unique: true);
 
         migrationBuilder.CreateIndex(
+            name: "RoleNameIndex",
+            table: "tbl_role",
+            column: "NormalizedName",
+            unique: true);
+
+        migrationBuilder.CreateIndex(
             name: "idx_key_section",
             table: "tbl_section",
             column: "key_section",
@@ -1274,6 +1282,11 @@ public partial class _20261123011013_User : Migration
             unique: true);
 
         migrationBuilder.CreateIndex(
+            name: "EmailIndex",
+            table: "tbl_user",
+            column: "NormalizedEmail");
+
+        migrationBuilder.CreateIndex(
             name: "idx_id_user",
             table: "tbl_user",
             column: "id_user",
@@ -1284,6 +1297,29 @@ public partial class _20261123011013_User : Migration
             table: "tbl_user",
             column: "key_user",
             unique: true);
+
+        migrationBuilder.CreateIndex(
+            name: "UserNameIndex",
+            table: "tbl_user",
+            column: "NormalizedUserName",
+            unique: true);
+
+        migrationBuilder.CreateIndex(
+            name: "idx_id_user_claim",
+            table: "tbl_user_claim",
+            column: "id_user_claim",
+            unique: true);
+
+        migrationBuilder.CreateIndex(
+            name: "idx_key_user_claim",
+            table: "tbl_user_claim",
+            column: "key_user_claim",
+            unique: true);
+
+        migrationBuilder.CreateIndex(
+            name: "idx_user_id_user_claim",
+            table: "tbl_user_claim",
+            column: "id_user");
 
         migrationBuilder.CreateIndex(
             name: "idx_key_work",
@@ -1303,9 +1339,6 @@ public partial class _20261123011013_User : Migration
     {
         migrationBuilder.DropTable(
             name: "AspNetRoleClaims");
-
-        migrationBuilder.DropTable(
-            name: "AspNetUserClaims");
 
         migrationBuilder.DropTable(
             name: "AspNetUserLogins");
@@ -1344,10 +1377,10 @@ public partial class _20261123011013_User : Migration
             name: "tbl_title_url");
 
         migrationBuilder.DropTable(
-            name: "tbl_role");
+            name: "tbl_user_claim");
 
         migrationBuilder.DropTable(
-            name: "tbl_user");
+            name: "tbl_role");
 
         migrationBuilder.DropTable(
             name: "tbl_author");
@@ -1375,6 +1408,9 @@ public partial class _20261123011013_User : Migration
 
         migrationBuilder.DropTable(
             name: "tbl_url");
+
+        migrationBuilder.DropTable(
+            name: "tbl_user");
 
         migrationBuilder.DropTable(
             name: "tbl_cycle");

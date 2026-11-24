@@ -13,6 +13,10 @@ namespace Br.Bibliography.Data.Builders.Base
 
         protected static int UserRoleMax = 20;
 
+        protected static int ClaimTypeMax = 20;
+
+        protected static int ClaimValueMax = 20;
+
         protected static int PasswordMax = 1024;
 
         protected static int UserEmailMax = 96;

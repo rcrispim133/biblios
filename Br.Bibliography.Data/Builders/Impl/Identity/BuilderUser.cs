@@ -61,27 +61,12 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .HasColumnOrder(order++)
                 .IsRequired();
 
-
-            // Ignore
-            e.Ignore(x => x.NormalizedUserName);
-
-            e.Ignore(x => x.NormalizedEmail);
-
-            e.Ignore(x => x.SecurityStamp);
-
-            e.Ignore(x => x.ConcurrencyStamp);
-
-            e.Ignore(x => x.PhoneNumber);
-
-            e.Ignore(x => x.PhoneNumberConfirmed);
-
-            e.Ignore(x => x.TwoFactorEnabled);
-
-            e.Ignore(x => x.LockoutEnd);
-
-            e.Ignore(x => x.LockoutEnabled);
-
-            e.Ignore(x => x.AccessFailedCount);
+            // Relationships
+            e.HasMany(x => x.EnumerableUserClaim)
+                .WithOne(x => x.EntityUser)
+                .HasForeignKey(x => x.UserId)
+                .HasPrincipalKey(x => x.Id)
+                .HasConstraintName("fk_user_user_claim");
         }
     }
 }

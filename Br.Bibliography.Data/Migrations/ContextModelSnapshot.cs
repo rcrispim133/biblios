@@ -16,7 +16,7 @@ partial class ContextModelSnapshot : ModelSnapshot
     // If you encounter a merge conflict in the line below, it means you need to
     // discard one of the migration branches and recreate its migrations on top of
     // the other branch. See https://aka.ms/efcore-docs-migrations-conflicts for more info.
-    public override string LastMigrationId => "20261123011013_User";
+    public override string LastMigrationId => "20261124160108_Util";
 
     protected override void BuildModel(ModelBuilder modelBuilder)
     {
@@ -864,6 +864,10 @@ partial class ContextModelSnapshot : ModelSnapshot
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
+                b.Property<string>("ConcurrencyStamp")
+                    .IsConcurrencyToken()
+                    .HasColumnType("TEXT");
+
                 b.Property<uint>("Id")
                     .HasColumnType("INTEGER")
                     .HasColumnName("id_role")
@@ -876,6 +880,10 @@ partial class ContextModelSnapshot : ModelSnapshot
                     .HasColumnName("name_role")
                     .HasColumnOrder(2);
 
+                b.Property<string>("NormalizedName")
+                    .HasMaxLength(256)
+                    .HasColumnType("TEXT");
+
                 b.HasKey("Key")
                     .HasName("pk_key_role");
 
@@ -886,6 +894,10 @@ partial class ContextModelSnapshot : ModelSnapshot
                 b.HasIndex("Key")
                     .IsUnique()
                     .HasDatabaseName("idx_key_role");
+
+                b.HasIndex("NormalizedName")
+                    .IsUnique()
+                    .HasDatabaseName("RoleNameIndex");
 
                 b.ToTable("tbl_role");
             });
@@ -899,6 +911,10 @@ partial class ContextModelSnapshot : ModelSnapshot
                     .HasColumnOrder(1);
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
+
+                b.Property<string>("ConcurrencyStamp")
+                    .IsConcurrencyToken()
+                    .HasColumnType("TEXT");
 
                 b.Property<string>("Email")
                     .IsRequired()
@@ -919,6 +935,14 @@ partial class ContextModelSnapshot : ModelSnapshot
                     .HasColumnName("id_user")
                     .HasColumnOrder(0);
 
+                b.Property<string>("NormalizedEmail")
+                    .HasMaxLength(256)
+                    .HasColumnType("TEXT");
+
+                b.Property<string>("NormalizedUserName")
+                    .HasMaxLength(256)
+                    .HasColumnType("TEXT");
+
                 b.Property<string>("PasswordHash")
                     .IsRequired()
                     .HasMaxLength(1024)
@@ -936,6 +960,8 @@ partial class ContextModelSnapshot : ModelSnapshot
                 b.HasKey("Key")
                     .HasName("pk_key_user");
 
+                b.HasAlternateKey("Id");
+
                 b.HasIndex("Id")
                     .IsUnique()
                     .HasDatabaseName("idx_id_user");
@@ -944,7 +970,65 @@ partial class ContextModelSnapshot : ModelSnapshot
                     .IsUnique()
                     .HasDatabaseName("idx_key_user");
 
+                b.HasIndex("NormalizedEmail")
+                    .HasDatabaseName("EmailIndex");
+
+                b.HasIndex("NormalizedUserName")
+                    .IsUnique()
+                    .HasDatabaseName("UserNameIndex");
+
                 b.ToTable("tbl_user");
+            });
+
+        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUserClaim", b =>
+            {
+                var key = b.Property<uint>("Key")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("INTEGER")
+                    .HasColumnName("key_user_claim")
+                    .HasColumnOrder(1);
+
+                SqlitePropertyBuilderExtensions.UseAutoincrement(key);
+
+                b.Property<string>("ClaimType")
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .HasColumnType("TEXT")
+                    .HasColumnName("txt_claim_type")
+                    .HasColumnOrder(3);
+
+                b.Property<string>("ClaimValue")
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .HasColumnType("TEXT")
+                    .HasColumnName("txt_claim_value")
+                    .HasColumnOrder(4);
+
+                b.Property<int>("Id")
+                    .HasColumnType("INTEGER")
+                    .HasColumnName("id_user_claim")
+                    .HasColumnOrder(0);
+
+                b.Property<uint>("UserId")
+                    .HasColumnType("INTEGER")
+                    .HasColumnName("id_user")
+                    .HasColumnOrder(2);
+
+                b.HasKey("Key")
+                    .HasName("pk_key_user_claim");
+
+                b.HasIndex("Id")
+                    .IsUnique()
+                    .HasDatabaseName("idx_id_user_claim");
+
+                b.HasIndex("Key")
+                    .IsUnique()
+                    .HasDatabaseName("idx_key_user_claim");
+
+                b.HasIndex("UserId")
+                    .HasDatabaseName("idx_user_id_user_claim");
+
+                b.ToTable("tbl_user_claim");
             });
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
@@ -1351,28 +1435,6 @@ partial class ContextModelSnapshot : ModelSnapshot
                 b.ToTable("AspNetRoleClaims");
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<uint>", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("INTEGER");
-
-                b.Property<string>("ClaimType")
-                    .HasColumnType("TEXT");
-
-                b.Property<string>("ClaimValue")
-                    .HasColumnType("TEXT");
-
-                b.Property<uint>("UserId")
-                    .HasColumnType("INTEGER");
-
-                b.HasKey("Id");
-
-                b.HasIndex("UserId");
-
-                b.ToTable("AspNetUserClaims");
-            });
-
         modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<uint>", b =>
             {
                 b.Property<string>("LoginProvider")
@@ -1695,6 +1757,18 @@ partial class ContextModelSnapshot : ModelSnapshot
                 b.Navigation("EntityYear");
             });
 
+        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUserClaim", b =>
+            {
+                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", "EntityUser")
+                    .WithMany("EnumerableUserClaim")
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired()
+                    .HasConstraintName("fk_user_claim_user");
+
+                b.Navigation("EntityUser");
+            });
+
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
             {
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Locals.EntityState", "EntityState")
@@ -1796,15 +1870,6 @@ partial class ContextModelSnapshot : ModelSnapshot
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", null)
                     .WithMany()
                     .HasForeignKey("RoleId")
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired();
-            });
-
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<uint>", b =>
-            {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
-                    .WithMany()
-                    .HasForeignKey("UserId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
             });
@@ -1941,6 +2006,11 @@ partial class ContextModelSnapshot : ModelSnapshot
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityYear", b =>
             {
                 b.Navigation("EnumerableTitle");
+            });
+
+        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", b =>
+            {
+                b.Navigation("EnumerableUserClaim");
             });
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>

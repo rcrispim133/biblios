@@ -42,11 +42,6 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .HasMaxLength(UserRoleMax)
                 .HasColumnOrder(order++)
                 .IsRequired();
-
-            // Ignore
-            e.Ignore(x => x.NormalizedName);
-
-            e.Ignore(x => x.ConcurrencyStamp);
         }
     }
 }

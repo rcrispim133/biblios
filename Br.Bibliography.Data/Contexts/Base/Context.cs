@@ -23,13 +23,25 @@ using Br.Bibliography.Model.Entities.Impl.Identity;
 using Br.Bibliography.Model.Entities.Impl.Locals;
 using Br.Bibliography.Model.Entities.Impl.Sector;
 using Br.Bibliography.Model.Entities.Impl.Series;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Data.Contexts.Base
 {
     public class Context : 
-        IdentityDbContext<EntityUser, EntityRole, uint>, 
+        IdentityDbContext<
+            EntityUser, 
+            EntityRole,
+            uint,
+            EntityUserClaim, 
+            IdentityUserRole<uint>, 
+            IdentityUserLogin<uint>, 
+            IdentityRoleClaim<uint>, 
+            IdentityUserToken<uint>, 
+            IdentityUserPasskey<uint>>,
         IContext, 
         IContextCredit,
         IContextEffort,
@@ -58,6 +70,7 @@ namespace Br.Bibliography.Data.Contexts.Base
         IContextYear,
         IContextUser,
         IContextRole,
+        IContextUserClaim,
         IContextCity,
         IContextCountry,
         IContextState,
@@ -301,6 +314,10 @@ namespace Br.Bibliography.Data.Contexts.Base
 
         #region Role
 
+        [JsonIgnore]
+        [NotMapped]
+        public override DbSet<EntityRole> Roles { get; set; }
+
         public DbSet<EntityRole> DbSetRow => Roles;
 
         DbSet<EntityRole> IContextBase<EntityRole>.DbSet => DbSetRow;
@@ -309,9 +326,25 @@ namespace Br.Bibliography.Data.Contexts.Base
 
         #region User
 
+        [JsonIgnore]
+        [NotMapped]
+        public override DbSet<EntityUser> Users { get; set; }
+
         public DbSet<EntityUser> DbSetUser => Users;
 
         DbSet<EntityUser> IContextBase<EntityUser>.DbSet => DbSetUser;
+
+        #endregion
+
+        #region User Claim
+
+        [JsonIgnore]
+        [NotMapped]
+        public override DbSet<EntityUserClaim> UserClaims { get; set; }
+
+        public DbSet<EntityUserClaim> DbSetUserClaim => UserClaims;
+
+        DbSet<EntityUserClaim> IContextBase<EntityUserClaim>.DbSet => DbSetUserClaim;
 
         #endregion
 
@@ -419,9 +452,15 @@ namespace Br.Bibliography.Data.Contexts.Base
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string relativePath = @"..\Br.Bibliography.Data\database.db";
-            string fullPath = Path.GetFullPath(relativePath);
-            string connectionString = string.Format("Data Source={0}", fullPath);
+            string basePath = Path.GetFullPath("../Br.Bibliography.Data");
+            string backupPath = string.Format("{0}/Backups", basePath);
+            if (!Directory.Exists(backupPath)) Directory.CreateDirectory(backupPath);
+
+            string filePath = string.Format("{0}/database.db", basePath);
+            string fileBackup = string.Format("{0}/database-{1}.db", backupPath, DateTime.Now.ToString("yyyyMMddhhmmss"));
+            if (File.Exists(filePath)) File.Copy(filePath, fileBackup, true);
+
+            string connectionString = string.Format("Data Source={0}", filePath);
             optionsBuilder.UseSqlite(connectionString);
         }
 
@@ -480,6 +519,8 @@ namespace Br.Bibliography.Data.Contexts.Base
             BuilderRole.Singleton.Build(builder);
 
             BuilderUser.Singleton.Build(builder);
+
+            BuilderUserClaim.Singleton.Build(builder);
 
             #endregion
 

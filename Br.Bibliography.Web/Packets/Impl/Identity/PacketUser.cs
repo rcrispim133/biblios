@@ -1,5 +1,4 @@
 ﻿using Br.Bibliography.Model.Entities.Impl.Identity;
-using Br.Bibliography.Model.Entities.Impl.Locals;
 using Br.Bibliography.Web.Packets.Base.Impl;
 using Br.Bibliography.Web.Packets.Interfaces.Identity;
 

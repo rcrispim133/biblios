@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Model.Entities.Interfaces.Identity;
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Impl.Identity
@@ -24,9 +25,11 @@ namespace Br.Bibliography.Model.Entities.Impl.Identity
         #region Ignore
 
         [JsonIgnore]
+        [NotMapped]
         public override string? NormalizedName { get; set; }
 
         [JsonIgnore]
+        [NotMapped]
         public override string? ConcurrencyStamp { get; set; }
 
         #endregion
