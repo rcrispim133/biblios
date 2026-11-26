@@ -32,9 +32,9 @@
 
         public virtual string PrimaryKeyIndexName => string.Join(Separator, [IndexPrefix, KeyPrefix, EntityName]);
 
-        public virtual string PropertyKeyName => string.Join(Separator, [KeyPrefix, EntityName]);
+        public virtual string PropertyKeyColumnName => string.Join(Separator, [KeyPrefix, EntityName]);
 
-        public virtual string PropertyTextName => string.Join(Separator, [TextPrefix, EntityName]);
+        public virtual string PropertyTextColumnName => string.Join(Separator, [TextPrefix, EntityName]);
 
         public virtual Func<string[], string> ForeignKeyName => array => string.Join(Separator, array.Prepend(ForeignKeyPrefix));
 

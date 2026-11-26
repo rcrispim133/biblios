@@ -39,20 +39,20 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .IsRequired();
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.UserName)
                 .HasColumnName("username_user")
-                .HasMaxLength(UserNameMax)
+                .HasMaxLength(Constant.UserNameMax)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.Email)
                 .HasColumnName("email_user")
-                .HasMaxLength(UserEmailMax)
+                .HasMaxLength(Constant.EmailMax)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -64,7 +64,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
 
             e.Property(x => x.PasswordHash)
                 .HasColumnName("pwd_user")
-                .HasMaxLength(PasswordMax)
+                .HasMaxLength(Constant.PasswordMax)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

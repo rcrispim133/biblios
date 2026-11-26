@@ -32,7 +32,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

@@ -6,13 +6,13 @@ namespace Br.Bibliography.Core.Constants.Base.Interfaces
     {
         #region Defaults
 
-        const int DefaultMaxText = 144;
+        const int DefaultTextMaxLength = 144;
 
         #endregion
 
         #region Constants
 
-        int ConstantMaxText { get; }
+        int PropertyTextMaxLength { get; }
 
         #endregion
     }

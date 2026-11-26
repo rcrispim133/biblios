@@ -40,7 +40,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -66,7 +66,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextName)
+                .HasColumnName(Constant.PropertyTextColumnName)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

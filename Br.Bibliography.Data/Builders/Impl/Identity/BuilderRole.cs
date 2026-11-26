@@ -33,7 +33,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
 
             // Properties
             e.Property(x => x.Id)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -45,7 +45,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
 
             e.Property(x => x.Name)
                 .HasColumnName("name_role")
-                .HasMaxLength(UserRoleMax)
+                .HasMaxLength(Constant.MaxRoleName)
                 .HasColumnOrder(order++)
                 .IsRequired();
         }

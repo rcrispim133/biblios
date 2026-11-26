@@ -24,5 +24,15 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
         public override string[] EntityNameParts => [ StaticEntityNames.USER ];
 
         #endregion
+
+        #region User
+
+        public int UserNameMax => IConstantUser.DefaultUserNameMax;
+
+        public int EmailMax => IConstantUser.DefaultEmailMax;
+
+        public int PasswordMax => IConstantUser.DefaultPasswordMax;
+
+        #endregion
     }
 }

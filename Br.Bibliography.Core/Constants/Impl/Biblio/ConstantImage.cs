@@ -25,9 +25,15 @@ namespace Br.Bibliography.Core.Constants.Impl.Biblio
 
         #endregion
 
+        #region Raw
+
+        public override int ConstantMaxRaw => IConstantImage.DefaultMaxRaw;
+
+        #endregion
+
         #region Text
 
-        public override int ConstantMaxText => IConstantImage.DefaultMaxText;
+        public override int PropertyTextMaxLength => IConstantImage.DefaultTextMaxLength;
 
         #endregion
     }

@@ -24,5 +24,11 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
         public override string[] EntityNameParts => [ StaticEntityNames.USER, StaticEntityNames.CLAIM ];
 
         #endregion
+
+        #region User Claim
+
+        public int MaxUserClaim => IConstantUserClaim.DefaultMaxUserClaim;
+
+        #endregion
     }
 }

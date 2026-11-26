@@ -30,7 +30,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();

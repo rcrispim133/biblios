@@ -7,7 +7,7 @@ namespace Br.Bibliography.Core.Constants.Base.Impl
     {
         #region Text
 
-        public abstract int ConstantMaxText { get; }
+        public abstract int PropertyTextMaxLength { get; }
 
         #endregion
     }

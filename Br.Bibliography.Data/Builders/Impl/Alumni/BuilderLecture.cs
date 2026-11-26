@@ -38,7 +38,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -65,13 +65,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
             e.Property(x => x.Acronym)
                 .HasColumnName("acronym_lecture")
-                .HasMaxLength(AcronymMaxLength)
+                .HasMaxLength(Constant.PropertyAcronymMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(Constant.ConstantMaxText)
+                .HasColumnName(Constant.PropertyTextColumnName)
+                .HasMaxLength(Constant.PropertyTextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

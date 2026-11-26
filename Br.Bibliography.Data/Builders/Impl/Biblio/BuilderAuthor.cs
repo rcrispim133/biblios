@@ -30,21 +30,21 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Acronym)
                 .HasColumnName("acronym_author")
-                .HasMaxLength(AcronymMaxLength)
+                .HasMaxLength(Constant.PropertyAcronymMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextName)
+                .HasColumnName(Constant.PropertyTextColumnName)
                 .HasColumnOrder(order++)
-                .HasMaxLength(Constant.ConstantMaxText)
+                .HasMaxLength(Constant.PropertyTextMaxLength)
                 .IsRequired();
 
             // Relationships

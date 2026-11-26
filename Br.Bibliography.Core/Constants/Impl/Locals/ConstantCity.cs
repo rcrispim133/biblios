@@ -27,7 +27,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Locals
 
         #region Text
 
-        public override int ConstantMaxText => IConstantCity.DefaultMaxText;
+        public override int PropertyTextMaxLength => IConstantCity.DefaultTextMaxLength;
 
         #endregion
     }

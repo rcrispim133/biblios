@@ -27,7 +27,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 
         #region Text
 
-        public override int ConstantMaxText => IConstantEffort.DefaultMaxText;
+        public override int PropertyTextMaxLength => IConstantEffort.DefaultTextMaxLength;
 
         #endregion
     }

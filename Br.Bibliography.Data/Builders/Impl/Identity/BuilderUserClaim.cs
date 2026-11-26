@@ -41,7 +41,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .IsRequired();
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -53,13 +53,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
 
             e.Property(x => x.ClaimType)
                 .HasColumnName("txt_claim_type")
-                .HasMaxLength(ClaimTypeMax)
+                .HasMaxLength(Constant.MaxUserClaim)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.ClaimValue)
                 .HasColumnName("txt_claim_value")
-                .HasMaxLength(ClaimValueMax)
+                .HasMaxLength(Constant.MaxUserClaim)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

@@ -42,14 +42,14 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(DescMaxLength)
+                .HasColumnName(Constant.PropertyTextColumnName)
+                .HasMaxLength(Constant.PropertyTextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

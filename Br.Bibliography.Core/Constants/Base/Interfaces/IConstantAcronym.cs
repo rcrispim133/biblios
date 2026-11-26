@@ -12,7 +12,7 @@ namespace Br.Bibliography.Core.Constants.Base.Interfaces
 
         #region Constants
 
-        int ConstantMaxAcronym { get; }
+        int PropertyAcronymMaxLength { get; }
 
         #endregion
     }

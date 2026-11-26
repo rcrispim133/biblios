@@ -27,13 +27,13 @@ namespace Br.Bibliography.Core.Constants.Impl.Series
 
         #region Acronym
 
-        public override int ConstantMaxAcronym => IConstantCourse.DefaultMaxAcronym;
+        public override int PropertyAcronymMaxLength => IConstantCourse.DefaultMaxAcronym;
 
         #endregion
 
         #region Text
 
-        public override int ConstantMaxText => IConstantCourse.DefaultMaxText;
+        public override int PropertyTextMaxLength => IConstantCourse.DefaultTextMaxLength;
 
         #endregion
     }

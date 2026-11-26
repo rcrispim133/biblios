@@ -5,7 +5,7 @@ using Br.Bibliography.Model.Entities.Impl.Sector;
 
 namespace Br.Bibliography.Core.Constants.Impl.Sector
 {
-    public class ConstantLine : ConstantLine<EntityLine>, Interfaces.Sector.IConstantLine
+    public class ConstantLine : ConstantLine<EntityLine>, IConstantLine
     {
         #region Constructor
 
@@ -27,7 +27,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Sector
 
         #region Text
 
-        public override int ConstantMaxText => IConstantLine.DefaultMaxText;
+        public override int PropertyTextMaxLength => IConstantLine.DefaultTextMaxLength;
+
+        public int PropertyLineMarkMaxLength => IConstantLine.DefaultMarkMaxLength;
 
         #endregion
     }

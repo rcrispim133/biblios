@@ -9,9 +9,9 @@
 
         string PrimaryKeyIndexName { get; }
 
-        string PropertyKeyName { get; }
+        string PropertyKeyColumnName { get; }
 
-        string PropertyTextName { get; }
+        string PropertyTextColumnName { get; }
 
         Func<string[], string> ForeignKeyName { get; }
     }

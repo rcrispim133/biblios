@@ -34,14 +34,14 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.LineMark)
                 .HasColumnName("mark_line")
-                .HasMaxLength(MarkMax)
+                .HasMaxLength(Constant.PropertyLineMarkMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired(false);
 
@@ -51,8 +51,8 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .IsRequired(false);
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(Constant.ConstantMaxText)
+                .HasColumnName(Constant.PropertyTextColumnName)
+                .HasMaxLength(Constant.PropertyTextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

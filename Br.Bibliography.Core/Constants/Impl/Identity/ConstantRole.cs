@@ -24,5 +24,11 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
         public override string[] EntityNameParts => [ StaticEntityNames.ROLE ];
 
         #endregion
+
+        #region Role
+
+        public int MaxRoleName => IConstantRole.DefaultMaxRoleName;
+
+        #endregion
     }
 }

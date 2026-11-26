@@ -30,21 +30,21 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyName)
+                .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextName)
+                .HasColumnName(Constant.PropertyTextColumnName)
                 .HasColumnOrder(order++)
-                .HasMaxLength(Constant.ConstantMaxText)
+                .HasMaxLength(Constant.PropertyTextMaxLength)
                 .IsRequired();
 
             e.Property(x => x.Raw)
                 .HasColumnName("raw_image")
                 .HasColumnOrder(order++)
-                .HasMaxLength(RawMax)
+                .HasMaxLength(Constant.ConstantMaxRaw)
                 .IsRequired();
 
             // Relationships
