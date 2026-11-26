@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Series;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Series;
 
 namespace Br.Bibliography.Core.Constants.Impl.Series
@@ -20,13 +21,13 @@ namespace Br.Bibliography.Core.Constants.Impl.Series
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["period"];
+        public override string[] EntityNameParts => [ StaticEntityNames.PERIOD ];
 
         #endregion
 
         #region Text
 
-        public override uint ConstantMaxText => IConstantPeriod.DefaultMaxText;
+        public override int ConstantMaxText => IConstantPeriod.DefaultMaxText;
 
         #endregion
     }

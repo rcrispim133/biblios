@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Biblio;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Biblio;
 
 namespace Br.Bibliography.Core.Constants.Impl.Biblio
@@ -20,19 +21,19 @@ namespace Br.Bibliography.Core.Constants.Impl.Biblio
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["author"];
+        public override string[] EntityNameParts => [ StaticEntityNames.AUTHOR ];
 
         #endregion
 
         #region Text
 
-        public override uint ConstantMaxText => IConstantAuthor.DefaultMaxText;
+        public override int ConstantMaxText => IConstantAuthor.DefaultMaxText;
 
         #endregion
 
         #region Acronym
 
-        public override uint ConstantMaxAcronym => IConstantAuthor.DefaultMaxAcronym;
+        public override int ConstantMaxAcronym => IConstantAuthor.DefaultMaxAcronym;
 
         #endregion
     }

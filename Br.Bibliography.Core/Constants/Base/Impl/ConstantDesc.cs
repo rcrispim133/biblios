@@ -7,7 +7,7 @@ namespace Br.Bibliography.Core.Constants.Base.Impl
     {
         #region Desc
 
-        public abstract uint ConstantMaxDesc { get; }
+        public abstract int ConstantMaxDesc { get; }
 
         #endregion
     }

@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Series;
 using Br.Bibliography.Core.Constants.Interfaces.Series;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Series;
 using Br.Bibliography.Model.Entities.Impl.Series;
@@ -44,7 +45,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(TextMaxLength)
+                .HasMaxLength(Constant.ConstantMaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -53,7 +54,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
                 .WithOne(x => x.EntityUnit)
                 .HasForeignKey(x => x.KeyUnit)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_unit_course");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.UNIT, StaticEntityNames.COURSE]));
         }
     }
 }

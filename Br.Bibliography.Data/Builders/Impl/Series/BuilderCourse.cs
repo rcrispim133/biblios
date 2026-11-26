@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Series;
 using Br.Bibliography.Core.Constants.Interfaces.Series;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Series;
 using Br.Bibliography.Model.Entities.Impl.Series;
@@ -74,31 +75,31 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyUnit)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_course_unit");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.COURSE, StaticEntityNames.UNIT]));
 
             e.HasOne(x => x.EntityPeriod)
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyPeriod)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_course_period");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.COURSE, StaticEntityNames.PERIOD]));
 
             e.HasOne(x => x.EntityCycle)
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyCycle)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_course_cycle");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.COURSE, StaticEntityNames.CYCLE]));
 
             e.HasOne(x => x.EntityDuration)
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyDuration)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_course_duration");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.COURSE, StaticEntityNames.DURATION]));
 
             e.HasMany(x => x.EnumerableLectureCourse)
                 .WithOne(x => x.EntityCourse)
                 .HasForeignKey(x => x.KeyCourse)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_course_line");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.COURSE, StaticEntityNames.LECTURE, StaticEntityNames.COURSE]));
         }
     }
 }

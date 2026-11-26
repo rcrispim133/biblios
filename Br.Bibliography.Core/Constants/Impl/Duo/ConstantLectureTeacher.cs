@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Duo;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Duo;
 
 namespace Br.Bibliography.Core.Constants.Impl.Duo
@@ -20,7 +21,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Duo
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["lecture", "teacher"];
+        public override string[] EntityNameParts => [ StaticEntityNames.LECTURE, StaticEntityNames.TEACHER ];
 
         #endregion
     }

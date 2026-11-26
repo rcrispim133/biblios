@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Entitled;
 using Br.Bibliography.Core.Constants.Interfaces.Entitled;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
@@ -38,7 +39,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(TextMaxLength)
+                .HasMaxLength(Constant.ConstantMaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -47,7 +48,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
                 .WithOne(x => x.EntityEdition)
                 .HasForeignKey(x => x.KeyEdition)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_key_edition_title");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.EDITION, StaticEntityNames.TITLE]));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Locals;
 using Br.Bibliography.Core.Constants.Interfaces.Locals;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Locals;
 using Br.Bibliography.Model.Entities.Impl.Locals;
@@ -38,7 +39,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(TextMaxLength)
+                .HasMaxLength(Constant.ConstantMaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -47,7 +48,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
                 .WithOne(x => x.EntityCountry)
                 .HasForeignKey(x => x.KeyCountry)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_country_state");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.COUNTRY, StaticEntityNames.STATE]));
         }
     }
 }

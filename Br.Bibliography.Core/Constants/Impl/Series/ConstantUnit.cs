@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Series;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Series;
 
 namespace Br.Bibliography.Core.Constants.Impl.Series
@@ -20,19 +21,19 @@ namespace Br.Bibliography.Core.Constants.Impl.Series
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["unit"];
+        public override string[] EntityNameParts => [ StaticEntityNames.UNIT ];
 
         #endregion
 
         #region Acronym
 
-        public override uint ConstantMaxAcronym => IConstantUnit.DefaultMaxAcronym;
+        public override int ConstantMaxAcronym => IConstantUnit.DefaultMaxAcronym;
 
         #endregion
 
         #region Text
 
-        public override uint ConstantMaxText => IConstantUnit.DefaultMaxText;
+        public override int ConstantMaxText => IConstantUnit.DefaultMaxText;
 
         #endregion
     }

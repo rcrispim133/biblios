@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Sector;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Sector;
 
 namespace Br.Bibliography.Core.Constants.Impl.Sector
@@ -20,13 +21,13 @@ namespace Br.Bibliography.Core.Constants.Impl.Sector
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["detail"];
+        public override string[] EntityNameParts => [ StaticEntityNames.DETAIL ];
 
         #endregion
 
         #region Text
 
-        public override uint ConstantMaxText => IConstantDetail.DefaultMaxText;
+        public override int ConstantMaxText => IConstantDetail.DefaultMaxText;
 
         #endregion
     }

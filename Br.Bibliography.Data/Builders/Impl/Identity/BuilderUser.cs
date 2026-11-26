@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Identity;
 using Br.Bibliography.Core.Constants.Interfaces.Identity;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Identity;
 using Br.Bibliography.Model.Entities.Impl.Identity;
@@ -72,7 +73,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .WithOne(x => x.EntityUser)
                 .HasForeignKey(x => x.UserId)
                 .HasPrincipalKey(x => x.Id)
-                .HasConstraintName("fk_user_user_claim");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.USER, StaticEntityNames.USER, StaticEntityNames.CLAIM ]));
         }
     }
 }

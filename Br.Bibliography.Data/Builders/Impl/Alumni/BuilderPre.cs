@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Alumni;
 using Br.Bibliography.Core.Constants.Interfaces.Alumni;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
@@ -39,7 +40,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
                 .WithOne(x => x.EntityPre)
                 .HasForeignKey(x => x.KeyPre)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_pre_lecture");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.PRE, StaticEntityNames.LECTURE, StaticEntityNames.PRE ]));
         }
     }
 }

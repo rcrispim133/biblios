@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Alumni;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
 
 namespace Br.Bibliography.Core.Constants.Impl.Alumni
@@ -20,19 +21,19 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["lecture"];
+        public override string[] EntityNameParts => [ StaticEntityNames.LECTURE ];
 
         #endregion
 
         #region Text
 
-        public override uint ConstantMaxText => IConstantLecture.DefaultMaxText;
+        public override int ConstantMaxText => IConstantLecture.DefaultMaxText;
 
         #endregion
 
         #region Acronym
 
-        public override uint ConstantMaxAcronym => IConstantLecture.DefaultMaxAcronym;
+        public override int ConstantMaxAcronym => IConstantLecture.DefaultMaxAcronym;
 
         #endregion
     }

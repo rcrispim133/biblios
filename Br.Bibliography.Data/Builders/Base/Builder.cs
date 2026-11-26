@@ -12,7 +12,7 @@ namespace Br.Bibliography.Data.Builders.Base
     {
         public abstract TConstant Constant { get; init; }
 
-        protected static int TextMaxLength = 144;
+        // protected static int TextMaxLength = 144;
 
         protected static int AcronymMaxLength = 10;
 

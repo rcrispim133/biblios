@@ -2,6 +2,7 @@
 using Br.Bibliography.Core.Constants.Impl.Sector;
 using Br.Bibliography.Core.Constants.Interfaces.Locals;
 using Br.Bibliography.Core.Constants.Interfaces.Sector;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
 using Br.Bibliography.Model.Entities.Impl.Sector;
@@ -41,7 +42,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(TextMaxLength)
+                .HasMaxLength(Constant.ConstantMaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -50,7 +51,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .WithOne(x => x.EntityDetail)
                 .HasForeignKey(x => x.KeyDetail)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_detail_section");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.DETAIL, StaticEntityNames.SECTION]));
         }
     }
 }

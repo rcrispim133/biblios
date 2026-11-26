@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Sector;
 using Br.Bibliography.Core.Constants.Interfaces.Sector;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
 using Br.Bibliography.Model.Entities.Impl.Sector;
@@ -55,19 +56,19 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .WithMany(x => x.EnumerableSection)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_section_lecture");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.SECTION, StaticEntityNames.LECTURE]));
 
             e.HasOne(x => x.EntityDetail)
                 .WithMany(x => x.EnumerableSection)
                 .HasForeignKey(x => x.KeyDetail)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_section_detail");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.SECTION, StaticEntityNames.DETAIL]));
 
             e.HasMany(x => x.EnumerableLine)
                 .WithOne(x => x.EntitySection)
                 .HasForeignKey(x => x.KeySection)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_section_line");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.SECTION, StaticEntityNames.LINE]));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Alumni;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
 
 namespace Br.Bibliography.Core.Constants.Impl.Alumni
@@ -21,13 +22,13 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["type"];
+        public override string[] EntityNameParts => [ StaticEntityNames.TYPE ];
 
         #endregion
 
         #region Text
 
-        public override uint ConstantMaxText => IConstantType.DefaultMaxText;
+        public override int ConstantMaxText => IConstantType.DefaultMaxText;
 
         #endregion
     }

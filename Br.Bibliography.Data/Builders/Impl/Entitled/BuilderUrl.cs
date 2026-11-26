@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Entitled;
 using Br.Bibliography.Core.Constants.Interfaces.Entitled;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
@@ -47,7 +48,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
                 .WithOne(x => x.EntityUrl)
                 .HasForeignKey(x => x.KeyUrl)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_url_title");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.URL, StaticEntityNames.TITLE, StaticEntityNames.URL]));
         }
     }
 }

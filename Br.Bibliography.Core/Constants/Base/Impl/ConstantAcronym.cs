@@ -8,7 +8,7 @@ namespace Br.Bibliography.Core.Constants.Base.Impl
     {
         #region Acronym
 
-        public abstract uint ConstantMaxAcronym { get; }
+        public abstract int ConstantMaxAcronym { get; }
 
         #endregion
     }

@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Biblio;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Biblio;
 
 namespace Br.Bibliography.Core.Constants.Impl.Biblio
@@ -20,13 +21,13 @@ namespace Br.Bibliography.Core.Constants.Impl.Biblio
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["image"];
+        public override string[] EntityNameParts => [ StaticEntityNames.IMAGE ];
 
         #endregion
 
         #region Text
 
-        public override uint ConstantMaxText => IConstantImage.DefaultMaxText;
+        public override int ConstantMaxText => IConstantImage.DefaultMaxText;
 
         #endregion
     }

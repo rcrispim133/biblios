@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Duo;
 using Br.Bibliography.Core.Constants.Interfaces.Duo;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Duo;
 using Br.Bibliography.Model.Entities.Impl.Duo;
@@ -55,13 +56,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
                 .WithMany(x => x.EnumerableBiblioLecture)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_key_biblio_lecture_biblio");
-
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE, StaticEntityNames.BIBLIO]));
+                
             e.HasOne(x => x.EntityLecture)
                 .WithMany(x => x.EnumerableBiblioLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_key_biblio_lecture_lecture");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE, StaticEntityNames.LECTURE]));
         }
     }
 }

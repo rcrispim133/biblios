@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Identity;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Identity;
 
 namespace Br.Bibliography.Core.Constants.Impl.Identity
@@ -20,7 +21,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["user"];
+        public override string[] EntityNameParts => [ StaticEntityNames.USER ];
 
         #endregion
     }

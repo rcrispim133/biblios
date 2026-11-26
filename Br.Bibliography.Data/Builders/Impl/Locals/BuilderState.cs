@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Locals;
 using Br.Bibliography.Core.Constants.Interfaces.Locals;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Locals;
 using Microsoft.EntityFrameworkCore;
@@ -44,7 +45,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(TextMaxLength)
+                .HasMaxLength(Constant.ConstantMaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -53,13 +54,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
                 .WithMany(x => x.EnumerableStates)
                 .HasForeignKey(x => x.KeyCountry)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_state_country");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.STATE, StaticEntityNames.COUNTRY]));
 
             e.HasMany(x => x.EnumerableCity)
                 .WithOne(x => x.EntityState)
                 .HasForeignKey(x => x.KeyState)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_state_city");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.STATE, StaticEntityNames.CITY]));
         }
     }
 }

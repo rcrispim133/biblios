@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Locals;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Locals;
 
 namespace Br.Bibliography.Core.Constants.Impl.Locals
@@ -20,13 +21,13 @@ namespace Br.Bibliography.Core.Constants.Impl.Locals
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["city"];
+        public override string[] EntityNameParts => [ StaticEntityNames.CITY ];
 
         #endregion
 
         #region Text
 
-        public override uint ConstantMaxText => IConstantCity.DefaultMaxText;
+        public override int ConstantMaxText => IConstantCity.DefaultMaxText;
 
         #endregion
     }

@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Entitled;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
 
 namespace Br.Bibliography.Core.Constants.Impl.Entitled
@@ -20,13 +21,13 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 
         #region Fluent
 
-        public override string[] EntityNameParts => ["edition"];
+        public override string[] EntityNameParts => [ StaticEntityNames.EDITION ];
 
         #endregion
 
         #region Text
 
-        public override uint ConstantMaxText => IConstantEdition.DefaultMaxText;
+        public override int ConstantMaxText => IConstantEdition.DefaultMaxText;
 
         #endregion
     }

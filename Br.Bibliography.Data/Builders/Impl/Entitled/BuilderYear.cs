@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Entitled;
 using Br.Bibliography.Core.Constants.Interfaces.Entitled;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
@@ -40,7 +41,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
                 .WithOne(x => x.EntityYear)
                 .HasForeignKey(x => x.KeyYear)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_key_year_title");
+                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.YEAR, StaticEntityNames.TITLE]));
         }
     }
 }

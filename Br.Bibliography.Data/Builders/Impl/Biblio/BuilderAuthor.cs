@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Biblio;
 using Br.Bibliography.Core.Constants.Interfaces.Biblio;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Biblio;
 using Br.Bibliography.Model.Entities.Impl.Biblio;
@@ -43,7 +44,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextName)
                 .HasColumnOrder(order++)
-                .HasMaxLength(TextMaxLength)
+                .HasMaxLength(Constant.ConstantMaxText)
                 .IsRequired();
 
             // Relationships
@@ -51,7 +52,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
                 .WithOne(x => x.EntityAuthor)
                 .HasForeignKey(x => x.KeyAuthor)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_author_biblio");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.AUTHOR, StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR ]));
         }
     }
 }

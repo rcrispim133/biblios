@@ -2,6 +2,7 @@
 {
     public interface IConstant
     {
+
         string TableName { get; }
 
         string PrimaryKeyName { get; }

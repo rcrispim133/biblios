@@ -1,5 +1,7 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Alumni;
+﻿using Br.Bibliography.Core.Constants.Base;
+using Br.Bibliography.Core.Constants.Impl.Alumni;
 using Br.Bibliography.Core.Constants.Interfaces.Alumni;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
@@ -36,7 +38,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(TextMaxLength)
+                .HasMaxLength(Constant.ConstantMaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -45,7 +47,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
                 .WithOne(x => x.EntityCredit)
                 .HasForeignKey(x => x.KeyCredit)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName(["credit", "lecture"]));
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.CREDIT, StaticEntityNames.LECTURE ]));
         }
     }
 }

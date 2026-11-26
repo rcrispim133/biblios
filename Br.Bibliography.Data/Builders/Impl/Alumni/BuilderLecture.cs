@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Alumni;
 using Br.Bibliography.Core.Constants.Interfaces.Alumni;
+using Br.Bibliography.Core.Util.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
@@ -70,7 +71,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextName)
-                .HasMaxLength(TextMaxLength)
+                .HasMaxLength(Constant.ConstantMaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -95,55 +96,55 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
                 .WithMany(x => x.EnumerableLecture)
                 .HasForeignKey(x => x.KeyCredit)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_lecture_credit");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.LECTURE, StaticEntityNames.CREDIT ]));
 
             e.HasOne(x => x.EntityWork)
                 .WithMany(x => x.EnumerableLecture)
                 .HasForeignKey(x => x.KeyWork)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_lecture_work");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.LECTURE, StaticEntityNames.WORK ]));
 
             e.HasOne(x => x.EntityEffort)
                 .WithMany(x => x.EnumerableLecture)
                 .HasForeignKey(x => x.KeyEffort)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_lecture_effort");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.LECTURE, StaticEntityNames.EFFORT ]));
 
             e.HasOne(x => x.EntityType)
                 .WithMany(x => x.EnumerableLecture)
                 .HasForeignKey(x => x.KeyType)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_lecture_type");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.LECTURE, StaticEntityNames.TYPE ]));
 
             e.HasMany(x => x.EnumerableBiblioLecture)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_lecture_biblio");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.LECTURE, StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE ]));
 
             e.HasMany(x => x.EnumerableSection)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_lecture_section");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.LECTURE, StaticEntityNames.SECTION ]));
 
             e.HasMany(x => x.EnumerableLectureTeacher)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_lecture_teacher");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.LECTURE, StaticEntityNames.TEACHER, StaticEntityNames.LECTURE ]));
 
             e.HasMany(x => x.EnumerableLectureCourse)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_lecture_course");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.LECTURE, StaticEntityNames.LECTURE, StaticEntityNames.COURSE ]));
 
             e.HasMany(x => x.EnumerableLecturePre)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_lecture_pre");
+                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.LECTURE, StaticEntityNames.LECTURE , StaticEntityNames.PRE ]));
         }
     }
 }

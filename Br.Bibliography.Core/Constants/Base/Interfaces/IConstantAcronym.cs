@@ -6,13 +6,13 @@ namespace Br.Bibliography.Core.Constants.Base.Interfaces
     {
         #region Defaults
 
-        const uint DefaultMaxAcronym = 24;
+        const int DefaultMaxAcronym = 24;
 
         #endregion
 
         #region Constants
 
-        uint ConstantMaxAcronym { get; }
+        int ConstantMaxAcronym { get; }
 
         #endregion
     }

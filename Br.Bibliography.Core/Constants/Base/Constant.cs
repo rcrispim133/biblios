@@ -4,19 +4,19 @@
     {
         #region Constants
 
-        public const char Separator = '_';
+        const char Separator = '_';
 
-        public const string TableNamePrefix = "tbl";
+        const string TableNamePrefix = "tbl";
 
-        public const string PrimaryKeyPrefix = "pk";
+        const string PrimaryKeyPrefix = "pk";
 
-        public const string ForeignKeyPrefix = "fk";
+        const string ForeignKeyPrefix = "fk";
 
-        public const string KeyPrefix = "key";
+        const string KeyPrefix = "key";
 
-        public const string IndexPrefix = "idx";
+        const string IndexPrefix = "idx";
 
-        public const string TextPrefix = "txt";
+        const string TextPrefix = "txt";
 
         #endregion
 
@@ -36,7 +36,7 @@
 
         public virtual string PropertyTextName => string.Join(Separator, [TextPrefix, EntityName]);
 
-        public virtual Func<string[], string> ForeignKeyName => array => string.Join(Separator, array);
+        public virtual Func<string[], string> ForeignKeyName => array => string.Join(Separator, array.Prepend(ForeignKeyPrefix));
 
         #endregion
     }
