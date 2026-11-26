@@ -26,7 +26,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 
         #region Text
 
-        public override uint ConstantMaxText => 300;
+        public override uint ConstantMaxText => IConstantTeacher.DefaultMaxText;
 
         #endregion
     }

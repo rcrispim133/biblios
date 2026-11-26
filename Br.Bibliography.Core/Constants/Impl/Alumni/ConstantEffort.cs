@@ -13,6 +13,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
         #endregion
 
         #region Factory
+
         public static IConstantEffort Factory() => new ConstantEffort();
 
         #endregion
@@ -25,7 +26,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 
         #region Text
 
-        public override uint ConstantMaxText => 144;
+        public override uint ConstantMaxText => IConstantEffort.DefaultMaxText;
 
         #endregion
     }

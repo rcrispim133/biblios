@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Entitled
 {
     public class ExceptionDisclaimer : ExceptionDesc<EntityDisclaimer>, IExceptionDisclaimer
     {
-        public override EntityDisclaimer? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionDisclaimer(EntityDisclaimer? entity) : base(entity) { }
+        protected ExceptionDisclaimer(EntityDisclaimer? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionDisclaimer Factory(EntityDisclaimer? entity) => new(entity);
+
+        #endregion
     }
 }

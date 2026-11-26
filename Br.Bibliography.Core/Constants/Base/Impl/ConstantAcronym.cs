@@ -6,6 +6,10 @@ namespace Br.Bibliography.Core.Constants.Base.Impl
     public abstract class ConstantAcronym<TEntity> : ConstantText<TEntity>, IConstantAcronym<TEntity> 
         where TEntity : class, IEntityAcronym<TEntity>, new()
     {
+        #region Acronym
+
         public abstract uint ConstantMaxAcronym { get; }
+
+        #endregion
     }
 }

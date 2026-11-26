@@ -5,6 +5,10 @@ namespace Br.Bibliography.Core.Constants.Base.Impl
 {
     public abstract class ConstantText<TEntity> : ConstantBase<TEntity>, IConstantText<TEntity> where TEntity : class, IEntityText<TEntity>, new()
     {
+        #region Text
+
         public abstract uint ConstantMaxText { get; }
+
+        #endregion
     }
 }

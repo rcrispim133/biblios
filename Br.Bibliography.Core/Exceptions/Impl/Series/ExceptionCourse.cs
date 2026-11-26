@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Series
 {
     public class ExceptionCourse : ExceptionAcronymDesc<EntityCourse>, IExceptionCourse
     {
-        public override EntityCourse? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionCourse(EntityCourse? entity) : base(entity) { }
+        protected ExceptionCourse(EntityCourse? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionCourse Factory(EntityCourse? entity) => new(entity);
+
+        #endregion
     }
 }

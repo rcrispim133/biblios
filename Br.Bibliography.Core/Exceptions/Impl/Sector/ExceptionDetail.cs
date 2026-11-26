@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Sector
 {
     public class ExceptionDetail : ExceptionText<EntityDetail>, IExceptionDetail
     {
-        public override EntityDetail? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionDetail(EntityDetail? entity) : base(entity) { }
+        protected ExceptionDetail(EntityDetail? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionDetail Factory(EntityDetail? entity) => new(entity);
+
+        #endregion
     }
 }

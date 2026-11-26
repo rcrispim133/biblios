@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Series
 {
     public class ExceptionCycle : ExceptionText<EntityCycle>, IExceptionCycle
     {
-        public override EntityCycle? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionCycle(EntityCycle? entity) : base(entity) { }
+        protected ExceptionCycle(EntityCycle? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionCycle Factory(EntityCycle? entity) => new(entity);
+
+        #endregion
     }
 }

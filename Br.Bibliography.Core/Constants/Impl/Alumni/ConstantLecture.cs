@@ -26,13 +26,13 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 
         #region Text
 
-        public override uint ConstantMaxText => 144;
+        public override uint ConstantMaxText => IConstantLecture.DefaultMaxText;
 
         #endregion
 
         #region Acronym
 
-        public override uint ConstantMaxAcronym => 12;
+        public override uint ConstantMaxAcronym => IConstantLecture.DefaultMaxAcronym;
 
         #endregion
     }

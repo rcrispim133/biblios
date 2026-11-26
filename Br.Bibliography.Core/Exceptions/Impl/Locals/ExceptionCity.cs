@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Locals
 {
     public class ExceptionCity : ExceptionText<EntityCity>, IExceptionCity
     {
-        public override EntityCity? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionCity(EntityCity? entity) : base(entity) { }
+        protected ExceptionCity(EntityCity? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionCity Factory(EntityCity? entity) => new(entity);
+
+        #endregion
     }
 }

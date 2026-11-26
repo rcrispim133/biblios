@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Alumni
 {
     public class ExceptionWork : ExceptionText<EntityWork>, IExceptionWork
     {
-        public override EntityWork? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionWork(EntityWork? entity) : base(entity) { }
+        protected ExceptionWork(EntityWork? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionWork Factory(EntityWork? entity) => new(entity);
+
+        #endregion
     }
 }

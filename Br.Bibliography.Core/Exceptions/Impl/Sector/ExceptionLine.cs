@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Sector
 {
     public class ExceptionLine : ExceptionLine<EntityLine>, IExceptionLine
     {
-        public override EntityLine? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionLine(EntityLine? entity) : base(entity) { }
+        protected ExceptionLine(EntityLine? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionLine Factory(EntityLine? entity) => new(entity);
+
+        #endregion
     }
 }

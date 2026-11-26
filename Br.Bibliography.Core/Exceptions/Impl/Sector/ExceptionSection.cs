@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Sector
 {
     public class ExceptionSection : ExceptionBase<EntitySection>, IExceptionSection
     {
-        public override EntitySection? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionSection(EntitySection? entity) : base(entity) { }
+        protected ExceptionSection(EntitySection? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionSection Factory(EntitySection? entity) => new(entity);
+
+        #endregion
     }
 }

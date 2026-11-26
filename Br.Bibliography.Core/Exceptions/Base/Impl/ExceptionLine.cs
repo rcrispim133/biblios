@@ -8,6 +8,12 @@ namespace Br.Bibliography.Core.Exceptions.Base.Impl
         IExceptionLine<TEntity>
             where TEntity : class, IEntityLine<TEntity>, new()
     {
-        protected ExceptionLine(TEntity? entity) : base(entity) { }
+        #region Constructor
+
+        protected ExceptionLine(TEntity? entity) : base(entity)
+        {
+        }
+
+        #endregion
     }
 }

@@ -5,7 +5,12 @@ namespace Br.Bibliography.Core.Exceptions.Base.Impl
 {
     public abstract class ExceptionText<TEntity> : ExceptionBase<TEntity>, IExceptionText<TEntity> where TEntity : class, IEntityText<TEntity>, new()
     {
-        protected ExceptionText(TEntity? entity) : base(entity) { }
+        #region Constructor
 
+        protected ExceptionText(TEntity? entity) : base(entity)
+        {
+        }
+
+        #endregion
     }
 }

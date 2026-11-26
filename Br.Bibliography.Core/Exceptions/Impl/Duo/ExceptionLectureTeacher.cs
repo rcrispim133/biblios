@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Duo
 {
     public class ExceptionLectureTeacher : ExceptionBase<EntityLectureTeacher>, IExceptionLectureTeacher
     {
-        public override EntityLectureTeacher? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionLectureTeacher(EntityLectureTeacher? entity) : base(entity) { }
+        protected ExceptionLectureTeacher(EntityLectureTeacher? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionLectureTeacher Factory(EntityLectureTeacher? entity) => new(entity);
+
+        #endregion
     }
 }

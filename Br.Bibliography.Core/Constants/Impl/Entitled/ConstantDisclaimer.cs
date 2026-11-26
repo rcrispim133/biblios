@@ -26,7 +26,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 
         #region Desc
 
-        public override uint ConstantMaxDesc => 500;
+        public override uint ConstantMaxDesc => IConstantDisclaimer.DefaultMaxDesc;
 
         #endregion
     }

@@ -1,16 +1,21 @@
 ﻿using Br.Bibliography.Core.Exceptions.Base.Impl;
 using Br.Bibliography.Core.Exceptions.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Br.Bibliography.Core.Exceptions.Impl.Entitled
 {
     public class ExceptionLanguage : ExceptionText<EntityLanguage>, IExceptionLanguage
     {
-        public override EntityLanguage? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionLanguage(EntityLanguage? entity) : base(entity) { }
+        protected ExceptionLanguage(EntityLanguage? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionLanguage Factory(EntityLanguage? entity) => new(entity);
+
+        #endregion
     }
 }

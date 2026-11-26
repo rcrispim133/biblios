@@ -26,7 +26,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 
         #region Text
 
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        public override uint ConstantMaxText => IConstantEdition.DefaultMaxText;
 
         #endregion
     }

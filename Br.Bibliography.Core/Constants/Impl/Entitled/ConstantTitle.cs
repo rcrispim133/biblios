@@ -26,7 +26,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 
         #region Text
 
-        public override uint ConstantMaxText => 300;
+        public override uint ConstantMaxText => IConstantTitle.DefaultMaxText;
 
         #endregion
     }

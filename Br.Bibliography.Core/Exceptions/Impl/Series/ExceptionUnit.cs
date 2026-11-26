@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Series
 {
     public class ExceptionUnit : ExceptionAcronym<EntityUnit>, IExceptionUnit
     {
-        public override EntityUnit? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionUnit(EntityUnit? entity) : base(entity) { }
+        protected ExceptionUnit(EntityUnit? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionUnit Factory(EntityUnit? entity) => new(entity);
+
+        #endregion
     }
 }

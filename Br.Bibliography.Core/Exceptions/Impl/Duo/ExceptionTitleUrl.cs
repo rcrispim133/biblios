@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Duo
 {
     public class ExceptionTitleUrl : ExceptionBase<EntityTitleUrl>, IExceptionTitleUrl
     {
-        public override EntityTitleUrl? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionTitleUrl(EntityTitleUrl? entity) : base(entity) { }
+        protected ExceptionTitleUrl(EntityTitleUrl? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionTitleUrl Factory(EntityTitleUrl? entity) => new(entity);
+
+        #endregion
     }
 }

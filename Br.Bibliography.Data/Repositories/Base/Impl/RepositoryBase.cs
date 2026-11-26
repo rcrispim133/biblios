@@ -1,6 +1,6 @@
-﻿using Br.Bibliography.Core.Exceptions.Common.Impl;
-using Br.Bibliography.Data.Contexts.Base.Interfaces;
+﻿using Br.Bibliography.Data.Contexts.Base.Interfaces;
 using Br.Bibliography.Data.Repositories.Base.Interfaces;
+using Br.Bibliography.Data.Repositories.Exceptions.Impl;
 using Br.Bibliography.Model.Entities.Base.Interfaces;
 
 namespace Br.Bibliography.Data.Repositories.Base.Impl
@@ -26,7 +26,7 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         public TEntity? Create(TEntity? entity)
         {
-            if (entity == null) throw ExceptionBaseNullCreateEntity<TEntity>.Throw();
+            if (entity == null) throw ExceptionRepositoryBaseCreate<TEntity>.Factory(entity);
             var add = Context.DbSet.Add(entity).Entity;
             Context.SaveChanges();
             return add;

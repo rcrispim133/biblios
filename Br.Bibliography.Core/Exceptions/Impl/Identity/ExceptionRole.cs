@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Identity
 {
     public class ExceptionRole : ExceptionBase<EntityRole>, IExceptionRole
     {
-        public override EntityRole? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionRole(EntityRole? entity) : base(entity) { }
+        protected ExceptionRole(EntityRole? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionRole Factory(EntityRole? entity) => new(entity);
+
+        #endregion
     }
 }

@@ -26,7 +26,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Series
 
         #region Text
 
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        public override uint ConstantMaxText => IConstantPeriod.DefaultMaxText;
 
         #endregion
     }

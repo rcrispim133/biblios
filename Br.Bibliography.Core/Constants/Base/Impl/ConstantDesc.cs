@@ -5,6 +5,10 @@ namespace Br.Bibliography.Core.Constants.Base.Impl
 {
     public abstract class ConstantDesc<TEntity> : ConstantBase<TEntity>, IConstantDesc<TEntity> where TEntity : class, IEntityDesc<TEntity>, new()
     {
+        #region Desc
+
         public abstract uint ConstantMaxDesc { get; }
+
+        #endregion
     }
 }

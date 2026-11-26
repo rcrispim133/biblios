@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Alumni
 {
     public class ExceptionCredit : ExceptionText<EntityCredit>, IExceptionCredit
     {
-        public override EntityCredit? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionCredit(EntityCredit? entity) : base(entity) { }
+        protected ExceptionCredit(EntityCredit? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionCredit Factory(EntityCredit? entity) => new(entity);
+
+        #endregion
     }
 }

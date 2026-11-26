@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Entitled
 {
     public class ExceptionPublisher : ExceptionText<EntityPublisher>, IExceptionPublisher
     {
-        public override EntityPublisher? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionPublisher(EntityPublisher? entity) : base(entity) { }
+        protected ExceptionPublisher(EntityPublisher? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionPublisher Factory(EntityPublisher? entity) => new(entity);
+
+        #endregion
     }
 }

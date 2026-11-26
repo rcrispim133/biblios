@@ -8,6 +8,12 @@ namespace Br.Bibliography.Core.Exceptions.Base.Impl
         IExceptionRaw<TEntity>
             where TEntity : class, IEntityRaw<TEntity>, new()
     {
-        protected ExceptionRaw(TEntity? entity) : base(entity) { }
+        #region Constructor
+
+        protected ExceptionRaw(TEntity? entity) : base(entity)
+        {
+        }
+
+        #endregion
     }
 }

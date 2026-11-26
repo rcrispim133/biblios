@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Alumni
 {
     public class ExceptionLecture : ExceptionAcronym<EntityLecture>, IExceptionLecture
     {
-        public override EntityLecture? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionLecture(EntityLecture? entity) : base(entity) { }
+        protected ExceptionLecture(EntityLecture? entity) : base(entity) { }
+        
+        #endregion
+
+        #region Factory
+
+        public static ExceptionLecture Factory(EntityLecture? entity) => new(entity);
+
+        #endregion
     }
 }

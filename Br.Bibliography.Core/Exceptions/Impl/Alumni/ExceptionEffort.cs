@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Alumni
 {
     public class ExceptionEffort : ExceptionText<EntityEffort>, IExceptionEffort
     {
-        public override EntityEffort? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionEffort(EntityEffort? entity) : base(entity) { }
+        protected ExceptionEffort(EntityEffort? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionEffort Factory(EntityEffort? entity) => new(entity);
+
+        #endregion
     }
 }

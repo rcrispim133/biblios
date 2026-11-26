@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Biblio
 {
     public class ExceptionAuthor : ExceptionAcronym<EntityAuthor>, IExceptionAuthor
     {
-        public override EntityAuthor? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionAuthor(EntityAuthor? entity) : base(entity) { }
+        protected ExceptionAuthor(EntityAuthor? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionAuthor Factory(EntityAuthor? entity) => new(entity);
+
+        #endregion
     }
 }

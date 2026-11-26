@@ -4,6 +4,16 @@ namespace Br.Bibliography.Core.Constants.Base.Interfaces
 {
     public interface IConstantText<TEntity> : IConstantBase<TEntity> where TEntity : class, IEntityBase<TEntity> , new()
     {
+        #region Defaults
+
+        const uint DefaultMaxText = 144;
+
+        #endregion
+
+        #region Constants
+
         uint ConstantMaxText { get; }
+
+        #endregion
     }
 }

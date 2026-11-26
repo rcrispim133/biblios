@@ -26,7 +26,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Sector
 
         #region Text
 
-        public override uint ConstantMaxText => 1024;
+        public override uint ConstantMaxText => IConstantLine.DefaultMaxText;
 
         #endregion
     }

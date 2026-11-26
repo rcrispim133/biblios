@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Entitled
 {
     public class ExceptionEdition : ExceptionText<EntityEdition>, IExceptionEdition
     {
-        public override EntityEdition? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionEdition(EntityEdition? entity) : base(entity) { }
+        protected ExceptionEdition(EntityEdition? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionEdition Factory(EntityEdition? entity) => new(entity);
+
+        #endregion
     }
 }

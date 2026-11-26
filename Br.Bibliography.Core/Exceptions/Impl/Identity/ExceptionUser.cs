@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Identity
 {
     public class ExceptionUser : ExceptionBase<EntityUser>, IExceptionUser
     {
-        public override EntityUser? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionUser(EntityUser? entity) : base(entity) { }
+        protected ExceptionUser(EntityUser? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionUser Factory(EntityUser? entity) => new(entity);
+
+        #endregion
     }
 }

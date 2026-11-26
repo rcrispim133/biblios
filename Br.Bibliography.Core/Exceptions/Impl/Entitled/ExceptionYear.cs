@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Entitled
 {
     public class ExceptionYear : ExceptionBase<EntityYear>, IExceptionYear
     {
-        public override EntityYear? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionYear(EntityYear? entity) : base(entity) { }
+        protected ExceptionYear(EntityYear? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionYear Factory(EntityYear? entity) => new(entity);
+
+        #endregion
     }
 }

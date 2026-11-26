@@ -3,11 +3,17 @@ using Br.Bibliography.Model.Entities.Base.Interfaces;
 
 namespace Br.Bibliography.Core.Exceptions.Base.Impl
 {
-    public abstract class ExceptionAcronym<TEntity> : 
-        ExceptionText<TEntity>, 
-        IExceptionAcronym<TEntity> 
+    public abstract class ExceptionAcronym<TEntity> :
+        ExceptionText<TEntity>,
+        IExceptionAcronym<TEntity>
             where TEntity : class, IEntityAcronym<TEntity>, new()
     {
-        protected ExceptionAcronym(TEntity? entity) : base(entity) { }
+        #region Constructor
+
+        protected ExceptionAcronym(TEntity? entity) : base(entity)
+        {
+        }
+
+        #endregion
     }
 }

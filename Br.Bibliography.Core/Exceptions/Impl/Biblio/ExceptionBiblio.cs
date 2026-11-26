@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Biblio
 {
     public class ExceptionBiblio : ExceptionBase<EntityBiblio>, IExceptionBiblio
     {
-        public override EntityBiblio? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionBiblio(EntityBiblio? entity) : base(entity) { }
+        protected ExceptionBiblio(EntityBiblio? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionBiblio Factory(EntityBiblio? entity) => new(entity);
+
+        #endregion
     }
 }

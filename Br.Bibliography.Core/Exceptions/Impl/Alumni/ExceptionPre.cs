@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Alumni
 {
     public class ExceptionPre : ExceptionBase<EntityPre>, IExceptionPre
     {
-        public override EntityPre? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionPre(EntityPre? entity) : base(entity) { }
+        protected ExceptionPre(EntityPre? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionPre Factory(EntityPre? entity) => new(entity);
+
+        #endregion
     }
 }

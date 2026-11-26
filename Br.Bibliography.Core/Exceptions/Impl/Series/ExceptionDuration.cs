@@ -6,8 +6,16 @@ namespace Br.Bibliography.Core.Exceptions.Impl.Series
 {
     public class ExceptionDuration : ExceptionText<EntityDuration>, IExceptionDuration
     {
-        public override EntityDuration? Entity { get; init; }
+        #region Constructor
 
-        public ExceptionDuration(EntityDuration? entity) : base(entity) { }
+        protected ExceptionDuration(EntityDuration? entity) : base(entity) { }
+
+        #endregion
+
+        #region Factory
+
+        public static ExceptionDuration Factory(EntityDuration? entity) => new(entity);
+
+        #endregion
     }
 }

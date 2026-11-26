@@ -8,6 +8,12 @@ namespace Br.Bibliography.Core.Exceptions.Base.Impl
         IExceptionAcronymDesc<TEntity>
             where TEntity : class, IEntityAcronymDesc<TEntity>, new()
     {
-        protected ExceptionAcronymDesc(TEntity? entity) : base(entity) { }
+        #region Constructor
+
+        protected ExceptionAcronymDesc(TEntity? entity) : base(entity)
+        {
+        }
+
+        #endregion
     }
 }
