@@ -20,7 +20,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
 
         #region Fluent
 
-        public override string TableName => "tbl_user";
+        public override string[] EntityNameParts => ["user"];
 
         #endregion
     }

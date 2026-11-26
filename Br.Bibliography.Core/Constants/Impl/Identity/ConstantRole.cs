@@ -20,9 +20,8 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
 
         #region Fluent
 
-        public override string TableName => "tbl_role";
+        public override string[] EntityNameParts => ["role"];
 
         #endregion
-
     }
 }

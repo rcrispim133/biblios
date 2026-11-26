@@ -20,7 +20,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Duo
 
         #region Fluent
 
-        public override string TableName => "tbl_biblio_image";
+        public override string[] EntityNameParts => ["biblio", "image"];
 
         #endregion
     }

@@ -20,7 +20,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 
         #region Fluent
 
-        public override string TableName => "tbl_credit";
+        public override string[] EntityNameParts => ["credit"];
 
         #endregion
 

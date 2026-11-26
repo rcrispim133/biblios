@@ -20,7 +20,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Series
 
         #region Fluent
 
-        public override string TableName => "tbl_unit";
+        public override string[] EntityNameParts => ["unit"];
 
         #endregion
 

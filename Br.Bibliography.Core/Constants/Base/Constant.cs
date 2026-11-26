@@ -2,9 +2,21 @@
 {
     public abstract class Constant : IConstant
     {
-        #region Fluent
+        #region Constants
 
-        public abstract string TableName { get; }
+        public const char Separator = '_';
+
+        public const string TableNamePrefix = "tbl";
+
+        #endregion
+
+        #region Helpers
+
+        public abstract string[] EntityNameParts { get; }
+
+        public virtual string EntityName => string.Join(Separator, EntityNameParts);
+
+        public virtual string TableName => $"{TableNamePrefix}{Separator}{EntityName}";
 
         #endregion
     }

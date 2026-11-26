@@ -21,7 +21,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 
         #region Fluent
 
-        public override string TableName => "tbl_work";
+        public override string[] EntityNameParts => ["work"];
 
         #endregion
 

@@ -20,7 +20,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 
         #region Fluent
 
-        public override string TableName => "tbl_language";
+        public override string[] EntityNameParts => ["language"];
 
         #endregion
 

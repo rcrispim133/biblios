@@ -2,10 +2,5 @@
 {
     public interface IConstant
     {
-        #region Fluent
-
-        string TableName { get; }
-
-        #endregion
     }
 }
