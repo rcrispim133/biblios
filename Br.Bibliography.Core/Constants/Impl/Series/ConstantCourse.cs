@@ -6,12 +6,34 @@ namespace Br.Bibliography.Core.Constants.Impl.Series
 {
     public class ConstantCourse : ConstantAcronymDesc<EntityCourse>, IConstantCourse
     {
-        public override uint ConstantMaxAcronym => throw new NotImplementedException();
-
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantCourse() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantCourse Factory() => new ConstantCourse();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_course";
+
+        #endregion
+
+        #region Acronym
+
+        public override uint ConstantMaxAcronym => 32;
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 144;
+
+        #endregion
     }
 }

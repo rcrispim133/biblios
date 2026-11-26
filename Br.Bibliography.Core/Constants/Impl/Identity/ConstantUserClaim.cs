@@ -6,8 +6,22 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
 {
     public class ConstantUserClaim : ConstantBase<EntityUserClaim>, IConstantUserClaim
     {
+        #region Constructor
+
         private ConstantUserClaim() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantUserClaim Factory() => new ConstantUserClaim();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_user_claim";
+
+        #endregion
     }
 }

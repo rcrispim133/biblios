@@ -6,10 +6,28 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 {
     public class ConstantTeacher : ConstantText<EntityTeacher>, IConstantTeacher
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantTeacher() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantTeacher Factory() => new ConstantTeacher();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_teacher";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 300;
+
+        #endregion
     }
 }

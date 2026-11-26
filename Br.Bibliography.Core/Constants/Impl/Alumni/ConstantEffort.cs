@@ -6,10 +6,27 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 {
     public class ConstantEffort : ConstantText<EntityEffort>, IConstantEffort
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantEffort() { }
 
+        #endregion
+
+        #region Factory
         public static IConstantEffort Factory() => new ConstantEffort();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_effort";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 144;
+
+        #endregion
     }
 }

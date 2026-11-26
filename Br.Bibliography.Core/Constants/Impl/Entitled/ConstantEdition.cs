@@ -6,10 +6,28 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 {
     public class ConstantEdition : ConstantText<EntityEdition>, IConstantEdition
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Cosntructor
 
         private ConstantEdition() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantEdition Factory() => new ConstantEdition();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_edition";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => throw new NotImplementedException();
+
+        #endregion
     }
 }

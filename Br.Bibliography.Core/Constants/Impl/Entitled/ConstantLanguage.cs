@@ -6,10 +6,28 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 {
     public class ConstantLanguage : ConstantText<EntityLanguage>, IConstantLanguage
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantLanguage() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantLanguage Factory() => new ConstantLanguage();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_language";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 50;
+
+        #endregion
     }
 }

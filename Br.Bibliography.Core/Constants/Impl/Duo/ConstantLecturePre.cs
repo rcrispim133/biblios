@@ -6,8 +6,22 @@ namespace Br.Bibliography.Core.Constants.Impl.Duo
 {
     public class ConstantLecturePre : ConstantBase<EntityLecturePre>, IConstantLecturePre
     {
+        #region Constructor
+
         private ConstantLecturePre() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantLecturePre Factory() => new ConstantLecturePre();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_lecture_pre";
+
+        #endregion
     }
 }

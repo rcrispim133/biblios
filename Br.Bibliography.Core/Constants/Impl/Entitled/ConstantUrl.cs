@@ -1,6 +1,4 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
-using Br.Bibliography.Core.Constants.Impl.Alumni;
-using Br.Bibliography.Core.Constants.Interfaces.Alumni;
 using Br.Bibliography.Core.Constants.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
 
@@ -8,10 +6,29 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 {
     public class ConstantUrl : ConstantText<EntityUrl>, IConstantUrl
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantUrl() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantUrl Factory() => new ConstantUrl();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_url";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 1024;
+
+        #endregion
+
     }
 }

@@ -6,8 +6,22 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 {
     public class ConstantYear : ConstantBase<EntityYear>, IConstantYear
     {
+        #region Constructor
+
         private ConstantYear() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantYear Factory() => new ConstantYear();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_year";
+
+        #endregion
     }
 }

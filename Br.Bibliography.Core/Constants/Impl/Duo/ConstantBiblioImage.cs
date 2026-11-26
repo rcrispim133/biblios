@@ -6,8 +6,22 @@ namespace Br.Bibliography.Core.Constants.Impl.Duo
 {
     public class ConstantBiblioImage : ConstantBase<EntityBiblioImage>, IConstantBiblioImage
     {
+        #region Constructor
+
         private ConstantBiblioImage() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantBiblioImage Factory() => new ConstantBiblioImage();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_biblio_image";
+
+        #endregion
     }
 }

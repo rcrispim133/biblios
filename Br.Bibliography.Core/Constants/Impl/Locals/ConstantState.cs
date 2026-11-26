@@ -6,10 +6,28 @@ namespace Br.Bibliography.Core.Constants.Impl.Locals
 {
     public class ConstantState : ConstantText<EntityState>, IConstantState
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantState() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantState Factory() => new ConstantState();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_state";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 72;
+
+        #endregion
     }
 }

@@ -6,10 +6,28 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 {
     public class ConstantTitle : ConstantText<EntityTitle>, IConstantTitle
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantTitle() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantTitle Factory() => new ConstantTitle();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_title";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 300;
+
+        #endregion
     }
 }

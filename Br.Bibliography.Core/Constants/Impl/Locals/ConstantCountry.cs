@@ -6,10 +6,28 @@ namespace Br.Bibliography.Core.Constants.Impl.Locals
 {
     public class ConstantCountry : ConstantText<EntityCountry>, IConstantCountry
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantCountry() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantCountry Factory() => new ConstantCountry();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_country";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 72;
+
+        #endregion
     }
 }

@@ -6,10 +6,28 @@ namespace Br.Bibliography.Core.Constants.Impl.Sector
 {
     public class ConstantLine : ConstantLine<EntityLine>, Interfaces.Sector.IConstantLine
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantLine() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantLine Factory() => new ConstantLine();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_line";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 1024;
+
+        #endregion
     }
 }

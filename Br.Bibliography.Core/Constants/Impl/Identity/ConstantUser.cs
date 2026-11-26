@@ -6,8 +6,22 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
 {
     public class ConstantUser : ConstantBase<EntityUser>, IConstantUser
     {
+        #region Constructor
+
         private ConstantUser() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantUser Factory() => new ConstantUser();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_user";
+
+        #endregion
     }
 }

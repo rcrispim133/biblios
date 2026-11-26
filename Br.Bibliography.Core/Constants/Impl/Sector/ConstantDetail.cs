@@ -6,10 +6,28 @@ namespace Br.Bibliography.Core.Constants.Impl.Sector
 {
     public class ConstantDetail : ConstantText<EntityDetail>, IConstantDetail
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantDetail() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantDetail Factory() => new ConstantDetail();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_detail";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 144;
+
+        #endregion
     }
 }

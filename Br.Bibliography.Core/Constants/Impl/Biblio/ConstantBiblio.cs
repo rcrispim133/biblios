@@ -6,8 +6,22 @@ namespace Br.Bibliography.Core.Constants.Impl.Biblio
 {
     public class ConstantBiblio : ConstantBase<EntityBiblio>, IConstantBiblio
     {
+        #region Constructor
+
         private ConstantBiblio() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantBiblio Factory() => new ConstantBiblio();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_biblio";
+
+        #endregion
     }
 }

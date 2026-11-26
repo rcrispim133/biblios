@@ -6,8 +6,22 @@ namespace Br.Bibliography.Core.Constants.Impl.Duo
 {
     public class ConstantBiblioAuthor : ConstantBase<EntityBiblioAuthor>, IConstantBiblioAuthor
     {
+        #region Constructor
+
         private ConstantBiblioAuthor() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantBiblioAuthor Factory() => new ConstantBiblioAuthor();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_biblio_author";
+
+        #endregion
     }
 }

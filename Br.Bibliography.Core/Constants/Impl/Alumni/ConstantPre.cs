@@ -6,8 +6,22 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 {
     public class ConstantPre : ConstantBase<EntityPre>, IConstantPre
     {
+        #region Constructor
+
         private ConstantPre() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantPre Factory() => new ConstantPre();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_pre";
+
+        #endregion
     }
 }

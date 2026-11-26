@@ -6,10 +6,29 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 {
     public class ConstantType : ConstantText<EntityType>, IConstantType
     {
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantType() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantType Factory() => new ConstantType();
+
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_type";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 32;
+
+        #endregion
     }
 }

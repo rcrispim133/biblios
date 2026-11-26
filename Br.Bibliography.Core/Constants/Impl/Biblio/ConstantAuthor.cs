@@ -6,12 +6,34 @@ namespace Br.Bibliography.Core.Constants.Impl.Biblio
 {
     public class ConstantAuthor : ConstantAcronym<EntityAuthor>, IConstantAuthor
     {
-        public override uint ConstantMaxAcronym => throw new NotImplementedException();
-
-        public override uint ConstantMaxText => throw new NotImplementedException();
+        #region Constructor
 
         private ConstantAuthor() { }
 
+        #endregion
+
+        #region Factory
+
         public static IConstantAuthor Factory() => new ConstantAuthor();
+
+        #endregion
+
+        #region Fluent
+
+        public override string TableName => "tbl_author";
+
+        #endregion
+
+        #region Text
+
+        public override uint ConstantMaxText => 144;
+
+        #endregion
+
+        #region Acronym
+
+        public override uint ConstantMaxAcronym => 20;
+
+        #endregion
     }
 }
