@@ -2,6 +2,5 @@
 {
     public interface IEntityBase<TEntity> : IEntity where TEntity : class, IEntityBase<TEntity>
     {
-        uint Key { get; }
     }
 }

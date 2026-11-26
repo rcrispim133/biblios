@@ -35,28 +35,28 @@ namespace Br.Bibliography.Web.Controllers.Impl.Locals
         #region CREATE
 
         [HttpPost]
-        public override IPacketCountry? HandleCreate([FromBody]EntityCountry entity) => PacketCountry.Factory(Repository.Create(entity));
+        public override IPacketCountry? HandleCreate([FromBody]EntityCountry? entity) => PacketCountry.Factory(Repository.Create(entity));
 
         #endregion
 
         #region READ
 
         [HttpGet("{key:int:min(0)}")]
-        public override IPacketCountry? HandleRead(uint key) => PacketCountry.Factory(Repository.Read(key));
+        public override IPacketCountry? HandleRead(uint? key) => PacketCountry.Factory(Repository.Read(key));
 
         #endregion
 
         #region UPDATE
 
         [HttpPut]
-        public override IPacketCountry? HandleUpdate(uint key, [FromBody] EntityCountry entity) => PacketCountry.Factory(Repository.Update(key, entity));
+        public override IPacketCountry? HandleUpdate(uint? key, [FromBody] EntityCountry? entity) => PacketCountry.Factory(Repository.Update(key, entity));
 
         #endregion
 
         #region DELETE
 
         [HttpDelete("{key:int:min(0)}")]
-        public override IPacketCountry? HandleDelete(uint key) => PacketCountry.Factory(Repository.Delete(key));
+        public override IPacketCountry? HandleDelete(uint? key) => PacketCountry.Factory(Repository.Delete(key));
 
         #endregion
 

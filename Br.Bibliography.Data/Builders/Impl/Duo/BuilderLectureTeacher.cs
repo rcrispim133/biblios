@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Duo;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Duo;
 using Br.Bibliography.Model.Entities.Impl.Duo;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Duo
 {
-    public class BuilderLectureTeacher : BuilderBase<BuilderLectureTeacher, EntityLectureTeacher>, IBuilderLectureTeacher<BuilderLectureTeacher>
+    public class BuilderLectureTeacher : 
+        BuilderBase<BuilderLectureTeacher, EntityLectureTeacher, ConstantLectureTeacher>, 
+        IBuilderLectureTeacher<BuilderLectureTeacher>
     {
         public override void Build(ModelBuilder builder)
         {

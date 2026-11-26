@@ -2,5 +2,6 @@
 {
     public abstract class Entity : IEntity
     {
+        public uint? Key { get; init; }
     }
 }

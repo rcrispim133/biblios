@@ -4,7 +4,11 @@ using Br.Bibliography.Web.Packets.Base.Interfaces;
 
 namespace Br.Bibliography.Web.Controllers.Base.Impl
 {
-    public abstract class ControllerText<TEntity, TPacket> : ControllerBase<TEntity, TPacket>, IControllerText<TEntity, TPacket> where TPacket : IPacketText<TEntity> where TEntity : class, IEntityText<TEntity>
+    public abstract class ControllerText<TEntity, TPacket> : 
+        ControllerBase<TEntity, TPacket>, 
+        IControllerText<TEntity, TPacket> 
+            where TPacket : IPacketText<TEntity> 
+            where TEntity : class, IEntityText<TEntity>, new()
     {
     }
 }

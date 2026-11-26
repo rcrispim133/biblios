@@ -1,11 +1,12 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Alumni;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Alumni
 {
-    public class BuilderPre: BuilderBase<BuilderPre, EntityPre>, IBuilderPre<BuilderPre>
+    public class BuilderPre: BuilderBase<BuilderPre, EntityPre, ConstantPre>, IBuilderPre<BuilderPre>
     {
         public override void Build(ModelBuilder builder)
         {

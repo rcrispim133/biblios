@@ -1,11 +1,12 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Biblio;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Biblio;
 using Br.Bibliography.Model.Entities.Impl.Biblio;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Biblio
 {
-    public class BuilderAuthor : BuilderAcronym<BuilderAuthor, EntityAuthor>, IBuilderAuthor<BuilderAuthor>
+    public class BuilderAuthor : BuilderAcronym<BuilderAuthor, EntityAuthor, ConstantAuthor>, IBuilderAuthor<BuilderAuthor>
     {
         public override void Build(ModelBuilder builder)
         {

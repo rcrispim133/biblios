@@ -1,11 +1,12 @@
-﻿using Br.Bibliography.Data.Contexts.Base.Interfaces;
+﻿using Br.Bibliography.Core.Exceptions.Common.Impl;
+using Br.Bibliography.Data.Contexts.Base.Interfaces;
 using Br.Bibliography.Data.Repositories.Base.Interfaces;
 using Br.Bibliography.Model.Entities.Base.Interfaces;
 
 namespace Br.Bibliography.Data.Repositories.Base.Impl
 {
     public abstract class RepositoryRaw<TEntity> : RepositoryText<TEntity>, IRepositoryText<TEntity>
-        where TEntity : class, IEntityRaw<TEntity>
+        where TEntity : class, IEntityRaw<TEntity>, new()
     {
         #region CONSTRUCTOR
 
@@ -17,20 +18,21 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         #region CREATE
 
-        public new TEntity? Create(TEntity entity) => base.Create(entity);
+        public new TEntity? Create(TEntity? entity) => base.Create(entity);
 
         #endregion
 
         #region READ
 
-        public new TEntity? Read(uint key) => base.Read(key);
+        public new TEntity? Read(uint? key) => base.Read(key);
 
         #endregion
 
         #region UPDATE
 
-        public new TEntity? Update(uint key, TEntity entity)
+        public new TEntity? Update(uint? key, TEntity? entity)
         {
+            if (entity == null) throw ExceptionTextNullTextCreateEntity<TEntity>.Throw();
             var single = base.Single(key);
             single.Text = entity.Text;
             Context.DbSet.Update(single);
@@ -42,13 +44,13 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         #region DELETE
 
-        public new TEntity? Delete(uint key) => base.Delete(key);
+        public new TEntity? Delete(uint? key) => base.Delete(key);
 
         #endregion
 
         #region SINGLE
         
-        public new TEntity Single(uint key) => base.Single(key);
+        public new TEntity Single(uint? key) => base.Single(key);
 
         #endregion
 

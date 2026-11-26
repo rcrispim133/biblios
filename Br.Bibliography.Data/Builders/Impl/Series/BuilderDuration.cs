@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Series;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Series;
 using Br.Bibliography.Model.Entities.Impl.Series;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Series
 {
-    public class BuilderDuration : BuilderText<BuilderDuration, EntityDuration>, IBuilderDuration<BuilderDuration>
+    public class BuilderDuration : 
+        BuilderText<BuilderDuration, EntityDuration, ConstantDuration>, 
+        IBuilderDuration<BuilderDuration>
     {
         public override void Build(ModelBuilder builder)
         {

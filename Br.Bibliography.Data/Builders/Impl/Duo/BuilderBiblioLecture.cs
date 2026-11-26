@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Duo;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Duo;
 using Br.Bibliography.Model.Entities.Impl.Duo;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Duo
 {
-    public class BuilderBiblioLecture : BuilderBase<BuilderBiblioLecture, EntityBiblioLecture>, IBuilderBiblioLecture<BuilderBiblioLecture>
+    public class BuilderBiblioLecture : 
+        BuilderBase<BuilderBiblioLecture, EntityBiblioLecture, ConstantBiblioLecture>, 
+        IBuilderBiblioLecture<BuilderBiblioLecture>
     {
         public override void Build(ModelBuilder builder)
         {

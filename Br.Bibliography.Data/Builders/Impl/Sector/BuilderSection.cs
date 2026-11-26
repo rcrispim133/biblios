@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Sector;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
 using Br.Bibliography.Model.Entities.Impl.Sector;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Sector
 {
-    public class BuilderSection : BuilderBase<BuilderSection, EntitySection>, IBuilderSection<BuilderSection>
+    public class BuilderSection : 
+        BuilderBase<BuilderSection, EntitySection, ConstantSection>, 
+        IBuilderSection<BuilderSection>
     {
         public override void Build(ModelBuilder builder)
         {

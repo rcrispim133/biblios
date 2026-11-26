@@ -1,9 +1,14 @@
-﻿using Br.Bibliography.Model.Entities.Base.Interfaces;
+﻿using Br.Bibliography.Core.Constants.Base;
+using Br.Bibliography.Model.Entities.Base.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Base
 {
-    public abstract class Builder<TBuilder, TEntity> : IBuilder<TBuilder, TEntity> where TBuilder : class, IBuilder<TBuilder, TEntity>, new() where TEntity : class, IEntityBase<TEntity>
+    public abstract class Builder<TBuilder, TEntity, TConstant> : 
+        IBuilder<TBuilder, TEntity, TConstant> 
+            where TBuilder : class, IBuilder<TBuilder, TEntity, TConstant>, new() 
+            where TEntity : class, IEntityBase<TEntity>
+            where TConstant : class, IConstant
     {
         protected static int TextMaxLength = 144;
 
@@ -31,8 +36,8 @@ namespace Br.Bibliography.Data.Builders.Base
 
         public abstract void Build(ModelBuilder builder);
 
-        static IBuilder<TBuilder, TEntity>? _singleton = null;
+        static IBuilder<TBuilder, TEntity, TConstant>? _singleton = null;
 
-        public static IBuilder<TBuilder, TEntity> Singleton = _singleton ?? new TBuilder();
+        public static IBuilder<TBuilder, TEntity, TConstant> Singleton = _singleton ?? new TBuilder();
     }
 }

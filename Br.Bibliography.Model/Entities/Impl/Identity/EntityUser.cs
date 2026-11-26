@@ -9,10 +9,10 @@ namespace Br.Bibliography.Model.Entities.Impl.Identity
     {
         #region Keys
 
-        public uint Key { get; set; }
+        public uint? Key { get; set; }
 
         [JsonIgnore]
-        public override uint Id { get => Key; set => Key = value; }
+        public override uint Id { get => Key ?? 0; set => Key = value; }
 
         #endregion
 

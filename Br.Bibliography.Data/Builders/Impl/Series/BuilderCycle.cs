@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Series;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Series;
 using Br.Bibliography.Model.Entities.Impl.Series;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Series
 {
-    public class BuilderCycle : BuilderText<BuilderCycle, EntityCycle>, IBuilderCycle<BuilderCycle>
+    public class BuilderCycle : 
+        BuilderText<BuilderCycle, EntityCycle, ConstantCycle>, 
+        IBuilderCycle<BuilderCycle>
     {
         public override void Build(ModelBuilder builder)
         {

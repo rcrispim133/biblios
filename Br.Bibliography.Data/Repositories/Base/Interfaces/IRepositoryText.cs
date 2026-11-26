@@ -20,25 +20,25 @@ namespace Br.Bibliography.Data.Repositories.Base.Interfaces
 
         #region READ
 
-        new TEntity? Read(uint key);
+        new TEntity? Read(uint? key);
 
         #endregion
 
         #region UPDATE
 
-        new TEntity? Update(uint key, TEntity entity);
+        new TEntity? Update(uint? key, TEntity? entity);
 
         #endregion
 
         #region DELETE
 
-        new TEntity? Delete(uint key);
+        new TEntity? Delete(uint? key);
 
         #endregion
 
         #region SINGLE
 
-        new TEntity Single(uint key);
+        new TEntity Single(uint? key);
 
         #endregion
 

@@ -14,31 +14,31 @@ namespace Br.Bibliography.Data.Repositories.Base.Interfaces
 
         #region CREATE
 
-        TEntity? Create(TEntity entity);
+        TEntity? Create(TEntity? entity);
 
         #endregion
 
         #region READ
 
-        TEntity? Read(uint key);
+        TEntity? Read(uint? key);
 
         #endregion
 
         #region UPDATE
 
-        TEntity? Update(uint key, TEntity entity);
+        TEntity? Update(uint? key, TEntity? entity);
 
         #endregion
 
         #region DELETE
 
-        TEntity? Delete(uint key);
+        TEntity? Delete(uint? key);
 
         #endregion
 
         #region SINGLE
 
-        TEntity Single(uint key);
+        TEntity Single(uint? key);
 
         #endregion
 

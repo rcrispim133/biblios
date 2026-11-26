@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Exceptions\" />
+    <ProjectReference Include="..\Br.Bibliography.Model\Br.Bibliography.Model.csproj" />
   </ItemGroup>
 
 </Project>

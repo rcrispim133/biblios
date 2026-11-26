@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Locals;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Locals;
 using Br.Bibliography.Model.Entities.Impl.Locals;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Locals
 {
-    public class BuilderCountry : BuilderText<BuilderCountry, EntityCountry>, IBuilderCountry<BuilderCountry>
+    public class BuilderCountry : 
+        BuilderText<BuilderCountry, EntityCountry, ConstantCountry>, 
+        IBuilderCountry<BuilderCountry>
     {
         public override void Build(ModelBuilder builder)
         {

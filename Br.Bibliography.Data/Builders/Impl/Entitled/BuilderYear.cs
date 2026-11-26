@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Entitled;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Entitled
 {
-    public class BuilderYear : BuilderBase<BuilderYear, EntityYear>, IBuilderYear<BuilderYear>
+    public class BuilderYear : 
+        BuilderBase<BuilderYear, EntityYear, ConstantYear>, 
+        IBuilderYear<BuilderYear>
     {
         public override void Build(ModelBuilder builder)
         {

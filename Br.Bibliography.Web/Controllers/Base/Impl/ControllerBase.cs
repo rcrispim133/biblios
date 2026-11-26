@@ -5,7 +5,11 @@ using Br.Bibliography.Web.Packets.Base.Interfaces;
 
 namespace Br.Bibliography.Web.Controllers.Base.Impl
 {
-    public abstract class ControllerBase<TEntity, TPacket> : Controller, IControllerBase<TEntity, TPacket> where TPacket : IPacketBase<TEntity> where TEntity : class, IEntityBase<TEntity>
+    public abstract class ControllerBase<TEntity, TPacket> : 
+        Controller, 
+        IControllerBase<TEntity, TPacket> 
+            where TPacket : IPacketBase<TEntity> 
+            where TEntity : class, IEntityBase<TEntity>, new()
     {
         #region PROPERTIES
 
@@ -15,26 +19,25 @@ namespace Br.Bibliography.Web.Controllers.Base.Impl
 
         #region CREATE
 
-        public abstract TPacket? HandleCreate(TEntity entity);
+        public abstract TPacket? HandleCreate(TEntity? entity);
 
         #endregion
 
         #region READ
-
   
-        public abstract TPacket? HandleRead(uint key);
+        public abstract TPacket? HandleRead(uint? key);
 
         #endregion
 
         #region UPDATE
 
-        public abstract TPacket? HandleUpdate(uint key, TEntity entity);
+        public abstract TPacket? HandleUpdate(uint? key, TEntity? entity);
 
         #endregion
 
         #region DELETE
 
-        public abstract TPacket? HandleDelete(uint key);
+        public abstract TPacket? HandleDelete(uint? key);
 
         #endregion
 

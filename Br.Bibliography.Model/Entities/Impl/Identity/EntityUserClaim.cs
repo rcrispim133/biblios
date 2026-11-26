@@ -8,10 +8,10 @@ namespace Br.Bibliography.Model.Entities.Impl.Identity
     {
         #region Keys
 
-        public uint Key { get; set; }
+        public uint? Key { get; set; }
 
         [JsonIgnore]
-        public override int Id { get => (int)Key; set => Key = (uint)value; }
+        public override int Id { get => (int)(Key ?? 0); set => Key = (uint)value; }
 
         #endregion
 

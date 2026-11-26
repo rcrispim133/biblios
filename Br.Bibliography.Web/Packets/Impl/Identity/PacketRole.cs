@@ -6,14 +6,14 @@ namespace Br.Bibliography.Web.Packets.Impl.Identity
 {
     public class PacketRole : PacketBase<EntityRole, IPacketRole>, IPacketRole
     {
-        private PacketRole(uint? key, EntityRole? packet, string? message) : base(key, packet, message) { }
+        private PacketRole(uint? key, EntityRole? packet, string? message) : base(key, packet, message)
+        {
+        }
+        private PacketRole(EntityRole? packet) : this(null, packet, null)
+        {
+        }
+        public static IPacketRole Factory(EntityRole? packet) => new PacketRole(packet);
 
-        public static IPacketRole Factory(uint? key, EntityRole? packet, string message) => new PacketRole(key, packet, message);
-
-        public static IPacketRole Factory(uint? key, EntityRole? packet) => Factory(key, packet, string.Empty);
-
-        public static IPacketRole Factory(EntityRole? packet) => Factory(packet?.Key, packet, string.Empty);
-
-        public static IEnumerable<IPacketRole>? Factory(IEnumerable<EntityRole>? enumerable) => enumerable?.Select(x => Factory(x));
+        public static IEnumerable<IPacketRole> Factory(IEnumerable<EntityRole>? enumerable) => (enumerable ?? []).Select(x => Factory(x));
     }
 }

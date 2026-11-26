@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Entitled;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Entitled
 {
-    public class BuilderUrl : BuilderText<BuilderUrl, EntityUrl>, IBuilderUrl<BuilderUrl>
+    public class BuilderUrl : 
+        BuilderText<BuilderUrl, EntityUrl, ConstantUrl>, 
+        IBuilderUrl<BuilderUrl>
     {
         public override void Build(ModelBuilder builder)
         {

@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Locals;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Locals;
 using Br.Bibliography.Model.Entities.Impl.Locals;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Locals
 {
-    public class BuilderCity : BuilderText<BuilderCity, EntityCity>, IBuilderCity<BuilderCity>
+    public class BuilderCity : 
+        BuilderText<BuilderCity, EntityCity, ConstantCity>, 
+        IBuilderCity<BuilderCity>
     {
         public override void Build(ModelBuilder builder)
         {

@@ -3,7 +3,11 @@ using Br.Bibliography.Web.Packets.Base.Interfaces;
 
 namespace Br.Bibliography.Web.Packets.Base.Impl
 {
-    public abstract class PacketBase<TEntity, TPacket> : Packet, IPacketBase<TEntity> where TPacket : IPacketBase<TEntity> where TEntity : class, IEntityBase<TEntity>
+    public abstract class PacketBase<TEntity, TPacket> : 
+        Packet, 
+        IPacketBase<TEntity> 
+            where TPacket : IPacketBase<TEntity> 
+            where TEntity : class, IEntityBase<TEntity>, new()
     {
         public TEntity? Packet { get; set; }
 

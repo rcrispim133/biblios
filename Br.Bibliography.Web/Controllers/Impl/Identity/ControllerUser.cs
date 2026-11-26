@@ -35,28 +35,28 @@ namespace Br.Bibliography.Web.Controllers.Impl.Identity
         #region CREATE
 
         [HttpPost]
-        public override IPacketUser? HandleCreate([FromBody] EntityUser entity) => PacketUser.Factory(Repository.Create(entity));
+        public override IPacketUser? HandleCreate([FromBody] EntityUser? entity) => PacketUser.Factory(Repository.Create(entity));
 
         #endregion
 
         #region READ
 
         [HttpGet("{key:int:min(0)}")]
-        public override IPacketUser? HandleRead(uint key) => PacketUser.Factory(Repository.Read(key));
+        public override IPacketUser? HandleRead(uint? key) => PacketUser.Factory(Repository.Read(key));
 
         #endregion
 
         #region UPDATE
 
         [HttpPut]
-        public override IPacketUser? HandleUpdate(uint key, [FromBody] EntityUser entity) => PacketUser.Factory(Repository.Update(key, entity));
+        public override IPacketUser? HandleUpdate(uint? key, [FromBody] EntityUser? entity) => PacketUser.Factory(Repository.Update(key, entity));
 
         #endregion
 
         #region DELETE
 
         [HttpDelete("{key:int:min(0)}")]
-        public override IPacketUser? HandleDelete(uint key) => PacketUser.Factory(Repository.Delete(key));
+        public override IPacketUser? HandleDelete(uint? key) => PacketUser.Factory(Repository.Delete(key));
 
         #endregion
 

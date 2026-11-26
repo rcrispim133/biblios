@@ -2,5 +2,6 @@
   <Project Path="Br.Bibliography.Core/Br.Bibliography.Core.csproj" />
   <Project Path="Br.Bibliography.Data/Br.Bibliography.Data.csproj" Id="7efaf7ec-d125-44be-895e-ce9d2e52073b" />
   <Project Path="Br.Bibliography.Model/Br.Bibliography.Model.csproj" />
+  <Project Path="Br.Bibliography.Testing/Br.Bibliography.Testing.csproj" Id="4932bab1-1465-464b-87d4-997c8b1a863c" />
   <Project Path="Br.Bibliography.Web/Br.Bibliography.Web.csproj" Id="82c291e1-d0aa-4938-b8e2-d8ca7bfd8544" />
 </Solution>

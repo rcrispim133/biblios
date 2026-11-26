@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Sector;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
 using Br.Bibliography.Model.Entities.Impl.Sector;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Sector
 {
-    public class BuilderLine : BuilderLine<BuilderLine, EntityLine>, IBuilderLine<BuilderLine>
+    public class BuilderLine : 
+        BuilderLine<BuilderLine, EntityLine, ConstantLine>, 
+        IBuilderLine<BuilderLine>
     {
         public override void Build(ModelBuilder builder)
         {

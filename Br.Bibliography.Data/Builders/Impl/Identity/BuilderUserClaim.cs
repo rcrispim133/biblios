@@ -1,11 +1,14 @@
-﻿using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Core.Constants.Impl.Identity;
+using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Identity;
 using Br.Bibliography.Model.Entities.Impl.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Identity
 {
-    public class BuilderUserClaim : BuilderBase<BuilderUserClaim, EntityUserClaim>, IBuilderUserClaim<BuilderUserClaim>
+    public class BuilderUserClaim : 
+        BuilderBase<BuilderUserClaim, EntityUserClaim, ConstantUserClaim>, 
+        IBuilderUserClaim<BuilderUserClaim>
     {
         public override void Build(ModelBuilder builder)
         {
