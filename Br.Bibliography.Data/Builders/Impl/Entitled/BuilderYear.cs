@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Entitled;
+using Br.Bibliography.Core.Constants.Interfaces.Entitled;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
@@ -7,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Br.Bibliography.Data.Builders.Impl.Entitled
 {
     public class BuilderYear : 
-        BuilderBase<BuilderYear, EntityYear, ConstantYear>, 
+        BuilderBase<BuilderYear, EntityYear, IConstantYear>, 
         IBuilderYear<BuilderYear>
     {
+        public override IConstantYear Constant { get; init; } = ConstantYear.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityYear>();

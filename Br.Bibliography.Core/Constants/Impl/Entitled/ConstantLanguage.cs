@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
     public class ConstantLanguage : ConstantText<EntityLanguage>, IConstantLanguage
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantLanguage() { }
+
+        public static IConstantLanguage Factory() => new ConstantLanguage();
     }
 }

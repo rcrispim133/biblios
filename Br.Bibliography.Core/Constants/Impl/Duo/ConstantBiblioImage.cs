@@ -6,5 +6,8 @@ namespace Br.Bibliography.Core.Constants.Impl.Duo
 {
     public class ConstantBiblioImage : ConstantBase<EntityBiblioImage>, IConstantBiblioImage
     {
+        private ConstantBiblioImage() { }
+
+        public static IConstantBiblioImage Factory() => new ConstantBiblioImage();
     }
 }

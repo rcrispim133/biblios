@@ -1,4 +1,7 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Sector;
+﻿using Br.Bibliography.Core.Constants.Impl.Locals;
+using Br.Bibliography.Core.Constants.Impl.Sector;
+using Br.Bibliography.Core.Constants.Interfaces.Locals;
+using Br.Bibliography.Core.Constants.Interfaces.Sector;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
 using Br.Bibliography.Model.Entities.Impl.Sector;
@@ -7,9 +10,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Br.Bibliography.Data.Builders.Impl.Sector
 {
     public class BuilderDetail : 
-        BuilderText<BuilderDetail, EntityDetail, ConstantDetail>, 
+        BuilderText<BuilderDetail, EntityDetail, IConstantDetail>, 
         IBuilderDetail<BuilderDetail>
     {
+        public override IConstantDetail Constant { get; init; } = ConstantDetail.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityDetail>();

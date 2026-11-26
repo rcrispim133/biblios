@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Biblio;
+using Br.Bibliography.Core.Constants.Interfaces.Biblio;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Biblio;
 using Br.Bibliography.Model.Entities.Impl.Biblio;
@@ -6,8 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Biblio
 {
-    public class BuilderBiblio : BuilderBase<BuilderBiblio, EntityBiblio, ConstantBiblio>, IBuilderBiblio<BuilderBiblio>
+    public class BuilderBiblio : BuilderBase<BuilderBiblio, EntityBiblio, IConstantBiblio>, IBuilderBiblio<BuilderBiblio>
     {
+        public override IConstantBiblio Constant { get; init; } = ConstantBiblio.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityBiblio>();

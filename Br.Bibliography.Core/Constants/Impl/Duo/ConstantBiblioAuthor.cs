@@ -6,5 +6,8 @@ namespace Br.Bibliography.Core.Constants.Impl.Duo
 {
     public class ConstantBiblioAuthor : ConstantBase<EntityBiblioAuthor>, IConstantBiblioAuthor
     {
+        private ConstantBiblioAuthor() { }
+
+        public static IConstantBiblioAuthor Factory() => new ConstantBiblioAuthor();
     }
 }

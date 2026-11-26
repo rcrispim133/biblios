@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Biblio
     public class ConstantImage : ConstantRaw<EntityImage>, IConstantImage
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantImage() { }
+
+        public static IConstantImage Factory() => new ConstantImage();
     }
 }

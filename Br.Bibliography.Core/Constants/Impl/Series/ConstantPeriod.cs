@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Series
     public class ConstantPeriod : ConstantText<EntityPeriod>, IConstantPeriod
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantPeriod() { }
+
+        public static IConstantPeriod Factory() => new ConstantPeriod();
     }
 }

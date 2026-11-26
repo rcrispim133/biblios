@@ -8,8 +8,10 @@ namespace Br.Bibliography.Data.Builders.Base
         IBuilder<TBuilder, TEntity, TConstant> 
             where TBuilder : class, IBuilder<TBuilder, TEntity, TConstant>, new() 
             where TEntity : class, IEntityBase<TEntity>
-            where TConstant : class, IConstant
+            where TConstant : IConstant
     {
+        public abstract TConstant Constant { get; init; }
+
         protected static int TextMaxLength = 144;
 
         protected static int AcronymMaxLength = 10;

@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Locals
     public class ConstantState : ConstantText<EntityState>, IConstantState
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantState() { }
+
+        public static IConstantState Factory() => new ConstantState();
     }
 }

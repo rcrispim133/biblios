@@ -7,7 +7,7 @@ namespace Br.Bibliography.Data.Builders.Base.Interfaces
         IBuilderText<TBuilder, TEntity, TConstant> 
             where TBuilder : class, IBuilder<TBuilder, TEntity, TConstant>, new() 
             where TEntity : class, IEntityAcronym<TEntity>, new()
-            where TConstant : class, IConstantAcronym<TEntity>, new()
+            where TConstant : IConstantAcronym<TEntity>
     {
     }
 }

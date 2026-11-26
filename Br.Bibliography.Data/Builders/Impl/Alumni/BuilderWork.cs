@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Alumni;
+using Br.Bibliography.Core.Constants.Interfaces.Alumni;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
@@ -6,8 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Alumni
 {
-    public class BuilderWork : BuilderText<BuilderWork, EntityWork, ConstantWork>, IBuilderWork<BuilderWork>
+    public class BuilderWork : BuilderText<BuilderWork, EntityWork, IConstantWork>, IBuilderWork<BuilderWork>
     {
+        public override IConstantWork Constant { get; init; } = ConstantWork.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityWork>();

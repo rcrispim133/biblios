@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
     public class ConstantTeacher : ConstantText<EntityTeacher>, IConstantTeacher
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantTeacher() { }
+
+        public static IConstantTeacher Factory() => new ConstantTeacher();
     }
 }

@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
     public class ConstantType : ConstantText<EntityType>, IConstantType
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantType() { }
+
+        public static IConstantType Factory() => new ConstantType();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Alumni;
+using Br.Bibliography.Core.Constants.Interfaces.Alumni;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
@@ -6,8 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Alumni
 {
-    public class BuilderLecture : BuilderAcronym<BuilderLecture, EntityLecture, ConstantLecture>, IBuilderLecture<BuilderLecture>
+    public class BuilderLecture : BuilderAcronym<BuilderLecture, EntityLecture, IConstantLecture>, IBuilderLecture<BuilderLecture>
     {
+        public override IConstantLecture Constant { get; init; } = ConstantLecture.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityLecture>();

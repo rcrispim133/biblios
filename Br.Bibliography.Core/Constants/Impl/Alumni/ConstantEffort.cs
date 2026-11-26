@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
     public class ConstantEffort : ConstantText<EntityEffort>, IConstantEffort
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantEffort() { }
+
+        public static IConstantEffort Factory() => new ConstantEffort();
     }
 }

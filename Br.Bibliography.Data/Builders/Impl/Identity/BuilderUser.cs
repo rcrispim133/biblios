@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Identity;
+using Br.Bibliography.Core.Constants.Interfaces.Identity;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Identity;
 using Br.Bibliography.Model.Entities.Impl.Identity;
@@ -7,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Br.Bibliography.Data.Builders.Impl.Identity
 {
     public class BuilderUser : 
-        BuilderBase<BuilderUser, EntityUser, ConstantUser>, 
+        BuilderBase<BuilderUser, EntityUser, IConstantUser>, 
         IBuilderUser<BuilderUser>
     {
+        public override IConstantUser Constant { get; init; } = ConstantUser.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityUser>();

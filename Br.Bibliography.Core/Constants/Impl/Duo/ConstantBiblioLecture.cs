@@ -6,5 +6,8 @@ namespace Br.Bibliography.Core.Constants.Impl.Duo
 {
     public class ConstantBiblioLecture : ConstantBase<EntityBiblioLecture>, IConstantBiblioLecture
     {
+        private ConstantBiblioLecture() { }
+
+        public static IConstantBiblioLecture Factory() => new ConstantBiblioLecture();
     }
 }

@@ -6,5 +6,8 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
 {
     public class ConstantPre : ConstantBase<EntityPre>, IConstantPre
     {
+        private ConstantPre() { }
+
+        public static IConstantPre Factory() => new ConstantPre();
     }
 }

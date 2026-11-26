@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
     public class ConstantTitle : ConstantText<EntityTitle>, IConstantTitle
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantTitle() { }
+
+        public static IConstantTitle Factory() => new ConstantTitle();
     }
 }

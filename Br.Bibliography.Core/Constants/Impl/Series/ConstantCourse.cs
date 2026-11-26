@@ -9,5 +9,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Series
         public override uint ConstantMaxAcronym => throw new NotImplementedException();
 
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantCourse() { }
+
+        public static IConstantCourse Factory() => new ConstantCourse();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Locals;
+using Br.Bibliography.Core.Constants.Interfaces.Locals;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Locals;
 using Br.Bibliography.Model.Entities.Impl.Locals;
@@ -7,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Br.Bibliography.Data.Builders.Impl.Locals
 {
     public class BuilderCountry : 
-        BuilderText<BuilderCountry, EntityCountry, ConstantCountry>, 
+        BuilderText<BuilderCountry, EntityCountry, IConstantCountry>, 
         IBuilderCountry<BuilderCountry>
     {
+        public override IConstantCountry Constant { get; init; } = ConstantCountry.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityCountry>();

@@ -1,15 +1,17 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Locals;
+using Br.Bibliography.Core.Constants.Interfaces.Locals;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Locals;
-using Br.Bibliography.Model.Entities.Impl.Locals;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Locals
 {
     public class BuilderState : 
-        BuilderText<BuilderState, Model.Entities.Impl.Locals.EntityState, ConstantState>, 
+        BuilderText<BuilderState, Model.Entities.Impl.Locals.EntityState, IConstantState>, 
         IBuilderState<BuilderState>
     {
+        public override IConstantState Constant { get; init; } = ConstantState.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<Model.Entities.Impl.Locals.EntityState>();

@@ -9,5 +9,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Biblio
         public override uint ConstantMaxAcronym => throw new NotImplementedException();
 
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantAuthor() { }
+
+        public static IConstantAuthor Factory() => new ConstantAuthor();
     }
 }

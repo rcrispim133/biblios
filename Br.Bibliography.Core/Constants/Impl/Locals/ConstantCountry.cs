@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Locals
     public class ConstantCountry : ConstantText<EntityCountry>, IConstantCountry
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantCountry() { }
+
+        public static IConstantCountry Factory() => new ConstantCountry();
     }
 }

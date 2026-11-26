@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Locals
     public class ConstantCity : ConstantText<EntityCity>, IConstantCity
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantCity() { }
+
+        public static IConstantCity Factory() => new ConstantCity();
     }
 }

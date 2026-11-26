@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Alumni
     public class ConstantWork : ConstantText<EntityWork>, IConstantWork
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantWork() { }
+
+        public static IConstantWork Factory() => new ConstantWork();
     }
 }

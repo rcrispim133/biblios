@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Series;
+using Br.Bibliography.Core.Constants.Interfaces.Series;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Series;
 using Br.Bibliography.Model.Entities.Impl.Series;
@@ -7,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Br.Bibliography.Data.Builders.Impl.Series
 {
     public class BuilderCycle : 
-        BuilderText<BuilderCycle, EntityCycle, ConstantCycle>, 
+        BuilderText<BuilderCycle, EntityCycle, IConstantCycle>, 
         IBuilderCycle<BuilderCycle>
     {
+        public override IConstantCycle Constant { get; init; } = ConstantCycle.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityCycle>();

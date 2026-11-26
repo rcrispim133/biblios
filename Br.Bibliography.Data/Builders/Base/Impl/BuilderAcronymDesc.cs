@@ -9,7 +9,7 @@ namespace Br.Bibliography.Data.Builders.Base.Impl
         IBuilderAcronymDesc<TBuilder, TEntity, TConstant>
             where TBuilder : class, IBuilder<TBuilder, TEntity, TConstant>, new()
             where TEntity : class, IEntityAcronymDesc<TEntity>, new()
-            where TConstant : class, IConstantAcronymDesc<TEntity>, new()
+            where TConstant : IConstantAcronymDesc<TEntity>
     {
     }
 }

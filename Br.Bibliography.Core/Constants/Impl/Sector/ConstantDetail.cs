@@ -7,5 +7,9 @@ namespace Br.Bibliography.Core.Constants.Impl.Sector
     public class ConstantDetail : ConstantText<EntityDetail>, IConstantDetail
     {
         public override uint ConstantMaxText => throw new NotImplementedException();
+
+        private ConstantDetail() { }
+
+        public static IConstantDetail Factory() => new ConstantDetail();
     }
 }

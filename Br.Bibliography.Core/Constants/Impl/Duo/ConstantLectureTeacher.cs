@@ -6,5 +6,8 @@ namespace Br.Bibliography.Core.Constants.Impl.Duo
 {
     public class ConstantLectureTeacher : ConstantBase<EntityLectureTeacher>, IConstantLectureTeacher
     {
+        private ConstantLectureTeacher() { }
+
+        public static IConstantLectureTeacher Factory() => new ConstantLectureTeacher();
     }
 }

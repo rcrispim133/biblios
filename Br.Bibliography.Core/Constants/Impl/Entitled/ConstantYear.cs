@@ -6,5 +6,8 @@ namespace Br.Bibliography.Core.Constants.Impl.Entitled
 {
     public class ConstantYear : ConstantBase<EntityYear>, IConstantYear
     {
+        private ConstantYear() { }
+
+        public static IConstantYear Factory() => new ConstantYear();
     }
 }

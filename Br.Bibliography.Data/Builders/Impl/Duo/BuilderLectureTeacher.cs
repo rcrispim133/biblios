@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Duo;
+using Br.Bibliography.Core.Constants.Interfaces.Duo;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Duo;
 using Br.Bibliography.Model.Entities.Impl.Duo;
@@ -7,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Br.Bibliography.Data.Builders.Impl.Duo
 {
     public class BuilderLectureTeacher : 
-        BuilderBase<BuilderLectureTeacher, EntityLectureTeacher, ConstantLectureTeacher>, 
+        BuilderBase<BuilderLectureTeacher, EntityLectureTeacher, IConstantLectureTeacher>, 
         IBuilderLectureTeacher<BuilderLectureTeacher>
     {
+        public override IConstantLectureTeacher Constant { get; init; } = ConstantLectureTeacher.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityLectureTeacher>();

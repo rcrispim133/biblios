@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Sector;
+using Br.Bibliography.Core.Constants.Interfaces.Sector;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
 using Br.Bibliography.Model.Entities.Impl.Sector;
@@ -7,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Br.Bibliography.Data.Builders.Impl.Sector
 {
     public class BuilderSection : 
-        BuilderBase<BuilderSection, EntitySection, ConstantSection>, 
+        BuilderBase<BuilderSection, EntitySection, IConstantSection>, 
         IBuilderSection<BuilderSection>
     {
+        public override IConstantSection Constant { get; init; } = ConstantSection.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntitySection>();

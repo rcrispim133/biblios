@@ -9,7 +9,7 @@ namespace Br.Bibliography.Data.Builders.Base.Impl
         IBuilderDesc<TBuilder, TEntity, TConstant>
             where TBuilder : class, IBuilder<TBuilder, TEntity, TConstant>, new()
             where TEntity : class, IEntityDesc<TEntity>, new()
-            where TConstant : class, IConstantDesc<TEntity>, new()
+            where TConstant : IConstantDesc<TEntity>
     {
     }
 }

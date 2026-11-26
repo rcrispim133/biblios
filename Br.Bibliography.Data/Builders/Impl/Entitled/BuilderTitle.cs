@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Entitled;
+using Br.Bibliography.Core.Constants.Interfaces.Entitled;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
@@ -7,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Br.Bibliography.Data.Builders.Impl.Entitled
 {
     public class BuilderTitle : 
-        BuilderText<BuilderTitle, EntityTitle, ConstantTitle>, 
+        BuilderText<BuilderTitle, EntityTitle, IConstantTitle>, 
         IBuilderTitle<BuilderTitle>
     {
+        public override IConstantTitle Constant { get; init; } = ConstantTitle.Factory();
+
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityTitle>();

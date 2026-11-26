@@ -6,5 +6,8 @@ namespace Br.Bibliography.Core.Constants.Impl.Biblio
 {
     public class ConstantBiblio : ConstantBase<EntityBiblio>, IConstantBiblio
     {
+        private ConstantBiblio() { }
+
+        public static IConstantBiblio Factory() => new ConstantBiblio();
     }
 }
