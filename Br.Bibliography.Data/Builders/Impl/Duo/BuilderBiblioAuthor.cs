@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
             var e = builder.Entity<EntityBiblioAuthor>();
 
             // Table
-            e.ToTable("tbl_biblio_author");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_biblio_author");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_biblio_author").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
             
             e.HasIndex(x => x.KeyBiblio).HasDatabaseName("idx_key_biblio_author_biblio").IsUnique(false);
             
@@ -35,7 +35,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_biblio_author")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();

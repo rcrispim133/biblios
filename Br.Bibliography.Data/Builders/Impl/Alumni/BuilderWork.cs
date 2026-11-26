@@ -16,26 +16,26 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
             var e = builder.Entity<EntityWork>();
 
             // Table
-            e.ToTable("tbl_work");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_work");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_work").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             // Order
             var order = 0;
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_work")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_work")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

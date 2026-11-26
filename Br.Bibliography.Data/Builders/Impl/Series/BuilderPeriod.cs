@@ -18,26 +18,26 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
             var e = builder.Entity<EntityPeriod>();
 
             // Table
-            e.ToTable("tbl_period");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_period");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_period").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             // Order
             var order = 0;
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_period")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_period")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

@@ -18,26 +18,26 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
             var e = builder.Entity<EntityLanguage>();
 
             // Table
-            e.ToTable("tbl_language");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_language");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_language").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             // Order
             var order = 0;
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_language")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_language")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

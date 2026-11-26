@@ -18,22 +18,21 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
             var e = builder.Entity<EntityYear>();
 
             // Table
-            e.ToTable("tbl_year");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_year");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_year").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             // Order
             var order = 0;
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_year")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
-                .UseAutoincrement()
                 .IsRequired();
 
             // Relationships

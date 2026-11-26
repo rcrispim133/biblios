@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
             var e = builder.Entity<EntityBiblioImage>();
 
             // Table
-            e.ToTable("tbl_biblio_image");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_biblio_image");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_biblio_image").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
             
             e.HasIndex(x => x.KeyBiblio).HasDatabaseName("idx_key_biblio_image_biblio").IsUnique(false);
             
@@ -35,7 +35,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_biblio_image")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();

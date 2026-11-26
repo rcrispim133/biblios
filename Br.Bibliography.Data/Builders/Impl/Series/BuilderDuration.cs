@@ -18,26 +18,26 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
             var e = builder.Entity<EntityDuration>();
 
             // Table
-            e.ToTable("tbl_duration");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_duration");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_duration").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             // Order
             var order = 0;
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_duration")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_duration")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

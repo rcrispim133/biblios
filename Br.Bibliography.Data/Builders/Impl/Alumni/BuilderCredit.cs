@@ -11,32 +11,31 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
     {
         public override IConstantCredit Constant { get; init; } = ConstantCredit.Factory();
 
-
         public override void Build(ModelBuilder builder)
         {
             var e = builder.Entity<EntityCredit>();
 
             // Table
-            e.ToTable("tbl_credit");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_credit");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_credit").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             // Order
             var order = 0;
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_credit")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_credit")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
@@ -46,7 +45,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
                 .WithOne(x => x.EntityCredit)
                 .HasForeignKey(x => x.KeyCredit)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName("fk_credit_lecture");
+                .HasConstraintName(Constant.ForeignKeyName(["credit", "lecture"]));
         }
     }
 }

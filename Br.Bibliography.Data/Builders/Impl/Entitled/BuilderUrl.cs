@@ -18,26 +18,26 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
             var e = builder.Entity<EntityUrl>();
 
             // Table
-            e.ToTable("tbl_url");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_url");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_url").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             // Order
             var order = 0;
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_url")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_url")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(UrlMax)
                 .HasColumnOrder(order++)
                 .IsRequired();

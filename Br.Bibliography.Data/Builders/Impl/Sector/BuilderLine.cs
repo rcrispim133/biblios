@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
             var e = builder.Entity<EntityLine>();
 
             // Table
-            e.ToTable("tbl_line");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_line");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_line").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(x => x.KeySection).HasDatabaseName("idx_key_line_section").IsUnique(false);
 
@@ -33,7 +33,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_line")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -50,7 +50,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .IsRequired(false);
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_line")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

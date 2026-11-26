@@ -16,20 +16,20 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
             var e = builder.Entity<EntityAuthor>();
 
             // Table
-            e.ToTable("tbl_author");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_author");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_author").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             // Order
             var order = 0;
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_author")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -41,7 +41,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_author")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasColumnOrder(order++)
                 .HasMaxLength(TextMaxLength)
                 .IsRequired();

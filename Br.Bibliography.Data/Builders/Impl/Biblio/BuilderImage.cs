@@ -16,26 +16,26 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
             var e = builder.Entity<EntityImage>();
 
             // Table
-            e.ToTable("tbl_image");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_image");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_image").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             // Order
             var order = 0;
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_image")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_image")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasColumnOrder(order++)
                 .HasMaxLength(TextMaxLength)
                 .IsRequired();

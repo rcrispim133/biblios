@@ -17,13 +17,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
             var e = builder.Entity<Model.Entities.Impl.Locals.EntityState>();
 
             // Table
-            e.ToTable("tbl_state");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_state");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_state").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(e => e.KeyCountry).HasDatabaseName("idx_key_state_country").IsUnique(false);
 
@@ -32,7 +32,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_state")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -43,7 +43,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_state")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

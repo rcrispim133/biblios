@@ -16,13 +16,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
             var e = builder.Entity<EntityLecture>();
 
             // Table
-            e.ToTable("tbl_lecture");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_lecture");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_lecture").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(x => x.KeyCredit).HasDatabaseName("idx_key_lecture_credit").IsUnique(false);
 
@@ -37,7 +37,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_lecture")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -69,7 +69,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_lecture")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

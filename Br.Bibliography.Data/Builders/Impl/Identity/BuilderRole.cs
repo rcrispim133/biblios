@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
             var e = builder.Entity<EntityRole>();
 
             // Table
-            e.ToTable("tbl_role");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_role");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_role").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(x => x.Id).HasDatabaseName("idx_id_role").IsUnique();
 
@@ -33,7 +33,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
 
             // Properties
             e.Property(x => x.Id)
-                .HasColumnName("id_role")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

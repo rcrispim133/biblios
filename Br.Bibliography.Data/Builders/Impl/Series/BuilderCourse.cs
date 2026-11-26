@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
             var e = builder.Entity<EntityCourse>();
 
             // Table
-            e.ToTable("tbl_course");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_course");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_course").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(x => x.KeyUnit).HasDatabaseName("idx_key_course_unit").IsUnique(false);
 
@@ -39,7 +39,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_course")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -61,6 +61,11 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
 
             e.Property(x => x.KeyDuration)
                 .HasColumnName("key_duration")
+                .HasColumnOrder(order++)
+                .IsRequired();
+
+            e.Property(x => x.Text)
+                .HasColumnName(Constant.PropertyTextName)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

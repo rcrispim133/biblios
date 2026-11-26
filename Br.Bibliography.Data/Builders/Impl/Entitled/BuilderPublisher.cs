@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
             var e = builder.Entity<EntityPublisher>();
 
             // Table
-            e.ToTable("tbl_publisher");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_publisher");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_publisher").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(x => x.KeyCity).HasDatabaseName("idx_key_publisher_city").IsUnique(false);
 
@@ -33,13 +33,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_publisher")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_publisher")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

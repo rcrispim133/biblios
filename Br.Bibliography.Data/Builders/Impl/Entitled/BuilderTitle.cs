@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
             var e = builder.Entity<EntityTitle>();
 
             // Table
-            e.ToTable("tbl_title");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_title");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_title").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(x => x.KeyEdition).HasDatabaseName("idx_key_title_edition").IsUnique(false);
 
@@ -41,13 +41,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_title")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_title")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(DescMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

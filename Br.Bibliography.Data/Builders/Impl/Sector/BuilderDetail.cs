@@ -20,13 +20,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
             var e = builder.Entity<EntityDetail>();
 
             // Table
-            e.ToTable("tbl_detail");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_detail");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_detail").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
 
             // Order
@@ -34,13 +34,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_detail")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_detail")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

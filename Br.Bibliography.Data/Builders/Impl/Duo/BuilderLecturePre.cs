@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
             var e = builder.Entity<EntityLecturePre>();
 
             // Table
-            e.ToTable("tbl_lecture_pre");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_lecture_pre");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_lecture_pre").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
             
             e.HasIndex(x => x.KeyLecture).HasDatabaseName("idx_key_lecture_pre_lecture").IsUnique(false);
             
@@ -35,7 +35,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_lecture_pre")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();

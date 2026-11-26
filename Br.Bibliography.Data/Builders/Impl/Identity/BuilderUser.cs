@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
             var e = builder.Entity<EntityUser>();
 
             // Table
-            e.ToTable("tbl_user");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_user");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_user").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(x => x.Id).HasDatabaseName("idx_id_user").IsUnique();
 
@@ -38,7 +38,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .IsRequired();
 
             e.Property(x => x.Key)
-                .HasColumnName("key_user")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();

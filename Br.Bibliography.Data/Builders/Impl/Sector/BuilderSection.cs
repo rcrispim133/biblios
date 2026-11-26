@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
             var e = builder.Entity<EntitySection>();
 
             // Table
-            e.ToTable("tbl_section");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_section");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_section").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(x => x.KeyLecture).HasDatabaseName("idx_key_section_lecture").IsUnique();
 
@@ -35,7 +35,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_section")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();

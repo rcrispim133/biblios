@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
             var e = builder.Entity<EntityCity>();
 
             // Table
-            e.ToTable("tbl_city");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_city");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_city").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(e => e.KeyState).HasDatabaseName("idx_key_city_state").IsUnique(false);
 
@@ -33,7 +33,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
 
             // Properties
             e.Property(x => x.Key)
-                .HasColumnName("key_city")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -44,7 +44,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName("txt_city")
+                .HasColumnName(Constant.PropertyTextName)
                 .HasMaxLength(TextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();

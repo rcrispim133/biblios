@@ -18,13 +18,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
             var e = builder.Entity<EntityUserClaim>();
 
             // Table
-            e.ToTable("tbl_user_claim");
+            e.ToTable(Constant.TableName);
 
             // Key
-            e.HasKey(x => x.Key).HasName("pk_key_user_claim");
+            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
             // Index
-            e.HasIndex(x => x.Key).HasDatabaseName("idx_key_user_claim").IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
             e.HasIndex(x => x.Id).HasDatabaseName("idx_id_user_claim").IsUnique();
 
@@ -40,7 +40,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .IsRequired();
 
             e.Property(x => x.Key)
-                .HasColumnName("key_user_claim")
+                .HasColumnName(Constant.PropertyKeyName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
