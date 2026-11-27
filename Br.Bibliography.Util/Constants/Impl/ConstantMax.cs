@@ -1,35 +1,45 @@
 ﻿using Br.Bibliography.Util.Constants.Interfaces;
-using Br.Bibliography.Util.Extensions.Impl;
-using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Util.Constants.Impl
 {
     public class ConstantMax : IConstantMax
     {
+        #region Constructor
+
         private ConstantMax() { }
+
+        #endregion
+
+        #region Factory
 
         public static IConstantMax Factory() => new ConstantMax();
 
-        public int MaxText => ResourceMax.Text.ParseFromResource();
+        #endregion
 
-        public int MaxDesc => ResourceMax.Desc.ParseFromResource();
+        #region Constants
 
-        public int MaxAcronym => ResourceMax.Acronym.ParseFromResource();
+        public int MaxText => 144;
 
-        public int MaxRaw => ResourceMax.Raw.ParseFromResource();
+        public int MaxDesc => 500;
 
-        public int MaxName => ResourceMax.Name.ParseFromResource();
+        public int MaxAcronym => 8;
 
-        public int MaxRole => ResourceMax.Role.ParseFromResource();
+        public int MaxRaw => 1024 * 1024;
 
-        public int MaxUsername => ResourceMax.Username.ParseFromResource();
+        public int MaxName => 96;
 
-        public int MaxEmail => ResourceMax.Email.ParseFromResource();
+        public int MaxRole => 16;
 
-        public int MaxPassword => ResourceMax.Password.ParseFromResource();
+        public int MaxUsername => 24;
 
-        public int MaxClaim => ResourceMax.Claim.ParseFromResource();
+        public int MaxEmail => 96;
 
-        public int MaxMark => ResourceMax.Mark.ParseFromResource();
+        public int MaxPassword => 32;
+
+        public int MaxClaim => 16;
+
+        public int MaxMark => 4;
+
+        #endregion
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Br.Bibliography.Util.Constants.Interfaces;
-using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Util.Constants.Impl
 {
@@ -19,25 +18,25 @@ namespace Br.Bibliography.Util.Constants.Impl
 
         #region Constants
 
-        public string ACTIVATION => ResourceProperties.ACTIVATION;
+        public string ACTIVATION => "activation";
 
-        public string CONFIRMED => ResourceProperties.CONFIRMED;
+        public string CONFIRMED => "confirmed";
 
-        public string DEACTIVATION => ResourceProperties.DEACTIVATION;
+        public string DEACTIVATION => "deactivation";
 
-        public string EMAIL => ResourceProperties.EMAIL;
+        public string EMAIL => "email";
 
-        public string MARK => ResourceProperties.MARK;
+        public string MARK => "mark";
 
-        public string ORDER => ResourceProperties.ORDER;
+        public string ORDER => "order";
 
-        public string PASSWORD => ResourceProperties.PASSWORD;
+        public string PASSWORD => "password";
 
-        public string TRANSLATE => ResourceProperties.TRANSLATE;
+        public string TRANSLATE => "translate";
 
-        public string USERNAME => ResourceProperties.USERNAME;
+        public string USERNAME => "username";
 
-        public string VALUE => ResourceProperties.VALUE;
+        public string VALUE => "value";
 
         #endregion
     }

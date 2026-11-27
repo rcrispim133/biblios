@@ -456,13 +456,7 @@ namespace Br.Bibliography.Data.Contexts.Base
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string basePath = Path.GetFullPath("../Br.Bibliography.Data");
-            string backupPath = $"{basePath}/Backups";
-            if (!Directory.Exists(backupPath)) Directory.CreateDirectory(backupPath);
-
-            string filePath = $"{basePath}/database.db";
-            string fileBackup = $"{backupPath}/database-{DateTime.Now:yyyyMMddhhmmss}.db";
-            if (File.Exists(filePath)) File.Copy(filePath, fileBackup, true);
-
+            string filePath = $"{basePath}/{Constant.Default.DatabaseName}";
             string connectionString = $"Data Source={filePath}";
             optionsBuilder.UseSqlite(connectionString);
         }

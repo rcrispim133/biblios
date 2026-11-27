@@ -1,5 +1,4 @@
 ﻿using Br.Bibliography.Util.Constants.Interfaces;
-using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Util.Constants.Impl
 {
@@ -19,33 +18,33 @@ namespace Br.Bibliography.Util.Constants.Impl
 
         #region Constants
 
-        public string TableNamePrefix => ResourcePrefix.TableNamePrefix;
+        public string TableNamePrefix => "tbl";
 
-        public string PrimaryKeyPrefix => ResourcePrefix.PrimaryKeyPrefix;
+        public string PrimaryKeyPrefix => "pk";
 
-        public string KeyPrefix => ResourcePrefix.KeyPrefix;
+        public string KeyPrefix => "key";
 
-        public string IndexPrefix => ResourcePrefix.IndexPrefix;
+        public string IndexPrefix => "idx";
 
-        public string TextPrefix => ResourcePrefix.TextPrefix;
+        public string TextPrefix => "txt";
 
-        public string AcronymPrefix => ResourcePrefix.AcronymPrefix;
+        public string AcronymPrefix => "acr";
 
-        public string ForeignKeyPrefix => ResourcePrefix.ForeignKeyPrefix;
+        public string ForeignKeyPrefix => "fk";
 
-        public string DateTimePrefix => ResourcePrefix.DateTimePrefix;
+        public string DateTimePrefix => "dt";
 
-        public string RawPrefix => ResourcePrefix.RawPrefix;
+        public string RawPrefix => "raw";
 
-        public string DescPrefix => ResourcePrefix.DescPrefix;
+        public string DescPrefix => "desc";
 
-        public string IdentityPrefix => ResourcePrefix.IdentityPrefix;
+        public string IdentityPrefix => "id";
 
-        public string NamePrefix => ResourcePrefix.NamePrefix;
+        public string NamePrefix => "nm";
 
-        public string LogicalPrefix => ResourcePrefix.LogicalPrefix;
+        public string LogicalPrefix => "bit";
 
-        public string NumberPrefix => ResourcePrefix.NumberPrefix;
+        public string NumberPrefix => "num";
 
         #endregion
     }

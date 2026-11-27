@@ -6,6 +6,8 @@
 
         int Key { get; }
 
+        string DatabaseName { get; }
+
         #endregion
     }
 }

@@ -1,74 +1,85 @@
 ﻿using Br.Bibliography.Util.Constants.Interfaces;
-using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Util.Constants.Impl
 {
     public class ConstantBase : IConstantBase
     {
+        #region Constructor
+
         private ConstantBase() { }
+
+        #endregion
+
+        #region Factory
 
         public static IConstantBase Factory() => new ConstantBase();
 
-        public string CREDIT => ResourceBase.CREDIT;
+        #endregion
 
-        public string EFFORT => ResourceBase.EFFORT;
+        #region Constants
 
-        public string LECTURE => ResourceBase.LECTURE;
+        public string CREDIT => "credit";
 
-        public string PRE => ResourceBase.PRE;
+        public string EFFORT => "effort";
 
-        public string TEACHER => ResourceBase.TEACHER;
+        public string LECTURE => "lecture";
 
-        public string TYPE => ResourceBase.TYPE;
+        public string PRE => "pre";
 
-        public string WORK => ResourceBase.WORK;
+        public string TEACHER => "teacher";
 
-        public string AUTHOR => ResourceBase.AUTHOR;
+        public string TYPE => "typre";
 
-        public string BIBLIO => ResourceBase.BIBLIO;
+        public string WORK => "work";
 
-        public string IMAGE => ResourceBase.IMAGE;
+        public string AUTHOR => "author";
 
-        public string DISCLAIMER => ResourceBase.DISCLAIMER;
+        public string BIBLIO => "biblio";
 
-        public string EDITION => ResourceBase.EDITION;
+        public string IMAGE => "image";
 
-        public string LANGUAGE => ResourceBase.LANGUAGE;
+        public string DISCLAIMER => "disclaimer";
 
-        public string PUBLISHER => ResourceBase.PUBLISHER;
+        public string EDITION => "edition";
 
-        public string TITLE => ResourceBase.TITLE;
+        public string LANGUAGE => "language";
 
-        public string URL => ResourceBase.URL;
+        public string PUBLISHER => "publisher";
 
-        public string YEAR => ResourceBase.YEAR;
+        public string TITLE => "title";
 
-        public string ROLE => ResourceBase.ROLE;
+        public string URL => "url";
 
-        public string USER => ResourceBase.USER;
+        public string YEAR => "year";
 
-        public string CLAIM => ResourceBase.CLAIM;
+        public string ROLE => "role";
 
-        public string CITY => ResourceBase.CITY;
+        public string USER => "user";
 
-        public string COUNTRY => ResourceBase.COUNTRY;
+        public string CLAIM => "claim";
 
-        public string STATE => ResourceBase.STATE;
+        public string CITY => "city";
 
-        public string DETAIL => ResourceBase.DETAIL;
+        public string COUNTRY => "country";
 
-        public string LINE => ResourceBase.LINE;
+        public string STATE => "state";
 
-        public string SECTION => ResourceBase.SECTION;
+        public string DETAIL => "detail";
 
-        public string COURSE => ResourceBase.COURSE;
+        public string LINE => "line";
 
-        public string CYCLE => ResourceBase.CYCLE;
+        public string SECTION => "section";
 
-        public string DURATION => ResourceBase.DURATION;
+        public string COURSE => "course";
 
-        public string PERIOD => ResourceBase.PERIOD;
+        public string CYCLE => "cycle";
 
-        public string UNIT => ResourceBase.UNIT;
+        public string DURATION => "duration";
+
+        public string PERIOD => "period";
+
+        public string UNIT => "unit";
+
+        #endregion
     }
 }
