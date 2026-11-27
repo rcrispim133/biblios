@@ -93,43 +93,43 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
                 .WithMany(x => x.EnumerableTitle)
                 .HasForeignKey(x => x.KeyEdition)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.TITLE, StaticEntityNames.EDITION]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.TITLE, StaticEntityNames.EDITION]));
 
             e.HasOne(x => x.EntityPublisher)
                 .WithMany(x => x.EnumerableTitle)
                 .HasForeignKey(x => x.KeyPublisher)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.TITLE, StaticEntityNames.PUBLISHER]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.TITLE, StaticEntityNames.PUBLISHER]));
 
             e.HasOne(x => x.EntityLanguage)
                 .WithMany(x => x.EnumerableTitle)
                 .HasForeignKey(x => x.KeyLanguage)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.TITLE, StaticEntityNames.LANGUAGE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.TITLE, StaticEntityNames.LANGUAGE]));
 
             e.HasOne(x => x.EntityYear)
                 .WithMany(x => x.EnumerableTitle)
                 .HasForeignKey(x => x.KeyYear)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.TITLE, StaticEntityNames.YEAR]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.TITLE, StaticEntityNames.YEAR]));
 
             e.HasOne(x => x.EntityDisclaimer)
                 .WithMany(x => x.EnumerableTitle)
                 .HasForeignKey(x => x.KeyDisclaimer)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.TITLE, StaticEntityNames.DISCLAIMER]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.TITLE, StaticEntityNames.DISCLAIMER]));
 
             e.HasMany(x => x.EnumerableTitleUrl)
                 .WithOne(x => x.EntityTitle)
                 .HasForeignKey(x => x.KeyTitle)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.TITLE, StaticEntityNames.TITLE, StaticEntityNames.URL]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.TITLE, StaticEntityNames.TITLE, StaticEntityNames.URL]));
 
             e.HasMany(x => x.EnumerableTitleBiblio)
                 .WithOne(x => x.EntityTitle)
                 .HasForeignKey(x => x.KeyTitle)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.TITLE, StaticEntityNames.TITLE, StaticEntityNames.BIBLIO]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.TITLE, StaticEntityNames.TITLE, StaticEntityNames.BIBLIO]));
 
             #endregion
         }

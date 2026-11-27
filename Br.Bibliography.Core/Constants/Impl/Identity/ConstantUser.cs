@@ -2,7 +2,7 @@
 using Br.Bibliography.Core.Constants.Interfaces.Identity;
 using Br.Bibliography.Core.Static;
 using Br.Bibliography.Model.Entities.Impl.Identity;
-using Br.Bibliography.Util.Extensions;
+using Br.Bibliography.Util.Extensions.Impl;
 using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Core.Constants.Impl.Identity
@@ -29,11 +29,11 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
 
         #region User
 
-        public int DefaultUserNameMax => ResourceBase.DefaultUserNameMax.Parse();
+        public int DefaultUserNameMax => ResourceBase.DefaultUserNameMax.ParseFromResource();
 
-        public int DefaultEmailMax => ResourceBase.DefaultEmailMax.Parse();
+        public int DefaultEmailMax => ResourceBase.DefaultEmailMax.ParseFromResource();
 
-        public int DefaultPasswordMax => ResourceBase.DefaultPasswordMax.Parse();
+        public int DefaultPasswordMax => ResourceBase.DefaultPasswordMax.ParseFromResource();
 
         #endregion
     }

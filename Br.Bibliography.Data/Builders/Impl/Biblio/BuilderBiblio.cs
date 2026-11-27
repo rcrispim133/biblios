@@ -60,25 +60,25 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
                 .WithOne(x => x.EntityBiblio)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR ]));
 
             e.HasMany(x => x.EnumerableTitleBiblio)
                 .WithOne(x => x.EntityBiblio)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.TITLE, StaticEntityNames.BIBLIO ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.TITLE, StaticEntityNames.BIBLIO ]));
 
             e.HasMany(x => x.EnumerableBiblioImage)
                 .WithOne(x => x.EntityBiblio)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.BIBLIO, StaticEntityNames.IMAGE ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.BIBLIO, StaticEntityNames.IMAGE ]));
 
             e.HasMany(x => x.EnumerableBiblioLecture)
                 .WithOne(x => x.EntityBiblio)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE ]));
 
             #endregion
         }

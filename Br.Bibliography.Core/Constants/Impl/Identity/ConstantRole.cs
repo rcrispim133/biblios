@@ -2,7 +2,7 @@
 using Br.Bibliography.Core.Constants.Interfaces.Identity;
 using Br.Bibliography.Core.Static;
 using Br.Bibliography.Model.Entities.Impl.Identity;
-using Br.Bibliography.Util.Extensions;
+using Br.Bibliography.Util.Extensions.Impl;
 using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Core.Constants.Impl.Identity
@@ -29,7 +29,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
 
         #region Role
 
-        public int DefaultMaxRoleName => ResourceBase.DefaultMaxRoleName.Parse();
+        public int DefaultMaxRoleName => ResourceBase.DefaultMaxRoleName.ParseFromResource();
 
         #endregion
     }

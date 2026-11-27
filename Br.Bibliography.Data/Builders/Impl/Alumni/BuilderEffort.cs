@@ -66,7 +66,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
                 .WithOne(x => x.EntityEffort)
                 .HasForeignKey(x => x.KeyEffort)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.EFFORT, StaticEntityNames.LECTURE ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.EFFORT, StaticEntityNames.LECTURE ]));
 
             #endregion
         }

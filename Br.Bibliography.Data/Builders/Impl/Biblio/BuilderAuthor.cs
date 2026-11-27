@@ -72,7 +72,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
                 .WithOne(x => x.EntityAuthor)
                 .HasForeignKey(x => x.KeyAuthor)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.AUTHOR, StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.AUTHOR, StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR ]));
 
             #endregion
         }

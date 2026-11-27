@@ -68,7 +68,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
                 .WithOne(x => x.EntityEdition)
                 .HasForeignKey(x => x.KeyEdition)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.EDITION, StaticEntityNames.TITLE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.EDITION, StaticEntityNames.TITLE]));
 
             #endregion
         }

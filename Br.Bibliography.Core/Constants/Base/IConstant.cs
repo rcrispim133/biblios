@@ -2,7 +2,6 @@
 {
     public interface IConstant
     {
-
         string TableName { get; }
 
         string PrimaryKeyName { get; }
@@ -15,29 +14,29 @@
 
         string PropertyAcronymColumnName { get; }
 
-        Func<string[], string> ConstraintName { get; }
+        string ForeignKeyConstraintName(params string[] array);
 
-        Func<string[], string> IndexDatabaseName { get; }
+        string IndexDatabaseName(params string[] array);
 
-        Func<string[], string> ForeignKeyColumnName { get; }
+        string ForeignKeyColumnName(params string[] array);
 
-        Func<string[], string> TextColumnName { get; }
+        string DateColumnName(params string[] array);
 
-        Func<string[], string> DateColumnName { get; }
+        string RawColumnName(params string[] array);
 
-        Func<string[], string> RawColumnName { get; }
+        string DescColumnName(params string[] array);
 
-        Func<string[], string> DescColumnName { get; }
+        string IdentityDatabaseName(params string[] array);
 
-        Func<string[], string> IdentityDatabaseName { get; }
+        string NameColumnName(params string[] array);
 
-        Func<string[], string> NameColumnName { get; }
+        string IdentityColumnName(params string[] array);
 
-        Func<string[], string> IdentityColumnName { get; }
+        string LogicColumnName(params string[] array);
 
-        Func<string[], string> LogicColumnName { get; }
+        string NumberColumnName(params string[] array);
 
-        Func<string[], string> NumberColumnName { get; }
+        string TextColumnName(params string[] array);
 
         int BaseOrder { get; }
 

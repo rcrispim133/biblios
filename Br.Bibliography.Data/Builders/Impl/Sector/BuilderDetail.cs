@@ -70,7 +70,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .WithOne(x => x.EntityDetail)
                 .HasForeignKey(x => x.KeyDetail)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.DETAIL, StaticEntityNames.SECTION]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.DETAIL, StaticEntityNames.SECTION]));
 
             #endregion
         }

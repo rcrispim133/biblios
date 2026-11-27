@@ -77,13 +77,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
                 .WithMany(x => x.EnumerableStates)
                 .HasForeignKey(x => x.KeyCountry)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.STATE, StaticEntityNames.COUNTRY]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.STATE, StaticEntityNames.COUNTRY]));
 
             e.HasMany(x => x.EnumerableCity)
                 .WithOne(x => x.EntityState)
                 .HasForeignKey(x => x.KeyState)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.STATE, StaticEntityNames.CITY]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.STATE, StaticEntityNames.CITY]));
 
             #endregion
         }

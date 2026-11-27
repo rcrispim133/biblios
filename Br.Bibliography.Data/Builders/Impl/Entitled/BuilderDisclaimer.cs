@@ -68,7 +68,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
                 .WithOne(x => x.EntityDisclaimer)
                 .HasForeignKey(x => x.KeyDisclaimer)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.DISCLAIMER, StaticEntityNames.TITLE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.DISCLAIMER, StaticEntityNames.TITLE]));
 
             #endregion
         }

@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Interfaces;
 using Br.Bibliography.Model.Entities.Base.Interfaces;
-using Br.Bibliography.Util.Extensions;
+using Br.Bibliography.Util.Extensions.Impl;
 using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Core.Constants.Base.Impl
@@ -10,7 +10,7 @@ namespace Br.Bibliography.Core.Constants.Base.Impl
     {
         #region Acronym
 
-        public int DefaultMaxAcronym => ResourceBase.DefaultMaxAcronym.Parse();
+        public int DefaultMaxAcronym => ResourceBase.DefaultMaxAcronym.ParseFromResource();
 
         #endregion
     }

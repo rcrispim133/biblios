@@ -1,5 +1,8 @@
 ﻿using Br.Bibliography.Model.Entities.Base;
+using Br.Bibliography.Util.Extensions.Impl;
 using Br.Bibliography.Util.Helpers.Base;
+using Br.Bibliography.Util.Helpers.Impl;
+using Br.Bibliography.Util.Helpers.String;
 
 namespace Br.Bibliography.Core.Constants.Base
 {
@@ -43,45 +46,45 @@ namespace Br.Bibliography.Core.Constants.Base
 
         public abstract string[] EntityNameParts { get; }
 
-        public virtual string EntityName => string.Join(Separator, EntityNameParts);
+        public virtual string EntityName => ExtensionFluent.EntityNameFromParams(EntityNameParts);
 
-        public virtual string TableName => $"{TableNamePrefix}{Separator}{EntityName}";
+        public virtual string TableName => ExtensionFluent.TableNameFromParams(EntityName);
 
-        public virtual string PrimaryKeyName => string.Join(Separator, [PrimaryKeyPrefix, KeyPrefix, EntityName]);
+        public virtual string PrimaryKeyName => ExtensionFluent.PrimaryKeyConstraintFromParams(EntityName);
 
-        public virtual string PrimaryKeyIndexName => string.Join(Separator, [IndexPrefix, KeyPrefix, EntityName]);
+        public virtual string PrimaryKeyIndexName => ExtensionFluent.PrimaryKeyIndexFromParams(EntityName);
 
-        public virtual string PropertyKeyColumnName => string.Join(Separator, [KeyPrefix, EntityName]);
+        public virtual string PropertyKeyColumnName => ExtensionFluent.KeyColumnNameFromParams(EntityName);
 
-        public virtual string PropertyTextColumnName => string.Join(Separator, [TextPrefix, EntityName]);
+        public virtual string PropertyTextColumnName => ExtensionFluent.TextColumnNameFromParams(EntityName);
 
-        public virtual string PropertyAcronymColumnName => string.Join(Separator, [AcronymPrefix, EntityName]);
+        public virtual string PropertyAcronymColumnName => ExtensionFluent.AcronymColumnNameFromParams(EntityName);
 
-        public virtual Func<string[], string> ConstraintName => array => string.Join(Separator, array.Prepend(ForeignKeyPrefix));
+        public virtual string ForeignKeyConstraintName(params string[] array) => ExtensionFluent.ForeignKeyConstraintNameFromParams(array);
 
-        public virtual Func<string[], string> IndexDatabaseName => array => string.Join(Separator, array.Prepend(KeyPrefix).Prepend(IndexPrefix));
+        public virtual string IndexDatabaseName(params string[] array) => ExtensionFluent.IndexDatabaseNameFromParams(array);
 
-        public virtual Func<string[], string> ForeignKeyColumnName => array => string.Join(Separator, array.Prepend(KeyPrefix));
+        public virtual string ForeignKeyColumnName(params string[] array) => ExtensionFluent.ForeignKeyColumnNameFromParams(array);
 
-        public virtual Func<string[], string> TextColumnName => array => string.Join(Separator, array.Prepend(TextPrefix));
+        public virtual string DateColumnName(params string[] array) => ExtensionFluent.DateTimeColumnNameFromParams(array);
 
-        public virtual Func<string[], string> DateColumnName => array => string.Join(Separator, array.Prepend(DateTimePrefix));
+        public virtual string RawColumnName(params string[] array) => ExtensionFluent.RawColumnNameFromParams(array);
 
-        public virtual Func<string[], string> RawColumnName => array => string.Join(Separator, array.Prepend(RawPrefix));
+        public virtual string DescColumnName(params string[] array) => ExtensionFluent.DescColumnNameFromParams(array);
 
-        public virtual Func<string[], string> DescColumnName => array => string.Join(Separator, array.Prepend(DescPrefix));
+        public virtual string IdentityDatabaseName(params string[] array) => ExtensionFluent.IdentityDatabaseNameFromParams(array);
 
-        public virtual Func<string[], string> IdentityDatabaseName => array => string.Join(Separator, array.Prepend(IdentityPrefix).Prepend(IndexPrefix));
+        public virtual string NameColumnName(params string[] array) => ExtensionFluent.NameColumnNameFromParams(array);
 
-        public virtual Func<string[], string> NameColumnName => array => string.Join(Separator, array.Prepend(NamePrefix));
+        public virtual string IdentityColumnName(params string[] array) => ExtensionFluent.IdentityColumnNameFromParams(array);
 
-        public virtual Func<string[], string> IdentityColumnName => array => string.Join(Separator, array.Prepend(IdentityPrefix));
+        public virtual string LogicColumnName(params string[] array) => ExtensionFluent.LogicColumnNameFromParams(array);
 
-        public virtual Func<string[], string> LogicColumnName => array => string.Join(Separator, array.Prepend(LogicPrefix));
+        public virtual string NumberColumnName(params string[] array) => ExtensionFluent.LogicColumnNameFromParams(array);
 
-        public virtual Func<string[], string> NumberColumnName => array => string.Join(Separator, array.Prepend(NumberPrefix));
+        public virtual string TextColumnName(params string[] array) => ExtensionFluent.TextColumnNameFromParams(array);
 
-        public virtual int BaseOrder => Helper.ZERO;
+        public virtual int BaseOrder => HelperMath.ZERO;
 
         #endregion
     }

@@ -130,55 +130,55 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
                 .WithMany(x => x.EnumerableLecture)
                 .HasForeignKey(x => x.KeyCredit)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.CREDIT ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.CREDIT ]));
 
             e.HasOne(x => x.EntityWork)
                 .WithMany(x => x.EnumerableLecture)
                 .HasForeignKey(x => x.KeyWork)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.WORK ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.WORK ]));
 
             e.HasOne(x => x.EntityEffort)
                 .WithMany(x => x.EnumerableLecture)
                 .HasForeignKey(x => x.KeyEffort)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.EFFORT ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.EFFORT ]));
 
             e.HasOne(x => x.EntityType)
                 .WithMany(x => x.EnumerableLecture)
                 .HasForeignKey(x => x.KeyType)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.TYPE ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.TYPE ]));
 
             e.HasMany(x => x.EnumerableBiblioLecture)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE ]));
 
             e.HasMany(x => x.EnumerableSection)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.SECTION ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.SECTION ]));
 
             e.HasMany(x => x.EnumerableLectureTeacher)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.TEACHER, StaticEntityNames.LECTURE ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.TEACHER, StaticEntityNames.LECTURE ]));
 
             e.HasMany(x => x.EnumerableLectureCourse)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.LECTURE, StaticEntityNames.COURSE ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.LECTURE, StaticEntityNames.COURSE ]));
 
             e.HasMany(x => x.EnumerableLecturePre)
                 .WithOne(x => x.EntityLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.LECTURE , StaticEntityNames.PRE ]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.LECTURE, StaticEntityNames.LECTURE , StaticEntityNames.PRE ]));
 
             #endregion
         }

@@ -82,19 +82,19 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .WithMany(x => x.EnumerableSection)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.SECTION, StaticEntityNames.LECTURE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.SECTION, StaticEntityNames.LECTURE]));
 
             e.HasOne(x => x.EntityDetail)
                 .WithMany(x => x.EnumerableSection)
                 .HasForeignKey(x => x.KeyDetail)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.SECTION, StaticEntityNames.DETAIL]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.SECTION, StaticEntityNames.DETAIL]));
 
             e.HasMany(x => x.EnumerableLine)
                 .WithOne(x => x.EntitySection)
                 .HasForeignKey(x => x.KeySection)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.SECTION, StaticEntityNames.LINE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.SECTION, StaticEntityNames.LINE]));
 
             #endregion
         }

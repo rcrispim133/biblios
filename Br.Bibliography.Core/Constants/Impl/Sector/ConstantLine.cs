@@ -2,7 +2,7 @@
 using Br.Bibliography.Core.Constants.Interfaces.Sector;
 using Br.Bibliography.Core.Static;
 using Br.Bibliography.Model.Entities.Impl.Sector;
-using Br.Bibliography.Util.Extensions;
+using Br.Bibliography.Util.Extensions.Impl;
 using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Core.Constants.Impl.Sector
@@ -23,7 +23,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Sector
 
         #region Fluent
 
-        public int DefaultMarkMaxLength => ResourceBase.DefaultMarkMaxLength.Parse();
+        public int DefaultMarkMaxLength => ResourceBase.DefaultMarkMaxLength.ParseFromResource();
 
         public override string[] EntityNameParts => [ StaticEntityNames.LINE ];
 

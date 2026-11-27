@@ -82,13 +82,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
                 .WithMany(x => x.EnumerableBiblioAuthor)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR, StaticEntityNames.BIBLIO]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR, StaticEntityNames.BIBLIO]));
 
             e.HasOne(x => x.EntityAuthor)
                 .WithMany(x => x.EnumerableBiblioAuthor)
                 .HasForeignKey(x => x.KeyAuthor)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR, StaticEntityNames.AUTHOR]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR, StaticEntityNames.AUTHOR]));
             
             #endregion
         }

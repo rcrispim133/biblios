@@ -84,7 +84,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .WithMany(x => x.EnumerableLine)
                 .HasForeignKey(x => x.KeySection)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.LINE, StaticEntityNames.SECTION]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.LINE, StaticEntityNames.SECTION]));
 
             #endregion
         }

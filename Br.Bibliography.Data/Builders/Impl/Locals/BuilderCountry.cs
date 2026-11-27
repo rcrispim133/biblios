@@ -68,7 +68,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
                 .WithOne(x => x.EntityCountry)
                 .HasForeignKey(x => x.KeyCountry)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.COUNTRY, StaticEntityNames.STATE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COUNTRY, StaticEntityNames.STATE]));
 
             #endregion
         }

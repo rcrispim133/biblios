@@ -11,13 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\Base\Impl\" />
-    <Folder Include="Helpers\Base\Interfaces\" />
-    <Folder Include="Helpers\Impl\" />
-    <Folder Include="Helpers\Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="Resources\ResourceBase.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceBase.Designer.cs</LastGenOutput>
@@ -30,6 +23,31 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceBase.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\ResourceMath.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceMath.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\ResourcePrefix.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourcePrefix.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\Base\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ResourceMath.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceMath.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ResourcePrefix.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcePrefix.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

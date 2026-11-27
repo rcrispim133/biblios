@@ -61,7 +61,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
                 .WithOne(x => x.EntityYear)
                 .HasForeignKey(x => x.KeyYear)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.YEAR, StaticEntityNames.TITLE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.YEAR, StaticEntityNames.TITLE]));
 
             #endregion
         }

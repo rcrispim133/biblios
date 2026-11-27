@@ -108,31 +108,31 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyUnit)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.COURSE, StaticEntityNames.UNIT]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.UNIT]));
 
             e.HasOne(x => x.EntityPeriod)
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyPeriod)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.COURSE, StaticEntityNames.PERIOD]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.PERIOD]));
 
             e.HasOne(x => x.EntityCycle)
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyCycle)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.COURSE, StaticEntityNames.CYCLE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.CYCLE]));
 
             e.HasOne(x => x.EntityDuration)
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyDuration)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.COURSE, StaticEntityNames.DURATION]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.DURATION]));
 
             e.HasMany(x => x.EnumerableLectureCourse)
                 .WithOne(x => x.EntityCourse)
                 .HasForeignKey(x => x.KeyCourse)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.COURSE, StaticEntityNames.LECTURE, StaticEntityNames.COURSE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.LECTURE, StaticEntityNames.COURSE]));
 
             #endregion
         }

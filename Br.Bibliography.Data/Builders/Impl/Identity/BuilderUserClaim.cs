@@ -94,7 +94,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .WithMany(x => x.EnumerableUserClaim)
                 .HasForeignKey(x => x.UserId)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.USER, StaticEntityNames.CLAIM, StaticEntityNames.USER]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.USER, StaticEntityNames.CLAIM, StaticEntityNames.USER]));
 
             #endregion
         }

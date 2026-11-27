@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Model.Entities.Base.Impl;
 using Br.Bibliography.Util.Helpers.Base;
+using Br.Bibliography.Util.Helpers.Impl;
 using Br.Bibliography.Web.Packets.Base.Interfaces;
 
 namespace Br.Bibliography.Testing.Records.Base.Impl
@@ -10,12 +11,12 @@ namespace Br.Bibliography.Testing.Records.Base.Impl
 
         public TEntity? EntityBaseNull => null;
 
-        public TEntity? EntityBaseZeroKey => new() { Key = Helper.ZERO };
+        public TEntity? EntityBaseZeroKey => new() { Key = HelperMath.ZERO };
 
         public TEntity? EntityBaseMinKey => new() { Key = int.MinValue };
 
         public TEntity? EntityBaseMaxKey => new() { Key = int.MaxValue };
 
-        public TEntity? EntityBaseRandomKey => new() { Key = (int?)new Random().Next() };
+        public TEntity? EntityBaseRandomKey => new() { Key = new Random().Next() };
     }
 }

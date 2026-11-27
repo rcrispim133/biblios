@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Br.Bibliography.Model\Br.Bibliography.Model.csproj" />
+    <ProjectReference Include="..\Br.Bibliography.Util\Br.Bibliography.Util.csproj" />
   </ItemGroup>
 
 </Project>

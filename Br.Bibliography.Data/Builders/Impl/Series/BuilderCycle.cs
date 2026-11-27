@@ -68,7 +68,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
                 .WithOne(x => x.EntityCycle)
                 .HasForeignKey(x => x.KeyCycle)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.CYCLE, StaticEntityNames.COURSE]));
+                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.CYCLE, StaticEntityNames.COURSE]));
 
             #endregion
         }
