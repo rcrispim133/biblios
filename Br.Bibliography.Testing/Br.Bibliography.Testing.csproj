@@ -21,6 +21,7 @@
     <ProjectReference Include="..\Br.Bibliography.Core\Br.Bibliography.Core.csproj" />
     <ProjectReference Include="..\Br.Bibliography.Data\Br.Bibliography.Data.csproj" />
     <ProjectReference Include="..\Br.Bibliography.Model\Br.Bibliography.Model.csproj" />
+    <ProjectReference Include="..\Br.Bibliography.Util\Br.Bibliography.Util.csproj" />
     <ProjectReference Include="..\Br.Bibliography.Web\Br.Bibliography.Web.csproj" />
   </ItemGroup>
 

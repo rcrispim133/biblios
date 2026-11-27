@@ -453,14 +453,14 @@ namespace Br.Bibliography.Data.Contexts.Base
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string basePath = Path.GetFullPath("../Br.Bibliography.Data");
-            string backupPath = string.Format("{0}/Backups", basePath);
+            string backupPath = $"{basePath}/Backups";
             if (!Directory.Exists(backupPath)) Directory.CreateDirectory(backupPath);
 
-            string filePath = string.Format("{0}/database.db", basePath);
-            string fileBackup = string.Format("{0}/database-{1}.db", backupPath, DateTime.Now.ToString("yyyyMMddhhmmss"));
+            string filePath = $"{basePath}/database.db";
+            string fileBackup = $"{backupPath}/database-{DateTime.Now:yyyyMMddhhmmss}.db";
             if (File.Exists(filePath)) File.Copy(filePath, fileBackup, true);
 
-            string connectionString = string.Format("Data Source={0}", filePath);
+            string connectionString = $"Data Source={filePath}";
             optionsBuilder.UseSqlite(connectionString);
         }
 

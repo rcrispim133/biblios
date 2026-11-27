@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Sector;
 using Br.Bibliography.Core.Constants.Interfaces.Sector;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
 using Br.Bibliography.Model.Entities.Impl.Sector;
@@ -16,23 +16,43 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityLine>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
-            e.HasIndex(x => x.KeySection).HasDatabaseName("idx_key_line_section").IsUnique(false);
+            e.HasIndex(x => x.KeySection)
+                .HasDatabaseName(Constant.IndexDatabaseName(
+                    [StaticEntityNames.LINE, StaticEntityNames.SECTION]))
+                .IsUnique(false);
 
-            // Order
-            var order = 0;
+            #endregion
 
-            // Properties
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
@@ -40,28 +60,33 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .IsRequired();
 
             e.Property(x => x.LineMark)
-                .HasColumnName("mark_line")
-                .HasMaxLength(Constant.PropertyLineMarkMaxLength)
+                .HasColumnName(Constant.TextColumnName([ StaticPropertyNames.MARK, StaticEntityNames.LINE]))
+                .HasMaxLength(Constant.DefaultMarkMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired(false);
 
             e.Property(x => x.LineOrder)
-                .HasColumnName("order_line")
+                .HasColumnName(Constant.NumberColumnName([StaticPropertyNames.ORDER, StaticEntityNames.LINE]))
                 .HasColumnOrder(order++)
                 .IsRequired(false);
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextColumnName)
-                .HasMaxLength(Constant.PropertyTextMaxLength)
+                .HasMaxLength(Constant.DefaultTextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Relationships
+
             e.HasOne(x => x.EntitySection)
                 .WithMany(x => x.EnumerableLine)
                 .HasForeignKey(x => x.KeySection)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.LINE, StaticEntityNames.SECTION]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.LINE, StaticEntityNames.SECTION]));
+
+            #endregion
         }
     }
 }

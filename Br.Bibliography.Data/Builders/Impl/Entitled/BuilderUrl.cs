@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Entitled;
 using Br.Bibliography.Core.Constants.Interfaces.Entitled;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Entitled;
 using Br.Bibliography.Model.Entities.Impl.Entitled;
@@ -16,21 +16,38 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityUrl>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
-            // Order
-            var order = 0;
+            #endregion
 
-            // Properties
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
@@ -39,16 +56,21 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextColumnName)
-                .HasMaxLength(Constant.PropertyTextMaxLength)
+                .HasMaxLength(Constant.DefaultTextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Relationships
+
             e.HasMany(x => x.EnumerableTitleUrl)
                 .WithOne(x => x.EntityUrl)
                 .HasForeignKey(x => x.KeyUrl)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.URL, StaticEntityNames.TITLE, StaticEntityNames.URL]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.URL, StaticEntityNames.TITLE, StaticEntityNames.URL]));
+
+            #endregion
         }
     }
 }

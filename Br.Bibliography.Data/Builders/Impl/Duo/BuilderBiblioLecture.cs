@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Duo;
 using Br.Bibliography.Core.Constants.Interfaces.Duo;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Duo;
 using Br.Bibliography.Model.Entities.Impl.Duo;
@@ -16,25 +16,48 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityBiblioLecture>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
-            
-            e.HasIndex(x => x.KeyBiblio).HasDatabaseName("idx_key_biblio_lecture_biblio").IsUnique(false);
-            
-            e.HasIndex(x => x.KeyLecture).HasDatabaseName("idx_key_biblio_lecture_lecture").IsUnique(false);
 
-            // Order
-            var order = 0;
+            e.HasIndex(x => x.KeyBiblio)
+                .HasDatabaseName(Constant.IndexDatabaseName(
+                    [StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE, StaticEntityNames.BIBLIO]))
+                .IsUnique(false);
 
-            // Properties
+            e.HasIndex(x => x.KeyLecture)
+                .HasDatabaseName(Constant.IndexDatabaseName(
+                    [StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE, StaticEntityNames.LECTURE]))
+                .IsUnique(false);
+
+            #endregion
+
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
@@ -42,27 +65,32 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
                 .IsRequired();
 
             e.Property(x => x.KeyBiblio)
-                .HasColumnName("key_biblio")
+                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.BIBLIO]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.KeyLecture)
-                .HasColumnName("key_lecture")
+                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.LECTURE]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Relationships
+
             e.HasOne(x => x.EntityBiblio)
                 .WithMany(x => x.EnumerableBiblioLecture)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE, StaticEntityNames.BIBLIO]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE, StaticEntityNames.BIBLIO]));
                 
             e.HasOne(x => x.EntityLecture)
                 .WithMany(x => x.EnumerableBiblioLecture)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE, StaticEntityNames.LECTURE]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE, StaticEntityNames.LECTURE]));
+
+            #endregion
         }
     }
 }

@@ -7,21 +7,11 @@ namespace Br.Bibliography.Core.Constants.Interfaces.Identity
     {
         #region Defaults
 
-        const int DefaultUserNameMax = 72;
+        int DefaultUserNameMax { get; }
 
-        const int DefaultEmailMax = 72;
+        int DefaultEmailMax { get; }
 
-        const int DefaultPasswordMax = 32;
-
-        #endregion
-
-        #region Constants
-
-        int UserNameMax { get; }
-
-        int EmailMax { get; }
-
-        int PasswordMax { get; }
+        int DefaultPasswordMax { get; }
 
         #endregion
     }

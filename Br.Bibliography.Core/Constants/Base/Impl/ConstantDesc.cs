@@ -1,5 +1,7 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Interfaces;
 using Br.Bibliography.Model.Entities.Base.Interfaces;
+using Br.Bibliography.Util.Extensions;
+using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Core.Constants.Base.Impl
 {
@@ -7,7 +9,7 @@ namespace Br.Bibliography.Core.Constants.Base.Impl
     {
         #region Desc
 
-        public abstract int ConstantMaxDesc { get; }
+        public int DefaultMaxDesc => ResourceBase.DefaultMaxDesc.Parse();
 
         #endregion
     }

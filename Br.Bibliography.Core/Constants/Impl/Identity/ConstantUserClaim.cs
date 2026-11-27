@@ -1,7 +1,9 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Identity;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Model.Entities.Impl.Identity;
+using Br.Bibliography.Util.Extensions;
+using Br.Bibliography.Util.Resources;
 
 namespace Br.Bibliography.Core.Constants.Impl.Identity
 {
@@ -27,7 +29,7 @@ namespace Br.Bibliography.Core.Constants.Impl.Identity
 
         #region User Claim
 
-        public int MaxUserClaim => IConstantUserClaim.DefaultMaxUserClaim;
+        public int DefaultMaxUserClaim => ResourceBase.DefaultMaxUserClaim.Parse();
 
         #endregion
     }

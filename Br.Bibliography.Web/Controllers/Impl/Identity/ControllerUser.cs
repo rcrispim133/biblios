@@ -41,7 +41,7 @@ namespace Br.Bibliography.Web.Controllers.Impl.Identity
 
         #region READ
 
-        [HttpGet("{key:int:min(0)}")]
+        [HttpGet("{key:int}")]
         public override IPacketUser? HandleRead(uint? key) => PacketUser.Factory(Repository.Read(key));
 
         #endregion
@@ -55,7 +55,7 @@ namespace Br.Bibliography.Web.Controllers.Impl.Identity
 
         #region DELETE
 
-        [HttpDelete("{key:int:min(0)}")]
+        [HttpDelete("{key:int}")]
         public override IPacketUser? HandleDelete(uint? key) => PacketUser.Factory(Repository.Delete(key));
 
         #endregion

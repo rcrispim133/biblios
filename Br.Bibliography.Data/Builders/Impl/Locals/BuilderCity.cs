@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Locals;
 using Br.Bibliography.Core.Constants.Interfaces.Locals;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Locals;
 using Br.Bibliography.Model.Entities.Impl.Locals;
@@ -16,23 +16,43 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityCity>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
-            e.HasIndex(e => e.KeyState).HasDatabaseName("idx_key_city_state").IsUnique(false);
+            e.HasIndex(x => x.KeyState)
+                .HasDatabaseName(Constant.IndexDatabaseName(
+                    [StaticEntityNames.CITY, StaticEntityNames.STATE]))
+                .IsUnique(false);
 
-            // Order
-            var order = 0;
+            #endregion
 
-            // Properties
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
@@ -40,28 +60,33 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
                 .IsRequired();
 
             e.Property(x => x.KeyState)
-                .HasColumnName("key_state")
+                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.STATE]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextColumnName)
-                .HasMaxLength(Constant.PropertyTextMaxLength)
+                .HasMaxLength(Constant.DefaultTextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Relationships
+
             e.HasOne(x => x.EntityState)
                 .WithMany(x => x.EnumerableCity)
                 .HasForeignKey(x => x.KeyState)
                 .HasPrincipalKey(x=> x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.CITY, StaticEntityNames.STATE]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.CITY, StaticEntityNames.STATE]));
 
             e.HasMany(x => x.EnumerablePublisher)
                 .WithOne(x => x.EntityCity)
                 .HasForeignKey(x => x.KeyCity)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.CITY, StaticEntityNames.PUBLISHER]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.CITY, StaticEntityNames.PUBLISHER]));
+
+            #endregion
         }
     }
 }

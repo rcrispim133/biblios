@@ -6,13 +6,7 @@ namespace Br.Bibliography.Core.Constants.Base.Interfaces
     {
         #region Defaults
 
-        const int DefaultMaxRaw = 1024 * 1024 * 1024;
-
-        #endregion
-
-        #region Constants
-
-        int ConstantMaxRaw { get; }
+        int DefaultMaxRaw { get; }
 
         #endregion
     }

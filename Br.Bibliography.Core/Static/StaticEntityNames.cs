@@ -1,4 +1,4 @@
-﻿namespace Br.Bibliography.Core.Util.Static
+﻿namespace Br.Bibliography.Core.Static
 {
     public static class StaticEntityNames
     {

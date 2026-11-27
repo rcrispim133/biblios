@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Resources\ResourceBase.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\Base\Impl\" />
+    <Folder Include="Helpers\Base\Interfaces\" />
+    <Folder Include="Helpers\Impl\" />
+    <Folder Include="Helpers\Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\ResourceBase.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceBase.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\ResourceBase.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceBase.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

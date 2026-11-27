@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Alumni;
 using Br.Bibliography.Core.Constants.Interfaces.Alumni;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
@@ -14,21 +14,38 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityWork>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
-            // Order
-            var order = 0;
+            #endregion
 
-            // Properties
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
@@ -37,16 +54,21 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextColumnName)
-                .HasMaxLength(Constant.PropertyTextMaxLength)
+                .HasMaxLength(Constant.DefaultTextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Relationships
+
             e.HasMany(x => x.EnumerableLecture)
                 .WithOne(x => x.EntityWork)
                 .HasForeignKey(x => x.KeyWork)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.WORK, StaticEntityNames.LECTURE ]));
+                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.WORK, StaticEntityNames.LECTURE ]));
+
+            #endregion
         }
     }
 }

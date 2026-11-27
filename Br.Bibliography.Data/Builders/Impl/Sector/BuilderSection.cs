@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Sector;
 using Br.Bibliography.Core.Constants.Interfaces.Sector;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
 using Br.Bibliography.Model.Entities.Impl.Sector;
@@ -16,25 +16,48 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntitySection>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
-            e.HasIndex(x => x.KeyLecture).HasDatabaseName("idx_key_section_lecture").IsUnique();
+            e.HasIndex(x => x.KeyLecture)
+                .HasDatabaseName(Constant.IndexDatabaseName(
+                    [StaticEntityNames.SECTION, StaticEntityNames.LECTURE]))
+                .IsUnique(false);
 
-            e.HasIndex(x => x.KeyDetail).HasDatabaseName("idx_key_section_detail").IsUnique();
+            e.HasIndex(x => x.KeyDetail)
+                .HasDatabaseName(Constant.IndexDatabaseName(
+                    [StaticEntityNames.SECTION, StaticEntityNames.DETAIL]))
+                .IsUnique(false);
 
-            // Order
-            var order = 0;
+            #endregion
 
-            // Properties
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
@@ -42,33 +65,38 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .IsRequired();
 
             e.Property(x => x.KeyLecture)
-                .HasColumnName("key_lecture")
+                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.LECTURE]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.KeyDetail)
-                .HasColumnName("key_detail")
+                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.DETAIL]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Relationships
+
             e.HasOne(x => x.EntityLecture)
                 .WithMany(x => x.EnumerableSection)
                 .HasForeignKey(x => x.KeyLecture)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.SECTION, StaticEntityNames.LECTURE]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.SECTION, StaticEntityNames.LECTURE]));
 
             e.HasOne(x => x.EntityDetail)
                 .WithMany(x => x.EnumerableSection)
                 .HasForeignKey(x => x.KeyDetail)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.SECTION, StaticEntityNames.DETAIL]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.SECTION, StaticEntityNames.DETAIL]));
 
             e.HasMany(x => x.EnumerableLine)
                 .WithOne(x => x.EntitySection)
                 .HasForeignKey(x => x.KeySection)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.SECTION, StaticEntityNames.LINE]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.SECTION, StaticEntityNames.LINE]));
+
+            #endregion
         }
     }
 }

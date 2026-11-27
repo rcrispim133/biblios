@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Biblio;
 using Br.Bibliography.Core.Constants.Interfaces.Biblio;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Biblio;
 using Br.Bibliography.Model.Entities.Impl.Biblio;
@@ -14,21 +14,38 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityImage>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
-            // Order
-            var order = 0;
+            #endregion
 
-            // Properties
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
@@ -38,21 +55,26 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextColumnName)
                 .HasColumnOrder(order++)
-                .HasMaxLength(Constant.PropertyTextMaxLength)
+                .HasMaxLength(Constant.DefaultTextMaxLength)
                 .IsRequired();
 
             e.Property(x => x.Raw)
-                .HasColumnName("raw_image")
+                .HasColumnName(Constant.RawColumnName([ StaticEntityNames.IMAGE ]))
                 .HasColumnOrder(order++)
-                .HasMaxLength(Constant.ConstantMaxRaw)
+                .HasMaxLength(Constant.DefaultMaxRaw)
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Relationships
+
             e.HasMany(x => x.EnumerableBiblioImage)
                 .WithOne(x => x.EntityImage)
                 .HasForeignKey(x => x.KeyImage)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.IMAGE, StaticEntityNames.BIBLIO, StaticEntityNames.IMAGE ]));
+                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.IMAGE, StaticEntityNames.BIBLIO, StaticEntityNames.IMAGE ]));
+
+            #endregion
         }
     }
 }

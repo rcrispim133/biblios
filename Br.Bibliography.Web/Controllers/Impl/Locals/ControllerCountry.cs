@@ -41,7 +41,7 @@ namespace Br.Bibliography.Web.Controllers.Impl.Locals
 
         #region READ
 
-        [HttpGet("{key:int:min(0)}")]
+        [HttpGet("{key:int}")]
         public override IPacketCountry? HandleRead(uint? key) => PacketCountry.Factory(Repository.Read(key));
 
         #endregion
@@ -55,7 +55,7 @@ namespace Br.Bibliography.Web.Controllers.Impl.Locals
 
         #region DELETE
 
-        [HttpDelete("{key:int:min(0)}")]
+        [HttpDelete("{key:int}")]
         public override IPacketCountry? HandleDelete(uint? key) => PacketCountry.Factory(Repository.Delete(key));
 
         #endregion

@@ -1,5 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Identity;
 using Br.Bibliography.Core.Constants.Interfaces.Identity;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Identity;
 using Br.Bibliography.Model.Entities.Impl.Identity;
@@ -15,39 +16,61 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityRole>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
-            e.HasIndex(x => x.Id).HasDatabaseName("idx_id_role").IsUnique();
+            e.HasIndex(x => x.Id)
+                .HasDatabaseName(Constant.IdentityDatabaseName(
+                    [StaticEntityNames.ROLE]))
+                .IsUnique();
 
-            // Order
-            var order = 0;
+            #endregion
 
-            // Properties
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Id)
-                .HasColumnName(Constant.PropertyKeyColumnName)
+                .HasColumnName(Constant.IdentityColumnName([StaticEntityNames.ROLE]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.Key)
-                .HasColumnName("key_role")
+                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.ROLE]))
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Name)
-                .HasColumnName("name_role")
-                .HasMaxLength(Constant.MaxRoleName)
+                .HasColumnName(Constant.NameColumnName([StaticEntityNames.ROLE]))
+                .HasMaxLength(Constant.DefaultMaxRoleName)
                 .HasColumnOrder(order++)
                 .IsRequired();
+
+            #endregion
         }
     }
 }

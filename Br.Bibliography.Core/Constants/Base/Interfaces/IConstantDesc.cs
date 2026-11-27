@@ -6,13 +6,7 @@ namespace Br.Bibliography.Core.Constants.Base.Interfaces
     {
         #region Defaults
 
-        const int DefaultMaxDesc = 500;
-
-        #endregion
-
-        #region Constants
-
-        int ConstantMaxDesc { get; }
+        int DefaultMaxDesc { get; }
 
         #endregion
     }

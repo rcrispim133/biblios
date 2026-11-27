@@ -7,13 +7,7 @@ namespace Br.Bibliography.Core.Constants.Interfaces.Sector
     {
         #region Defaults
 
-        public const int DefaultMarkMaxLength = 2;
-
-        #endregion
-
-        #region Constants
-
-        int PropertyLineMarkMaxLength { get; }
+        int DefaultMarkMaxLength { get; }
 
         #endregion
     }

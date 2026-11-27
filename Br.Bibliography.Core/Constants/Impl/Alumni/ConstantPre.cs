@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Base.Impl;
 using Br.Bibliography.Core.Constants.Interfaces.Alumni;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
 
 namespace Br.Bibliography.Core.Constants.Impl.Alumni

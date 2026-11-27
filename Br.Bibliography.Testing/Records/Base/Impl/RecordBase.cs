@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Model.Entities.Base.Impl;
+using Br.Bibliography.Util.Helpers.Base;
 using Br.Bibliography.Web.Packets.Base.Interfaces;
 
 namespace Br.Bibliography.Testing.Records.Base.Impl
@@ -9,7 +10,7 @@ namespace Br.Bibliography.Testing.Records.Base.Impl
 
         public TEntity? EntityBaseNull => null;
 
-        public TEntity? EntityBaseZeroKey => new() { Key = 0 };
+        public TEntity? EntityBaseZeroKey => new() { Key = Helper.ZERO };
 
         public TEntity? EntityBaseMinKey => new() { Key = uint.MinValue };
 

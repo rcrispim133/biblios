@@ -7,13 +7,7 @@ namespace Br.Bibliography.Core.Constants.Interfaces.Identity
     {
         #region Defaults
 
-        const int DefaultMaxUserClaim = 72;
-
-        #endregion
-
-        #region Constants
-
-        int MaxUserClaim { get; }
+        int DefaultMaxUserClaim { get; }
 
         #endregion
     }

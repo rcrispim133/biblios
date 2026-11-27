@@ -1,4 +1,5 @@
 ﻿using Br.Bibliography.Model.Entities.Interfaces.Identity;
+using Br.Bibliography.Util.Helpers.Base;
 using Microsoft.AspNetCore.Identity;
 using System.Text.Json.Serialization;
 
@@ -11,7 +12,7 @@ namespace Br.Bibliography.Model.Entities.Impl.Identity
         public uint? Key { get; set; }
 
         [JsonIgnore]
-        public override int Id { get => (int)(Key ?? 0); set => Key = (uint)value; }
+        public override int Id { get => (int)(Key ?? Helper.ZERO); set => Key = (uint)value; }
 
         #endregion
 

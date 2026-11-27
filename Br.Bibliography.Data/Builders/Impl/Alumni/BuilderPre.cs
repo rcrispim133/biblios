@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Alumni;
 using Br.Bibliography.Core.Constants.Interfaces.Alumni;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
@@ -14,33 +14,55 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityPre>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
-            // Order
-            var order = 0;
+            #endregion
 
-            // Properties
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Relationships
+
             e.HasMany(x => x.EnumerableLecturePre)
                 .WithOne(x => x.EntityPre)
                 .HasForeignKey(x => x.KeyPre)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([ StaticEntityNames.PRE, StaticEntityNames.LECTURE, StaticEntityNames.PRE ]));
+                .HasConstraintName(Constant.ConstraintName([ StaticEntityNames.PRE, StaticEntityNames.LECTURE, StaticEntityNames.PRE ]));
+
+            #endregion
         }
     }
 }

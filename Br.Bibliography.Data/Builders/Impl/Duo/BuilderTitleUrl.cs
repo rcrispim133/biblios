@@ -1,6 +1,6 @@
 ﻿using Br.Bibliography.Core.Constants.Impl.Duo;
 using Br.Bibliography.Core.Constants.Interfaces.Duo;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Duo;
 using Br.Bibliography.Model.Entities.Impl.Duo;
@@ -16,25 +16,48 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityTitleUrl>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
-            
-            e.HasIndex(x => x.KeyTitle).HasDatabaseName("idx_key_title_url_title").IsUnique(false);
-            
-            e.HasIndex(x => x.KeyUrl).HasDatabaseName("idx_key_title_url_url").IsUnique(false);
 
-            // Order
-            var order = 0;
+            e.HasIndex(x => x.KeyTitle)
+                .HasDatabaseName(Constant.IndexDatabaseName(
+                    [StaticEntityNames.TITLE, StaticEntityNames.URL, StaticEntityNames.TITLE]))
+                .IsUnique(false);
 
-            // Properties
+            e.HasIndex(x => x.KeyUrl)
+                .HasDatabaseName(Constant.IndexDatabaseName(
+                    [StaticEntityNames.TITLE, StaticEntityNames.URL, StaticEntityNames.URL]))
+                .IsUnique(false);
+
+            #endregion
+
+            #region Order
+
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
@@ -42,27 +65,32 @@ namespace Br.Bibliography.Data.Builders.Impl.Duo
                 .IsRequired();
 
             e.Property(x => x.KeyTitle)
-                .HasColumnName("key_title")
+                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.TITLE]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.KeyUrl)
-                .HasColumnName("key_url")
+                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.URL]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Relationships
+
             e.HasOne(x => x.EntityTitle)
                 .WithMany(x => x.EnumerableTitleUrl)
                 .HasForeignKey(x => x.KeyTitle)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.TITLE, StaticEntityNames.URL, StaticEntityNames.TITLE]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.TITLE, StaticEntityNames.URL, StaticEntityNames.TITLE]));
 
             e.HasOne(x => x.EntityUrl)
                 .WithMany(x => x.EnumerableTitleUrl)
                 .HasForeignKey(x => x.KeyUrl)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.TITLE, StaticEntityNames.URL, StaticEntityNames.URL]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.TITLE, StaticEntityNames.URL, StaticEntityNames.URL]));
+
+            #endregion
         }
     }
 }

@@ -6,13 +6,7 @@ namespace Br.Bibliography.Core.Constants.Base.Interfaces
     {
         #region Defaults
 
-        const int DefaultMaxAcronym = 24;
-
-        #endregion
-
-        #region Constants
-
-        int PropertyAcronymMaxLength { get; }
+        int DefaultMaxAcronym { get; }
 
         #endregion
     }

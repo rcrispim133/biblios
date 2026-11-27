@@ -2,7 +2,7 @@
 using Br.Bibliography.Core.Constants.Impl.Sector;
 using Br.Bibliography.Core.Constants.Interfaces.Locals;
 using Br.Bibliography.Core.Constants.Interfaces.Sector;
-using Br.Bibliography.Core.Util.Static;
+using Br.Bibliography.Core.Static;
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
 using Br.Bibliography.Model.Entities.Impl.Sector;
@@ -18,22 +18,38 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
         public override void Build(ModelBuilder builder)
         {
+            #region Entity
+
             var e = builder.Entity<EntityDetail>();
 
-            // Table
+            #endregion
+
+            #region Table
+
             e.ToTable(Constant.TableName);
 
-            // Key
+            #endregion
+
+            #region Keys
+
             e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
 
-            // Index
+            #endregion
+
+            #region Index
+
             e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
 
+            #endregion
 
-            // Order
-            var order = 0;
+            #region Order
 
-            // Properties
+            var order = Constant.BaseOrder;
+
+            #endregion
+
+            #region Properties
+
             e.Property(x => x.Key)
                 .HasColumnName(Constant.PropertyKeyColumnName)
                 .HasColumnOrder(order++)
@@ -42,16 +58,21 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
             e.Property(x => x.Text)
                 .HasColumnName(Constant.PropertyTextColumnName)
-                .HasMaxLength(Constant.PropertyTextMaxLength)
+                .HasMaxLength(Constant.DefaultTextMaxLength)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
-            // Relationships
+            #endregion
+
+            #region Detail
+
             e.HasMany(x => x.EnumerableSection)
                 .WithOne(x => x.EntityDetail)
                 .HasForeignKey(x => x.KeyDetail)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyName([StaticEntityNames.DETAIL, StaticEntityNames.SECTION]));
+                .HasConstraintName(Constant.ConstraintName([StaticEntityNames.DETAIL, StaticEntityNames.SECTION]));
+
+            #endregion
         }
     }
 }

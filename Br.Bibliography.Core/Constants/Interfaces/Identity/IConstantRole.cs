@@ -7,13 +7,7 @@ namespace Br.Bibliography.Core.Constants.Interfaces.Identity
     {
         #region Defaults
 
-        const int DefaultMaxRoleName = 96;
-
-        #endregion
-
-        #region Constants
-
-        int MaxRoleName { get; }
+        int DefaultMaxRoleName { get; }
 
         #endregion
     }
