@@ -42,21 +42,21 @@ namespace Br.Bibliography.Web.Controllers.Impl.Locals
         #region READ
 
         [HttpGet("{key:int}")]
-        public override IPacketCountry? HandleRead(uint? key) => PacketCountry.Factory(Repository.Read(key));
+        public override IPacketCountry? HandleRead(int? key) => PacketCountry.Factory(Repository.Read(key));
 
         #endregion
 
         #region UPDATE
 
         [HttpPut]
-        public override IPacketCountry? HandleUpdate(uint? key, [FromBody] EntityCountry? entity) => PacketCountry.Factory(Repository.Update(key, entity));
+        public override IPacketCountry? HandleUpdate(int? key, [FromBody] EntityCountry? entity) => PacketCountry.Factory(Repository.Update(key, entity));
 
         #endregion
 
         #region DELETE
 
         [HttpDelete("{key:int}")]
-        public override IPacketCountry? HandleDelete(uint? key) => PacketCountry.Factory(Repository.Delete(key));
+        public override IPacketCountry? HandleDelete(int? key) => PacketCountry.Factory(Repository.Delete(key));
 
         #endregion
 

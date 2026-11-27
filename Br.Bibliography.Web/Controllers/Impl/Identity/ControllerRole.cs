@@ -42,21 +42,21 @@ namespace Br.Bibliography.Web.Controllers.Impl.Identity
         #region READ
 
         [HttpGet("{key:int}")]
-        public override IPacketRole? HandleRead(uint? key) => PacketRole.Factory(Repository.Read(key));
+        public override IPacketRole? HandleRead(int? key) => PacketRole.Factory(Repository.Read(key));
 
         #endregion
 
         #region UPDATE
 
         [HttpPut]
-        public override IPacketRole? HandleUpdate(uint? key, [FromBody] EntityRole? entity) => PacketRole.Factory(Repository.Update(key, entity));
+        public override IPacketRole? HandleUpdate(int? key, [FromBody] EntityRole? entity) => PacketRole.Factory(Repository.Update(key, entity));
 
         #endregion
 
         #region DELETE
 
         [HttpDelete("{key:int}")]
-        public override IPacketRole? HandleDelete(uint? key) => PacketRole.Factory(Repository.Delete(key));
+        public override IPacketRole? HandleDelete(int? key) => PacketRole.Factory(Repository.Delete(key));
 
         #endregion
 

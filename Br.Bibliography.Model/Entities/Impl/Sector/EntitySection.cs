@@ -10,9 +10,9 @@ namespace Br.Bibliography.Model.Entities.Impl.Sector
     {
         #region Keys
 
-        public uint KeyDetail { get; set; }
+        public int? KeyDetail { get; set; }
 
-        public uint KeyLecture { get; set; }
+        public int? KeyLecture { get; set; }
 
         #endregion
 

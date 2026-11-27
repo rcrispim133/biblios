@@ -23,7 +23,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityCredit", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_credit")
@@ -50,7 +50,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityEffort", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_effort")
@@ -77,7 +77,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityLecture", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_lecture")
@@ -102,22 +102,22 @@ partial class _20261124160108_Util
                     .HasColumnName("dt_deact_lecture")
                     .HasColumnOrder(9);
 
-                b.Property<uint>("KeyCredit")
+                b.Property<int?>("KeyCredit")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_credit")
                     .HasColumnOrder(1);
 
-                b.Property<uint>("KeyEffort")
+                b.Property<int?>("KeyEffort")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_effort")
                     .HasColumnOrder(3);
 
-                b.Property<uint>("KeyType")
+                b.Property<int?>("KeyType")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_type")
                     .HasColumnOrder(4);
 
-                b.Property<uint>("KeyWork")
+                b.Property<int?>("KeyWork")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_work")
                     .HasColumnOrder(2);
@@ -159,7 +159,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityPre", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_pre")
@@ -179,7 +179,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityTeacher", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_teacher")
@@ -206,7 +206,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityType", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_type")
@@ -233,7 +233,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityWork", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_work")
@@ -260,7 +260,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Biblio.EntityAuthor", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_author")
@@ -294,7 +294,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Biblio.EntityBiblio", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_biblio")
@@ -314,7 +314,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Biblio.EntityImage", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_image")
@@ -348,7 +348,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityBiblioAuthor", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_biblio_author")
@@ -356,12 +356,12 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyAuthor")
+                b.Property<int?>("KeyAuthor")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_author")
                     .HasColumnOrder(2);
 
-                b.Property<uint>("KeyBiblio")
+                b.Property<int?>("KeyBiblio")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_biblio")
                     .HasColumnOrder(1);
@@ -384,7 +384,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityBiblioImage", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_biblio_image")
@@ -392,12 +392,12 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyBiblio")
+                b.Property<int?>("KeyBiblio")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_biblio")
                     .HasColumnOrder(1);
 
-                b.Property<uint>("KeyImage")
+                b.Property<int?>("KeyImage")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_image")
                     .HasColumnOrder(2);
@@ -420,7 +420,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityBiblioLecture", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_biblio_lecture")
@@ -428,12 +428,12 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyBiblio")
+                b.Property<int?>("KeyBiblio")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_biblio")
                     .HasColumnOrder(1);
 
-                b.Property<uint>("KeyLecture")
+                b.Property<int?>("KeyLecture")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_lecture")
                     .HasColumnOrder(2);
@@ -456,7 +456,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityLectureCourse", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_lecture_course")
@@ -464,12 +464,12 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyCourse")
+                b.Property<int?>("KeyCourse")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_course")
                     .HasColumnOrder(2);
 
-                b.Property<uint>("KeyLecture")
+                b.Property<int?>("KeyLecture")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_lecture")
                     .HasColumnOrder(1);
@@ -492,7 +492,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityLecturePre", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_lecture_pre")
@@ -500,12 +500,12 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyLecture")
+                b.Property<int?>("KeyLecture")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_lecture")
                     .HasColumnOrder(1);
 
-                b.Property<uint>("KeyPre")
+                b.Property<int?>("KeyPre")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_pre")
                     .HasColumnOrder(2);
@@ -528,7 +528,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityLectureTeacher", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_lecture_teacher")
@@ -536,12 +536,12 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyLecture")
+                b.Property<int?>("KeyLecture")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_lecture")
                     .HasColumnOrder(1);
 
-                b.Property<uint>("KeyTeacher")
+                b.Property<int?>("KeyTeacher")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_teacher")
                     .HasColumnOrder(2);
@@ -564,7 +564,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityTitleBiblio", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_title_biblio")
@@ -572,12 +572,12 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyBiblio")
+                b.Property<int?>("KeyBiblio")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_biblio")
                     .HasColumnOrder(2);
 
-                b.Property<uint>("KeyTitle")
+                b.Property<int?>("KeyTitle")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_title")
                     .HasColumnOrder(1);
@@ -600,7 +600,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityTitleUrl", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_title_url")
@@ -608,12 +608,12 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyTitle")
+                b.Property<int?>("KeyTitle")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_title")
                     .HasColumnOrder(1);
 
-                b.Property<uint>("KeyUrl")
+                b.Property<int?>("KeyUrl")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_url")
                     .HasColumnOrder(2);
@@ -636,7 +636,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityDisclaimer", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_disclaimer")
@@ -663,7 +663,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityEdition", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_edition")
@@ -690,7 +690,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityLanguage", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_language")
@@ -717,7 +717,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityPublisher", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_publisher")
@@ -725,7 +725,7 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyCity")
+                b.Property<int?>("KeyCity")
                     .HasColumnType("INTEGER");
 
                 b.Property<string>("Text")
@@ -750,7 +750,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityTitle", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_title")
@@ -758,19 +758,19 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyDisclaimer")
+                b.Property<int?>("KeyDisclaimer")
                     .HasColumnType("INTEGER");
 
-                b.Property<uint>("KeyEdition")
+                b.Property<int?>("KeyEdition")
                     .HasColumnType("INTEGER");
 
-                b.Property<uint>("KeyLanguage")
+                b.Property<int?>("KeyLanguage")
                     .HasColumnType("INTEGER");
 
-                b.Property<uint>("KeyPublisher")
+                b.Property<int?>("KeyPublisher")
                     .HasColumnType("INTEGER");
 
-                b.Property<uint>("KeyYear")
+                b.Property<int?>("KeyYear")
                     .HasColumnType("INTEGER");
 
                 b.Property<string>("Text")
@@ -807,7 +807,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityUrl", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_url")
@@ -834,7 +834,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityYear", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_year")
@@ -854,7 +854,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_role")
@@ -866,7 +866,7 @@ partial class _20261124160108_Util
                     .IsConcurrencyToken()
                     .HasColumnType("TEXT");
 
-                b.Property<uint>("Id")
+                b.Property<int?>("Id")
                     .HasColumnType("INTEGER")
                     .HasColumnName("id_role")
                     .HasColumnOrder(0);
@@ -902,7 +902,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_user")
@@ -928,7 +928,7 @@ partial class _20261124160108_Util
                     .HasColumnName("email_confirmed_user")
                     .HasColumnOrder(4);
 
-                b.Property<uint>("Id")
+                b.Property<int?>("Id")
                     .HasColumnType("INTEGER")
                     .HasColumnName("id_user")
                     .HasColumnOrder(0);
@@ -980,7 +980,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUserClaim", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_user_claim")
@@ -1007,7 +1007,7 @@ partial class _20261124160108_Util
                     .HasColumnName("id_user_claim")
                     .HasColumnOrder(0);
 
-                b.Property<uint>("UserId")
+                b.Property<int?>("UserId")
                     .HasColumnType("INTEGER")
                     .HasColumnName("id_user")
                     .HasColumnOrder(2);
@@ -1031,7 +1031,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_city")
@@ -1039,7 +1039,7 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyState")
+                b.Property<int?>("KeyState")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_state")
                     .HasColumnOrder(1);
@@ -1066,7 +1066,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCountry", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_country")
@@ -1093,7 +1093,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityState", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_state")
@@ -1101,7 +1101,7 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyCountry")
+                b.Property<int?>("KeyCountry")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_country")
                     .HasColumnOrder(1);
@@ -1128,7 +1128,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntityDetail", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_detail")
@@ -1155,7 +1155,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntityLine", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_line")
@@ -1163,7 +1163,7 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeySection")
+                b.Property<int?>("KeySection")
                     .HasColumnType("INTEGER");
 
                 b.Property<string>("LineMark")
@@ -1172,7 +1172,7 @@ partial class _20261124160108_Util
                     .HasColumnName("mark_line")
                     .HasColumnOrder(1);
 
-                b.Property<uint?>("LineOrder")
+                b.Property<int?>("LineOrder")
                     .HasColumnType("INTEGER")
                     .HasColumnName("order_line")
                     .HasColumnOrder(2);
@@ -1199,7 +1199,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntitySection", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_section")
@@ -1207,12 +1207,12 @@ partial class _20261124160108_Util
 
                 SqlitePropertyBuilderExtensions.UseAutoincrement(key);
 
-                b.Property<uint>("KeyDetail")
+                b.Property<int?>("KeyDetail")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_detail")
                     .HasColumnOrder(2);
 
-                b.Property<uint>("KeyLecture")
+                b.Property<int?>("KeyLecture")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_lecture")
                     .HasColumnOrder(1);
@@ -1237,7 +1237,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityCourse", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_course")
@@ -1251,22 +1251,22 @@ partial class _20261124160108_Util
                 b.Property<string>("Desc")
                     .HasColumnType("TEXT");
 
-                b.Property<uint>("KeyCycle")
+                b.Property<int?>("KeyCycle")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_cycle")
                     .HasColumnOrder(3);
 
-                b.Property<uint>("KeyDuration")
+                b.Property<int?>("KeyDuration")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_duration")
                     .HasColumnOrder(4);
 
-                b.Property<uint>("KeyPeriod")
+                b.Property<int?>("KeyPeriod")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_period")
                     .HasColumnOrder(2);
 
-                b.Property<uint>("KeyUnit")
+                b.Property<int?>("KeyUnit")
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_unit")
                     .HasColumnOrder(1);
@@ -1298,7 +1298,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityCycle", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_cycle")
@@ -1325,7 +1325,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityDuration", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_duration")
@@ -1352,7 +1352,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityPeriod", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_period")
@@ -1379,7 +1379,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityUnit", b =>
             {
-                var key = b.Property<uint>("Key")
+                var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER")
                     .HasColumnName("key_unit")
@@ -1411,7 +1411,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_unit");
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<uint>", b =>
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int?>", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -1423,7 +1423,7 @@ partial class _20261124160108_Util
                 b.Property<string>("ClaimValue")
                     .HasColumnType("TEXT");
 
-                b.Property<uint>("RoleId")
+                b.Property<int?>("RoleId")
                     .HasColumnType("INTEGER");
 
                 b.HasKey("Id");
@@ -1433,7 +1433,7 @@ partial class _20261124160108_Util
                 b.ToTable("AspNetRoleClaims");
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<uint>", b =>
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int?>", b =>
             {
                 b.Property<string>("LoginProvider")
                     .HasColumnType("TEXT");
@@ -1444,7 +1444,7 @@ partial class _20261124160108_Util
                 b.Property<string>("ProviderDisplayName")
                     .HasColumnType("TEXT");
 
-                b.Property<uint>("UserId")
+                b.Property<int?>("UserId")
                     .HasColumnType("INTEGER");
 
                 b.HasKey("LoginProvider", "ProviderKey");
@@ -1454,12 +1454,12 @@ partial class _20261124160108_Util
                 b.ToTable("AspNetUserLogins");
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<uint>", b =>
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int?>", b =>
             {
-                b.Property<uint>("UserId")
+                b.Property<int?>("UserId")
                     .HasColumnType("INTEGER");
 
-                b.Property<uint>("RoleId")
+                b.Property<int?>("RoleId")
                     .HasColumnType("INTEGER");
 
                 b.HasKey("UserId", "RoleId");
@@ -1469,9 +1469,9 @@ partial class _20261124160108_Util
                 b.ToTable("AspNetUserRoles");
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<uint>", b =>
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int?>", b =>
             {
-                b.Property<uint>("UserId")
+                b.Property<int?>("UserId")
                     .HasColumnType("INTEGER");
 
                 b.Property<string>("LoginProvider")
@@ -1863,7 +1863,7 @@ partial class _20261124160108_Util
                 b.Navigation("EntityUnit");
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<uint>", b =>
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int?>", b =>
             {
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", null)
                     .WithMany()
@@ -1872,7 +1872,7 @@ partial class _20261124160108_Util
                     .IsRequired();
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<uint>", b =>
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int?>", b =>
             {
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
                     .WithMany()
@@ -1881,7 +1881,7 @@ partial class _20261124160108_Util
                     .IsRequired();
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<uint>", b =>
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int?>", b =>
             {
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", null)
                     .WithMany()
@@ -1896,7 +1896,7 @@ partial class _20261124160108_Util
                     .IsRequired();
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<uint>", b =>
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int?>", b =>
             {
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
                     .WithMany()

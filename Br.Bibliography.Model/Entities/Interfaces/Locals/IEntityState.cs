@@ -8,7 +8,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Locals
     {
         #region Keys
 
-        uint KeyCountry { get; }
+        int? KeyCountry { get; }
 
         #endregion
 

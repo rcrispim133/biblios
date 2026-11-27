@@ -2,7 +2,7 @@
 {
     public interface IPacket
     {
-        uint? Key { get; }
+        int? Key { get; }
 
         string? Message { get; }
     }

@@ -10,15 +10,15 @@ namespace Br.Bibliography.Model.Entities.Impl.Entitled
     {
         #region Keys
 
-        public uint KeyEdition { get; set; }
+        public int? KeyEdition { get; set; }
 
-        public uint KeyPublisher { get; set; }
+        public int? KeyPublisher { get; set; }
 
-        public uint KeyLanguage { get; set; }
+        public int? KeyLanguage { get; set; }
 
-        public uint KeyYear { get; set; }
+        public int? KeyYear { get; set; }
 
-        public uint KeyDisclaimer { get; set; }
+        public int? KeyDisclaimer { get; set; }
 
         #endregion
 

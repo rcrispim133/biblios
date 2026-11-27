@@ -7,7 +7,7 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Sector
     {
         #region Keys
 
-        uint KeySection { get; }
+        int? KeySection { get; }
 
         #endregion
 

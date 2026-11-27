@@ -2,7 +2,7 @@
 {
     public abstract class Packet : IPacket
     {
-        public uint? Key { get; set; }
+        public int? Key { get; set; }
 
         public string? Message { get; set; }
     }

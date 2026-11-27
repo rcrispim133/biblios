@@ -10,13 +10,13 @@ namespace Br.Bibliography.Model.Entities.Impl.Series
     {
         #region Keys
 
-        public uint KeyUnit { get; set; }
+        public int? KeyUnit { get; set; }
 
-        public uint KeyPeriod { get; set; }
+        public int? KeyPeriod { get; set; }
 
-        public uint KeyCycle { get; set; }
+        public int? KeyCycle { get; set; }
 
-        public uint KeyDuration { get; set; }
+        public int? KeyDuration { get; set; }
 
         #endregion
 

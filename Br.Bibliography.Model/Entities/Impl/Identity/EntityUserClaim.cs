@@ -5,20 +5,20 @@ using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Impl.Identity
 {
-    public class EntityUserClaim : IdentityUserClaim<uint>, IEntityUserClaim
+    public class EntityUserClaim : IdentityUserClaim<int>, IEntityUserClaim
     {
         #region Keys
 
-        public uint? Key { get; set; }
+        public int? Key { get; set; }
 
         [JsonIgnore]
-        public override int Id { get => (int)(Key ?? Helper.ZERO); set => Key = (uint)value; }
+        public override int Id { get => Key ?? Helper.ZERO; set => Key = value; }
 
         #endregion
 
         #region Properties
 
-        public override uint UserId { get; set; }
+        public override int UserId { get; set; }
 
         public override string? ClaimType { get; set; }
 

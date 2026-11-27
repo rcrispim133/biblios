@@ -10,9 +10,9 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Sector
     {
         #region Keys
 
-        uint KeyDetail { get; }
+        int? KeyDetail { get; }
 
-        uint KeyLecture { get; }
+        int? KeyLecture { get; }
 
         #endregion
 

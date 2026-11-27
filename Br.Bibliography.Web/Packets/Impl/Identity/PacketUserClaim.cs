@@ -6,7 +6,7 @@ namespace Br.Bibliography.Web.Packets.Impl.Identity
 {
     public class PacketUserClaim : PacketBase<EntityUserClaim, IPacketUserClaim>, IPacketUserClaim
     {
-        private PacketUserClaim(uint? key, EntityUserClaim? packet, string? message) : base(key, packet, message)
+        private PacketUserClaim(int? key, EntityUserClaim? packet, string? message) : base(key, packet, message)
         {
         }
         private PacketUserClaim(EntityUserClaim? packet) : this(null, packet, null)

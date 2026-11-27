@@ -6,7 +6,7 @@ namespace Br.Bibliography.Web.Packets.Impl.Locals
 {
     public class PacketCountry : PacketText<EntityCountry, IPacketCountry>, IPacketCountry
     {
-        private PacketCountry(uint? key, EntityCountry? packet, string? message) : base(key, packet, message)
+        private PacketCountry(int? key, EntityCountry? packet, string? message) : base(key, packet, message)
         {
         }
         private PacketCountry(EntityCountry? packet) : this(null, packet, null)

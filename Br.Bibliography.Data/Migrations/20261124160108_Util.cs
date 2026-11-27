@@ -15,7 +15,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_author",
             columns: table => new
             {
-                key_author = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_author = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 acronym_author = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false),
                 txt_author = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
@@ -29,7 +29,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_biblio",
             columns: table => new
             {
-                key_biblio = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_biblio = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true)
             },
             constraints: table =>
@@ -41,7 +41,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_country",
             columns: table => new
             {
-                key_country = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_country = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_country = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -54,7 +54,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_credit",
             columns: table => new
             {
-                key_credit = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_credit = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_credit = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -67,7 +67,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_cycle",
             columns: table => new
             {
-                key_cycle = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_cycle = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_cycle = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -80,7 +80,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_detail",
             columns: table => new
             {
-                key_detail = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_detail = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_detail = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -93,7 +93,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_disclaimer",
             columns: table => new
             {
-                key_disclaimer = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_disclaimer = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 desc_disclaimer = table.Column<string>(type: "TEXT", maxLength: 500, nullable: false)
             },
@@ -106,7 +106,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_duration",
             columns: table => new
             {
-                key_duration = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_duration = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_duration = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -119,7 +119,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_edition",
             columns: table => new
             {
-                key_edition = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_edition = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_edition = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -132,7 +132,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_effort",
             columns: table => new
             {
-                key_effort = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_effort = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_effort = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -145,7 +145,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_image",
             columns: table => new
             {
-                key_image = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_image = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_image = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false),
                 raw_image = table.Column<byte[]>(type: "BLOB", maxLength: 16384, nullable: false)
@@ -159,7 +159,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_language",
             columns: table => new
             {
-                key_language = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_language = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_language = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -172,7 +172,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_period",
             columns: table => new
             {
-                key_period = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_period = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_period = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -185,7 +185,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_pre",
             columns: table => new
             {
-                key_pre = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_pre = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true)
             },
             constraints: table =>
@@ -197,8 +197,8 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_role",
             columns: table => new
             {
-                id_role = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_role = table.Column<uint>(type: "INTEGER", nullable: false)
+                id_role = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_role = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 name_role = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
                 NormalizedName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -213,7 +213,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_teacher",
             columns: table => new
             {
-                key_teacher = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_teacher = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_teacher = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -226,7 +226,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_type",
             columns: table => new
             {
-                key_type = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_type = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_type = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -239,7 +239,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_unit",
             columns: table => new
             {
-                key_unit = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_unit = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 acronym_unit = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false),
                 txt_unit = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
@@ -253,7 +253,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_url",
             columns: table => new
             {
-                key_url = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_url = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_url = table.Column<string>(type: "TEXT", maxLength: 500, nullable: false)
             },
@@ -266,8 +266,8 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_user",
             columns: table => new
             {
-                id_user = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_user = table.Column<uint>(type: "INTEGER", nullable: false)
+                id_user = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_user = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 username_user = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
                 email_user = table.Column<string>(type: "TEXT", maxLength: 96, nullable: false),
@@ -287,7 +287,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_work",
             columns: table => new
             {
-                key_work = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_work = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_work = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
@@ -300,7 +300,7 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_year",
             columns: table => new
             {
-                key_year = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_year = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true)
             },
             constraints: table =>
@@ -312,10 +312,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_biblio_author",
             columns: table => new
             {
-                key_biblio_author = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_biblio_author = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_biblio = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_author = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_biblio = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_author = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -338,9 +338,9 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_state",
             columns: table => new
             {
-                key_state = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_state = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_country = table.Column<uint>(type: "INTEGER", nullable: false),
+                key_country = table.Column<int?>(type: "INTEGER", nullable: false),
                 txt_state = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
             constraints: table =>
@@ -358,10 +358,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_biblio_image",
             columns: table => new
             {
-                key_biblio_image = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_biblio_image = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_biblio = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_image = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_biblio = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_image = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -386,7 +386,7 @@ public partial class _20261124160108_Util : Migration
             {
                 Id = table.Column<int>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                RoleId = table.Column<uint>(type: "INTEGER", nullable: false),
+                RoleId = table.Column<int?>(type: "INTEGER", nullable: false),
                 ClaimType = table.Column<string>(type: "TEXT", nullable: true),
                 ClaimValue = table.Column<string>(type: "TEXT", nullable: true)
             },
@@ -405,12 +405,12 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_course",
             columns: table => new
             {
-                key_course = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_course = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_unit = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_period = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_cycle = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_duration = table.Column<uint>(type: "INTEGER", nullable: false),
+                key_unit = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_period = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_cycle = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_duration = table.Column<int?>(type: "INTEGER", nullable: false),
                 Text = table.Column<string>(type: "TEXT", nullable: true),
                 Acronym = table.Column<string>(type: "TEXT", nullable: true),
                 Desc = table.Column<string>(type: "TEXT", nullable: true)
@@ -451,7 +451,7 @@ public partial class _20261124160108_Util : Migration
                 LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
                 ProviderKey = table.Column<string>(type: "TEXT", nullable: false),
                 ProviderDisplayName = table.Column<string>(type: "TEXT", nullable: true),
-                UserId = table.Column<uint>(type: "INTEGER", nullable: false)
+                UserId = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -468,8 +468,8 @@ public partial class _20261124160108_Util : Migration
             name: "AspNetUserRoles",
             columns: table => new
             {
-                UserId = table.Column<uint>(type: "INTEGER", nullable: false),
-                RoleId = table.Column<uint>(type: "INTEGER", nullable: false)
+                UserId = table.Column<int?>(type: "INTEGER", nullable: false),
+                RoleId = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -492,7 +492,7 @@ public partial class _20261124160108_Util : Migration
             name: "AspNetUserTokens",
             columns: table => new
             {
-                UserId = table.Column<uint>(type: "INTEGER", nullable: false),
+                UserId = table.Column<int?>(type: "INTEGER", nullable: false),
                 LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
                 Name = table.Column<string>(type: "TEXT", nullable: false),
                 Value = table.Column<string>(type: "TEXT", nullable: true)
@@ -513,9 +513,9 @@ public partial class _20261124160108_Util : Migration
             columns: table => new
             {
                 id_user_claim = table.Column<int>(type: "INTEGER", nullable: false),
-                key_user_claim = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_user_claim = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                id_user = table.Column<uint>(type: "INTEGER", nullable: false),
+                id_user = table.Column<int?>(type: "INTEGER", nullable: false),
                 txt_claim_type = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
                 txt_claim_value = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false)
             },
@@ -534,12 +534,12 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_lecture",
             columns: table => new
             {
-                key_lecture = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_lecture = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_credit = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_work = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_effort = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_type = table.Column<uint>(type: "INTEGER", nullable: false),
+                key_credit = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_work = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_effort = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_type = table.Column<int?>(type: "INTEGER", nullable: false),
                 acronym_lecture = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false),
                 txt_lecture = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false),
                 trans_lecture = table.Column<string>(type: "TEXT", maxLength: 144, nullable: true),
@@ -579,9 +579,9 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_city",
             columns: table => new
             {
-                key_city = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_city = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_state = table.Column<uint>(type: "INTEGER", nullable: false),
+                key_state = table.Column<int?>(type: "INTEGER", nullable: false),
                 txt_city = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false)
             },
             constraints: table =>
@@ -599,10 +599,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_biblio_lecture",
             columns: table => new
             {
-                key_biblio_lecture = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_biblio_lecture = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_biblio = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_lecture = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_biblio = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_lecture = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -625,10 +625,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_lecture_course",
             columns: table => new
             {
-                key_lecture_course = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_lecture_course = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_lecture = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_course = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_lecture = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_course = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -651,10 +651,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_lecture_pre",
             columns: table => new
             {
-                key_lecture_pre = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_lecture_pre = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_lecture = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_pre = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_lecture = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_pre = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -677,10 +677,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_lecture_teacher",
             columns: table => new
             {
-                key_lecture_teacher = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_lecture_teacher = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_lecture = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_teacher = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_lecture = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_teacher = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -703,10 +703,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_section",
             columns: table => new
             {
-                key_section = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_section = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_lecture = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_detail = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_lecture = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_detail = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -729,10 +729,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_publisher",
             columns: table => new
             {
-                key_publisher = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_publisher = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_publisher = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false),
-                KeyCity = table.Column<uint>(type: "INTEGER", nullable: false)
+                KeyCity = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -749,12 +749,12 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_line",
             columns: table => new
             {
-                key_line = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_line = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 mark_line = table.Column<string>(type: "TEXT", maxLength: 5, nullable: true),
-                order_line = table.Column<uint>(type: "INTEGER", nullable: true),
+                order_line = table.Column<int?>(type: "INTEGER", nullable: true),
                 txt_line = table.Column<string>(type: "TEXT", maxLength: 144, nullable: false),
-                KeySection = table.Column<uint>(type: "INTEGER", nullable: false)
+                KeySection = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -771,14 +771,14 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_title",
             columns: table => new
             {
-                key_title = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_title = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
                 txt_title = table.Column<string>(type: "TEXT", maxLength: 500, nullable: false),
-                KeyEdition = table.Column<uint>(type: "INTEGER", nullable: false),
-                KeyPublisher = table.Column<uint>(type: "INTEGER", nullable: false),
-                KeyLanguage = table.Column<uint>(type: "INTEGER", nullable: false),
-                KeyYear = table.Column<uint>(type: "INTEGER", nullable: false),
-                KeyDisclaimer = table.Column<uint>(type: "INTEGER", nullable: false)
+                KeyEdition = table.Column<int?>(type: "INTEGER", nullable: false),
+                KeyPublisher = table.Column<int?>(type: "INTEGER", nullable: false),
+                KeyLanguage = table.Column<int?>(type: "INTEGER", nullable: false),
+                KeyYear = table.Column<int?>(type: "INTEGER", nullable: false),
+                KeyDisclaimer = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -819,10 +819,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_title_biblio",
             columns: table => new
             {
-                key_title_biblio = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_title_biblio = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_title = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_biblio = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_title = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_biblio = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {
@@ -845,10 +845,10 @@ public partial class _20261124160108_Util : Migration
             name: "tbl_title_url",
             columns: table => new
             {
-                key_title_url = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_title_url = table.Column<int?>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                key_title = table.Column<uint>(type: "INTEGER", nullable: false),
-                key_url = table.Column<uint>(type: "INTEGER", nullable: false)
+                key_title = table.Column<int?>(type: "INTEGER", nullable: false),
+                key_url = table.Column<int?>(type: "INTEGER", nullable: false)
             },
             constraints: table =>
             {

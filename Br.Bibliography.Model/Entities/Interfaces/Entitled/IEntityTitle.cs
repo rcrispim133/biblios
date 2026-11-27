@@ -10,15 +10,15 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Entitled
     {
         #region Keys
 
-        uint KeyEdition { get; }
+        int? KeyEdition { get; }
 
-        uint KeyPublisher { get; }
+        int? KeyPublisher { get; }
 
-        uint KeyLanguage { get; }
+        int? KeyLanguage { get; }
 
-        uint KeyYear { get; }
+        int? KeyYear { get; }
 
-        uint KeyDisclaimer { get; }
+        int? KeyDisclaimer { get; }
 
         #endregion
 

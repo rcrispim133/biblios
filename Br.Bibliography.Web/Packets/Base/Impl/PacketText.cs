@@ -8,6 +8,6 @@ namespace Br.Bibliography.Web.Packets.Base.Impl
             where TPacket : IPacketText<TEntity> 
             where TEntity : class, IEntityText<TEntity>, new()
     {
-        protected PacketText(uint? key, TEntity? packet, string? message) : base(key, packet, message) { }
+        protected PacketText(int? key, TEntity? packet, string? message) : base(key, packet, message) { }
     }
 }

@@ -12,10 +12,10 @@ namespace Br.Bibliography.Testing.Records.Base.Impl
 
         public TEntity? EntityBaseZeroKey => new() { Key = Helper.ZERO };
 
-        public TEntity? EntityBaseMinKey => new() { Key = uint.MinValue };
+        public TEntity? EntityBaseMinKey => new() { Key = int.MinValue };
 
-        public TEntity? EntityBaseMaxKey => new() { Key = uint.MaxValue };
+        public TEntity? EntityBaseMaxKey => new() { Key = int.MaxValue };
 
-        public TEntity? EntityBaseRandomKey => new() { Key = (uint)new Random().Next() };
+        public TEntity? EntityBaseRandomKey => new() { Key = (int?)new Random().Next() };
     }
 }

@@ -22,19 +22,19 @@ namespace Br.Bibliography.Web.Controllers.Base.Interfaces
 
         #region READ
 
-        TPacket? HandleRead(uint? key);
+        TPacket? HandleRead(int? key);
 
         #endregion
 
         #region UPDATE
 
-        TPacket? HandleUpdate(uint? key, TEntity? entity);
+        TPacket? HandleUpdate(int? key, TEntity? entity);
 
         #endregion
 
         #region DELETE
 
-        TPacket? HandleDelete(uint? key);
+        TPacket? HandleDelete(int? key);
 
         #endregion
 

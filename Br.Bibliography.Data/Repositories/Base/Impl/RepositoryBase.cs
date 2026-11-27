@@ -36,19 +36,19 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         #region READ
 
-        public TEntity? Read(uint? key) => Context.DbSet.Find(key);
+        public TEntity? Read(int? key) => Context.DbSet.Find(key);
 
         #endregion
 
         #region UPDATE
 
-        public TEntity? Update(uint? key, TEntity? entity) => Read(key); // Object has only a key. No changes. Just read.
+        public TEntity? Update(int? key, TEntity? entity) => Read(key); // Object has only a key. No changes. Just read.
 
         #endregion
 
         #region DELETE
 
-        public TEntity? Delete(uint? key)
+        public TEntity? Delete(int? key)
         {
             var entity = Context.DbSet.Remove(Single(key)).Entity;
             Context.SaveChanges();
@@ -59,7 +59,7 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         #region SINGLE
 
-        public TEntity Single(uint? key) => Context.DbSet.Single(x => x.Key == key);
+        public TEntity Single(int? key) => Context.DbSet.Single(x => x.Key == key);
 
         #endregion
 

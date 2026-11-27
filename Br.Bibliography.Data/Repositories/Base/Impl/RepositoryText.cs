@@ -24,13 +24,13 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         #region READ
 
-        public new TEntity? Read(uint? key) => base.Read(key);
+        public new TEntity? Read(int? key) => base.Read(key);
 
         #endregion
 
         #region UPDATE
 
-        public new TEntity? Update(uint? key, TEntity? entity)
+        public new TEntity? Update(int? key, TEntity? entity)
         {
             if (entity == null) throw ExceptionRepositoryTextUpdate<TEntity>.Factory(entity);
             var single = base.Single(key);
@@ -44,13 +44,13 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         #region DELETE
 
-        public new TEntity? Delete(uint? key) => base.Delete(key);
+        public new TEntity? Delete(int? key) => base.Delete(key);
 
         #endregion
 
         #region SINGLE
 
-        public new TEntity Single(uint? key) => base.Single(key);
+        public new TEntity Single(int? key) => base.Single(key);
 
         #endregion
 

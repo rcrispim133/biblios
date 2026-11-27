@@ -12,9 +12,9 @@ namespace Br.Bibliography.Model.Entities.Impl.Duo
     {
         #region Keys
 
-        public uint KeyLecture { get; set; }
+        public int? KeyLecture { get; set; }
 
-        public uint KeyCourse { get; set; }
+        public int? KeyCourse { get; set; }
 
         #endregion
 

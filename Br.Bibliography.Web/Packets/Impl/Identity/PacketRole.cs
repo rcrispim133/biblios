@@ -6,7 +6,7 @@ namespace Br.Bibliography.Web.Packets.Impl.Identity
 {
     public class PacketRole : PacketBase<EntityRole, IPacketRole>, IPacketRole
     {
-        private PacketRole(uint? key, EntityRole? packet, string? message) : base(key, packet, message)
+        private PacketRole(int? key, EntityRole? packet, string? message) : base(key, packet, message)
         {
         }
         private PacketRole(EntityRole? packet) : this(null, packet, null)

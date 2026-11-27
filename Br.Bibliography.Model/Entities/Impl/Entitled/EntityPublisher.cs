@@ -10,7 +10,7 @@ namespace Br.Bibliography.Model.Entities.Impl.Entitled
     {
         #region Keys
 
-        public uint KeyCity { get; set; }
+        public int? KeyCity { get; set; }
 
         #endregion
 

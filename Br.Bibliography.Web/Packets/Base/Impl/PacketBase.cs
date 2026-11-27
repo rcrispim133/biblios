@@ -11,7 +11,7 @@ namespace Br.Bibliography.Web.Packets.Base.Impl
     {
         public TEntity? Packet { get; set; }
 
-        protected PacketBase(uint? key, TEntity? packet, string? message)
+        protected PacketBase(int? key, TEntity? packet, string? message)
         {
             Key = key;
             Packet = packet;

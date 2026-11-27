@@ -7,7 +7,7 @@ namespace Br.Bibliography.Web.Packets.Impl.Identity
 {
     public class PacketUser : PacketBase<EntityUser, IPacketUser>, IPacketUser
     {
-        private PacketUser(uint? key, EntityUser? packet, string? message) : base(key, packet, message)
+        private PacketUser(int? key, EntityUser? packet, string? message) : base(key, packet, message)
         {
         }
         private PacketUser(EntityUser? packet) : this(null, packet, null)

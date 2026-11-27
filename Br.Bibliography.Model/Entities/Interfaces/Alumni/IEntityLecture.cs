@@ -12,13 +12,13 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Alumni
     {
         #region Keys
 
-        uint KeyCredit { get; }
+        int? KeyCredit { get; }
 
-        uint KeyWork { get; }
+        int? KeyWork { get; }
 
-        uint KeyEffort { get; }
+        int? KeyEffort { get; }
 
-        uint KeyType { get; }
+        int? KeyType { get; }
 
         #endregion
 

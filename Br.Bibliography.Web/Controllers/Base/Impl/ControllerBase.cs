@@ -25,19 +25,19 @@ namespace Br.Bibliography.Web.Controllers.Base.Impl
 
         #region READ
   
-        public abstract TPacket? HandleRead(uint? key);
+        public abstract TPacket? HandleRead(int? key);
 
         #endregion
 
         #region UPDATE
 
-        public abstract TPacket? HandleUpdate(uint? key, TEntity? entity);
+        public abstract TPacket? HandleUpdate(int? key, TEntity? entity);
 
         #endregion
 
         #region DELETE
 
-        public abstract TPacket? HandleDelete(uint? key);
+        public abstract TPacket? HandleDelete(int? key);
 
         #endregion
 

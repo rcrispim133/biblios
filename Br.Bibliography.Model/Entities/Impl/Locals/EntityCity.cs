@@ -10,7 +10,7 @@ namespace Br.Bibliography.Model.Entities.Impl.Locals
     {
         #region Keys
 
-        public uint KeyState { get; set; }
+        public int? KeyState { get; set; }
 
         #endregion
 

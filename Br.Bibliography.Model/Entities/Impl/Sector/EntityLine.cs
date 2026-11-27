@@ -7,7 +7,7 @@ namespace Br.Bibliography.Model.Entities.Impl.Sector
     {
         #region Keys
 
-        public uint KeySection { get; set; }
+        public int? KeySection { get; set; }
 
         #endregion
 

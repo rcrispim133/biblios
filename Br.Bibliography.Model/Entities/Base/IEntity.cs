@@ -2,6 +2,6 @@
 {
     public interface IEntity
     {
-        uint? Key { get; }
+        int? Key { get; }
     }
 }

@@ -6,6 +6,6 @@ namespace Br.Bibliography.Model.Entities.Base.Impl
     {
         public string? LineMark { get; set; }
 
-        public uint? LineOrder { get; set; }
+        public int? LineOrder { get; set; }
     }
 }

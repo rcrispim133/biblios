@@ -4,6 +4,6 @@
     {
         string? LineMark { get; }
 
-        uint? LineOrder { get; }
+        int? LineOrder { get; }
     }
 }

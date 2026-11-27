@@ -6,14 +6,14 @@ using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Impl.Identity
 {
-    public class EntityRole : IdentityRole<uint>, IEntityRole
+    public class EntityRole : IdentityRole<int>, IEntityRole
     {
         #region Keys
 
-        public uint? Key { get; set; }
+        public int? Key { get; set; }
 
         [JsonIgnore]
-        public override uint Id { get => Key ?? Helper.ZERO; set => Key = value; }
+        public override int Id { get => Key ?? Helper.ZERO; set => Key = value; }
 
         #endregion
 
