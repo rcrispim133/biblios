@@ -1,6 +1,5 @@
 ﻿using Br.Bibliography.Data.Contexts.Base.Interfaces;
 using Br.Bibliography.Data.Repositories.Base.Interfaces;
-using Br.Bibliography.Data.Repositories.Exceptions.Impl;
 using Br.Bibliography.Model.Entities.Base.Interfaces;
 
 namespace Br.Bibliography.Data.Repositories.Base.Impl
@@ -32,7 +31,7 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         public new TEntity? Update(int? key, TEntity? entity)
         {
-            if (entity == null) throw ExceptionRepositoryTextUpdate<TEntity>.Factory(entity);
+            if (entity == null) throw new Exception(); // TODO: Our Exception
             var single = base.Single(key);
             single.Text = entity.Text;
             Context.DbSet.Update(single);

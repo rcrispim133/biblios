@@ -1,6 +1,5 @@
 ﻿using Br.Bibliography.Data.Contexts.Base.Interfaces;
 using Br.Bibliography.Data.Repositories.Base.Interfaces;
-using Br.Bibliography.Data.Repositories.Exceptions.Impl;
 using Br.Bibliography.Model.Entities.Base.Interfaces;
 
 namespace Br.Bibliography.Data.Repositories.Base.Impl
@@ -15,10 +14,7 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         #region CONSTRUCTOR
 
-        protected RepositoryBase(IContextBase<TEntity> context)
-        {
-            Context = context;
-        }
+        protected RepositoryBase(IContextBase<TEntity> context) => Context = context;
 
         #endregion
 
@@ -26,7 +22,7 @@ namespace Br.Bibliography.Data.Repositories.Base.Impl
 
         public TEntity? Create(TEntity? entity)
         {
-            if (entity == null) throw ExceptionRepositoryBaseCreate<TEntity>.Factory(entity);
+            if (entity == null) throw new Exception(); // TODO: Our Exception
             var add = Context.DbSet.Add(entity).Entity;
             Context.SaveChanges();
             return add;
