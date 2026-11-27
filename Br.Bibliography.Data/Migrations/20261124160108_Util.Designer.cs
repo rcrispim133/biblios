@@ -2,6 +2,9 @@
 using System;
 using Br.Bibliography.Data.Contexts.Base;
 using Microsoft.EntityFrameworkCore;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Util.Constants.Impl;
+
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -21,7 +24,7 @@ partial class _20261124160108_Util
 #pragma warning disable 612, 618
         modelBuilder.HasAnnotation("ProductVersion", "11.0.0");
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityCredit", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityCredit", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -48,7 +51,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_credit");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityEffort", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityEffort", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -75,7 +78,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_effort");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityLecture", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityLecture", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -157,7 +160,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_lecture");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityPre", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityPre", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -177,7 +180,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_pre");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityTeacher", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityTeacher", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -204,7 +207,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_teacher");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityType", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityType", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -231,7 +234,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_type");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityWork", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityWork", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -258,7 +261,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_work");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Biblio.EntityAuthor", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityAuthor", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -292,7 +295,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_author");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Biblio.EntityBiblio", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityBiblio", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -312,7 +315,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_biblio");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Biblio.EntityImage", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityImage", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -346,7 +349,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_image");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityBiblioAuthor", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityBiblioAuthor", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -382,7 +385,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_biblio_author");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityBiblioImage", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityBiblioImage", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -418,7 +421,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_biblio_image");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityBiblioLecture", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityBiblioLecture", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -454,7 +457,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_biblio_lecture");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityLectureCourse", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityLectureCourse", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -490,7 +493,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_lecture_course");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityLecturePre", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityLecturePre", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -526,7 +529,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_lecture_pre");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityLectureTeacher", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityLectureTeacher", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -562,7 +565,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_lecture_teacher");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityTitleBiblio", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityTitleBiblio", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -598,7 +601,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_title_biblio");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityTitleUrl", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityTitleUrl", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -634,7 +637,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_title_url");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityDisclaimer", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityDisclaimer", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -661,7 +664,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_disclaimer");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityEdition", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityEdition", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -688,7 +691,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_edition");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityLanguage", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityLanguage", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -715,7 +718,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_language");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityPublisher", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityPublisher", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -748,7 +751,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_publisher");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityTitle", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityTitle", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -805,7 +808,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_title");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityUrl", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityUrl", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -832,7 +835,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_url");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityYear", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityYear", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -852,7 +855,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_year");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityRole", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -900,7 +903,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_role");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityUser", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -978,7 +981,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_user");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUserClaim", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityUserClaim", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1029,7 +1032,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_user_claim");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityCity", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1064,7 +1067,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_city");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCountry", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityCountry", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1091,7 +1094,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_country");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityState", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityState", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1126,7 +1129,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_state");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntityDetail", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Sector.EntityDetail", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1153,7 +1156,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_detail");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntityLine", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Sector.EntityLine", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1197,7 +1200,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_line");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntitySection", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Sector.EntitySection", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1235,7 +1238,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_section");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityCourse", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityCourse", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1296,7 +1299,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_course");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityCycle", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityCycle", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1323,7 +1326,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_cycle");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityDuration", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityDuration", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1350,7 +1353,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_duration");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityPeriod", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityPeriod", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1377,7 +1380,7 @@ partial class _20261124160108_Util
                 b.ToTable("tbl_period");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityUnit", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityUnit", b =>
             {
                 var key = b.Property<int?>("Key")
                     .ValueGeneratedOnAdd()
@@ -1488,30 +1491,30 @@ partial class _20261124160108_Util
                 b.ToTable("AspNetUserTokens");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityLecture", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityLecture", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityCredit", "EntityCredit")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityCredit", "EntityCredit")
                     .WithMany("EnumerableLecture")
                     .HasForeignKey("KeyCredit")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_lecture_credit");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityEffort", "EntityEffort")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityEffort", "EntityEffort")
                     .WithMany("EnumerableLecture")
                     .HasForeignKey("KeyEffort")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_lecture_effort");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityType", "EntityType")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityType", "EntityType")
                     .WithMany("EnumerableLecture")
                     .HasForeignKey("KeyType")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_type_lecture");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityWork", "EntityWork")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityWork", "EntityWork")
                     .WithMany("EnumerableLecture")
                     .HasForeignKey("KeyWork")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1527,16 +1530,16 @@ partial class _20261124160108_Util
                 b.Navigation("EntityWork");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityBiblioAuthor", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityBiblioAuthor", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Biblio.EntityAuthor", "EntityAuthor")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityAuthor", "EntityAuthor")
                     .WithMany("EnumerableBiblioAuthor")
                     .HasForeignKey("KeyAuthor")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_key_biblio_author_author");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Biblio.EntityBiblio", "EntityBiblio")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityBiblio", "EntityBiblio")
                     .WithMany("EnumerableBiblioAuthor")
                     .HasForeignKey("KeyBiblio")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1548,16 +1551,16 @@ partial class _20261124160108_Util
                 b.Navigation("EntityBiblio");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityBiblioImage", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityBiblioImage", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Biblio.EntityBiblio", "EntityBiblio")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityBiblio", "EntityBiblio")
                     .WithMany("EnumerableBiblioImage")
                     .HasForeignKey("KeyBiblio")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_key_biblio_image_biblio");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Biblio.EntityImage", "EntityImage")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityImage", "EntityImage")
                     .WithMany("EnumerableBiblioImage")
                     .HasForeignKey("KeyBiblio")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1569,16 +1572,16 @@ partial class _20261124160108_Util
                 b.Navigation("EntityImage");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityBiblioLecture", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityBiblioLecture", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Biblio.EntityBiblio", "EntityBiblio")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityBiblio", "EntityBiblio")
                     .WithMany("EnumerableBiblioLecture")
                     .HasForeignKey("KeyBiblio")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_key_biblio_lecture_biblio");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityLecture", "EntityLecture")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityLecture", "EntityLecture")
                     .WithMany("EnumerableBiblioLecture")
                     .HasForeignKey("KeyLecture")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1590,16 +1593,16 @@ partial class _20261124160108_Util
                 b.Navigation("EntityLecture");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityLectureCourse", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityLectureCourse", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Series.EntityCourse", "EntityCourse")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityCourse", "EntityCourse")
                     .WithMany("EnumerableLectureCourse")
                     .HasForeignKey("KeyCourse")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_course_line");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityLecture", "EntityLecture")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityLecture", "EntityLecture")
                     .WithMany("EnumerableLectureCourse")
                     .HasForeignKey("KeyLecture")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1611,16 +1614,16 @@ partial class _20261124160108_Util
                 b.Navigation("EntityLecture");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityLecturePre", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityLecturePre", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityLecture", "EntityLecture")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityLecture", "EntityLecture")
                     .WithMany("EnumerableLecturePre")
                     .HasForeignKey("KeyLecture")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_key_lecture_pre_lecture");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityPre", "EntityPre")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityPre", "EntityPre")
                     .WithMany("EnumerableLecturePre")
                     .HasForeignKey("KeyPre")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1632,16 +1635,16 @@ partial class _20261124160108_Util
                 b.Navigation("EntityPre");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityLectureTeacher", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityLectureTeacher", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityLecture", "EntityLecture")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityLecture", "EntityLecture")
                     .WithMany("EnumerableLectureTeacher")
                     .HasForeignKey("KeyLecture")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_key_lecture_teacher_lecture");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityTeacher", "EntityTeacher")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityTeacher", "EntityTeacher")
                     .WithMany("EnumerableLectureTeacher")
                     .HasForeignKey("KeyTeacher")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1653,16 +1656,16 @@ partial class _20261124160108_Util
                 b.Navigation("EntityTeacher");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityTitleBiblio", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityTitleBiblio", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Biblio.EntityBiblio", "EntityBiblio")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityBiblio", "EntityBiblio")
                     .WithMany("EnumerableTitleBiblio")
                     .HasForeignKey("KeyBiblio")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_key_title_biblio_biblio");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Entitled.EntityTitle", "EntityTitle")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityTitle", "EntityTitle")
                     .WithMany("EnumerableTitleBiblio")
                     .HasForeignKey("KeyTitle")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1674,16 +1677,16 @@ partial class _20261124160108_Util
                 b.Navigation("EntityTitle");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Duo.EntityTitleUrl", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Duo.EntityTitleUrl", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Entitled.EntityTitle", "EntityTitle")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityTitle", "EntityTitle")
                     .WithMany("EnumerableTitleUrl")
                     .HasForeignKey("KeyTitle")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_key_title_title");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Entitled.EntityUrl", "EntityUrl")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityUrl", "EntityUrl")
                     .WithMany("EnumerableTitleUrl")
                     .HasForeignKey("KeyUrl")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1695,9 +1698,9 @@ partial class _20261124160108_Util
                 b.Navigation("EntityUrl");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityPublisher", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityPublisher", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", "EntityCity")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityCity", "EntityCity")
                     .WithMany("EnumerablePublisher")
                     .HasForeignKey("KeyCity")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1707,37 +1710,37 @@ partial class _20261124160108_Util
                 b.Navigation("EntityCity");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityTitle", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityTitle", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Entitled.EntityDisclaimer", "EntityDisclaimer")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityDisclaimer", "EntityDisclaimer")
                     .WithMany("EnumerableTitle")
                     .HasForeignKey("KeyDisclaimer")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_title_disclaimer");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Entitled.EntityEdition", "EntityEdition")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityEdition", "EntityEdition")
                     .WithMany("EnumerableTitle")
                     .HasForeignKey("KeyEdition")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_title_edition");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Entitled.EntityLanguage", "EntityLanguage")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityLanguage", "EntityLanguage")
                     .WithMany("EnumerableTitle")
                     .HasForeignKey("KeyLanguage")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_title_language");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Entitled.EntityPublisher", "EntityPublisher")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityPublisher", "EntityPublisher")
                     .WithMany("EnumerableTitle")
                     .HasForeignKey("KeyPublisher")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_title_publisher");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Entitled.EntityYear", "EntityYear")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityYear", "EntityYear")
                     .WithMany("EnumerableTitle")
                     .HasForeignKey("KeyYear")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1755,9 +1758,9 @@ partial class _20261124160108_Util
                 b.Navigation("EntityYear");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUserClaim", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityUserClaim", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", "EntityUser")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityUser", "EntityUser")
                     .WithMany("EnumerableUserClaim")
                     .HasForeignKey("UserId")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1767,9 +1770,9 @@ partial class _20261124160108_Util
                 b.Navigation("EntityUser");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityCity", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Locals.EntityState", "EntityState")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityState", "EntityState")
                     .WithMany("EnumerableCity")
                     .HasForeignKey("KeyState")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1779,9 +1782,9 @@ partial class _20261124160108_Util
                 b.Navigation("EntityState");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityState", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityState", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Locals.EntityCountry", "EntityCountry")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityCountry", "EntityCountry")
                     .WithMany("EnumerableStates")
                     .HasForeignKey("KeyCountry")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1791,9 +1794,9 @@ partial class _20261124160108_Util
                 b.Navigation("EntityCountry");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntityLine", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Sector.EntityLine", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Sector.EntitySection", "EntitySection")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Sector.EntitySection", "EntitySection")
                     .WithMany("EnumerableLine")
                     .HasForeignKey("KeySection")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1803,16 +1806,16 @@ partial class _20261124160108_Util
                 b.Navigation("EntitySection");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntitySection", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Sector.EntitySection", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Sector.EntityDetail", "EntityDetail")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Sector.EntityDetail", "EntityDetail")
                     .WithMany("EnumerableSection")
                     .HasForeignKey("KeyDetail")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_section_detail");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Alumni.EntityLecture", "EntityLecture")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityLecture", "EntityLecture")
                     .WithMany("EnumerableSection")
                     .HasForeignKey("KeyLecture")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1824,30 +1827,30 @@ partial class _20261124160108_Util
                 b.Navigation("EntityLecture");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityCourse", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityCourse", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Series.EntityCycle", "EntityCycle")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityCycle", "EntityCycle")
                     .WithMany("EnumerableCourse")
                     .HasForeignKey("KeyCycle")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_cycle_course");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Series.EntityDuration", "EntityDuration")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityDuration", "EntityDuration")
                     .WithMany("EnumerableCourse")
                     .HasForeignKey("KeyDuration")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_duration_course");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Series.EntityPeriod", "EntityPeriod")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityPeriod", "EntityPeriod")
                     .WithMany("EnumerableCourse")
                     .HasForeignKey("KeyPeriod")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired()
                     .HasConstraintName("fk_period_course");
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Series.EntityUnit", "EntityUnit")
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityUnit", "EntityUnit")
                     .WithMany("EnumerableCourse")
                     .HasForeignKey("KeyUnit")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1865,7 +1868,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int?>", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", null)
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityRole", null)
                     .WithMany()
                     .HasForeignKey("RoleId")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1874,7 +1877,7 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int?>", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityUser", null)
                     .WithMany()
                     .HasForeignKey("UserId")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1883,13 +1886,13 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int?>", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", null)
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityRole", null)
                     .WithMany()
                     .HasForeignKey("RoleId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
 
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityUser", null)
                     .WithMany()
                     .HasForeignKey("UserId")
                     .OnDelete(DeleteBehavior.Cascade)
@@ -1898,24 +1901,24 @@ partial class _20261124160108_Util
 
         modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int?>", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
+                b.HasOne("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityUser", null)
                     .WithMany()
                     .HasForeignKey("UserId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityCredit", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityCredit", b =>
             {
                 b.Navigation("EnumerableLecture");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityEffort", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityEffort", b =>
             {
                 b.Navigation("EnumerableLecture");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityLecture", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityLecture", b =>
             {
                 b.Navigation("EnumerableBiblioLecture");
 
@@ -1928,32 +1931,32 @@ partial class _20261124160108_Util
                 b.Navigation("EnumerableSection");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityPre", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityPre", b =>
             {
                 b.Navigation("EnumerableLecturePre");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityTeacher", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityTeacher", b =>
             {
                 b.Navigation("EnumerableLectureTeacher");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityType", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityType", b =>
             {
                 b.Navigation("EnumerableLecture");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Alumni.EntityWork", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Alumni.EntityWork", b =>
             {
                 b.Navigation("EnumerableLecture");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Biblio.EntityAuthor", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityAuthor", b =>
             {
                 b.Navigation("EnumerableBiblioAuthor");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Biblio.EntityBiblio", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityBiblio", b =>
             {
                 b.Navigation("EnumerableBiblioAuthor");
 
@@ -1964,99 +1967,99 @@ partial class _20261124160108_Util
                 b.Navigation("EnumerableTitleBiblio");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Biblio.EntityImage", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Biblio.EntityImage", b =>
             {
                 b.Navigation("EnumerableBiblioImage");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityDisclaimer", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityDisclaimer", b =>
             {
                 b.Navigation("EnumerableTitle");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityEdition", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityEdition", b =>
             {
                 b.Navigation("EnumerableTitle");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityLanguage", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityLanguage", b =>
             {
                 b.Navigation("EnumerableTitle");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityPublisher", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityPublisher", b =>
             {
                 b.Navigation("EnumerableTitle");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityTitle", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityTitle", b =>
             {
                 b.Navigation("EnumerableTitleBiblio");
 
                 b.Navigation("EnumerableTitleUrl");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityUrl", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityUrl", b =>
             {
                 b.Navigation("EnumerableTitleUrl");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Entitled.EntityYear", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Entitled.EntityYear", b =>
             {
                 b.Navigation("EnumerableTitle");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Identity.EntityUser", b =>
             {
                 b.Navigation("EnumerableUserClaim");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityCity", b =>
             {
                 b.Navigation("EnumerablePublisher");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCountry", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityCountry", b =>
             {
                 b.Navigation("EnumerableStates");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityState", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Locals.EntityState", b =>
             {
                 b.Navigation("EnumerableCity");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntityDetail", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Sector.EntityDetail", b =>
             {
                 b.Navigation("EnumerableSection");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Sector.EntitySection", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Sector.EntitySection", b =>
             {
                 b.Navigation("EnumerableLine");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityCourse", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityCourse", b =>
             {
                 b.Navigation("EnumerableLectureCourse");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityCycle", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityCycle", b =>
             {
                 b.Navigation("EnumerableCourse");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityDuration", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityDuration", b =>
             {
                 b.Navigation("EnumerableCourse");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityPeriod", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityPeriod", b =>
             {
                 b.Navigation("EnumerableCourse");
             });
 
-        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Series.EntityUnit", b =>
+        modelBuilder.Entity("Br.Bibliography.Model.Constant.Base.Impl.Series.EntityUnit", b =>
             {
                 b.Navigation("EnumerableCourse");
             });

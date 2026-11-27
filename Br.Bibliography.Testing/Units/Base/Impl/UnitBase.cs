@@ -2,8 +2,7 @@
 using Br.Bibliography.Model.Entities.Base.Impl;
 using Br.Bibliography.Testing.Records.Base.Interfaces;
 using Br.Bibliography.Testing.Units.Base.Interfaces;
-using Br.Bibliography.Util.Helpers.Base;
-using Br.Bibliography.Util.Helpers.Impl;
+using Br.Bibliography.Util.Constants.Base;
 using Br.Bibliography.Web.Controllers.Base.Interfaces;
 using Br.Bibliography.Web.Packets.Base.Interfaces;
 
@@ -46,7 +45,7 @@ namespace Br.Bibliography.Testing.Units.Base.Impl
 
                 // Assert
                 Assert.NotNull(packet);
-                Assert.True(packet.Key > HelperMath.ZERO);
+                Assert.True(packet.Key > Constant.Math.Zero);
             }
             catch (Exception ex)
             {

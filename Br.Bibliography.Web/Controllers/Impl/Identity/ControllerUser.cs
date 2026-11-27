@@ -1,7 +1,7 @@
 ﻿using Br.Bibliography.Data.Contexts.Base;
 using Br.Bibliography.Data.Repositories.Base.Interfaces;
 using Br.Bibliography.Data.Repositories.Impl.Identity;
-using Br.Bibliography.Data.Repositories.Interfaces.Locals;
+using Br.Bibliography.Data.Repositories.Interfaces.Identity;
 using Br.Bibliography.Model.Entities.Impl.Identity;
 using Br.Bibliography.Web.Controllers.Base.Impl;
 using Br.Bibliography.Web.Controllers.Interfaces.Identity;

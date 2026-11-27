@@ -1,6 +1,4 @@
 ﻿using Br.Bibliography.Model.Entities.Interfaces.Identity;
-using Br.Bibliography.Util.Helpers.Base;
-using Br.Bibliography.Util.Helpers.Impl;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -14,7 +12,7 @@ namespace Br.Bibliography.Model.Entities.Impl.Identity
         public int? Key { get; set; }
 
         [JsonIgnore]
-        public override int Id { get => Key ?? HelperMath.ZERO; set => Key = value; }
+        public override int Id { get => Key ?? Util.Constants.Base.Constant.Math.Zero; set => Key = value; }
 
         #endregion
 

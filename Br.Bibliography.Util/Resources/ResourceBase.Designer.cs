@@ -61,92 +61,281 @@ namespace Br.Bibliography.Util.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 96.
+        ///   Looks up a localized string similar to author.
         /// </summary>
-        public static string DefaultEmailMax {
+        public static string AUTHOR {
             get {
-                return ResourceManager.GetString("DefaultEmailMax", resourceCulture);
+                return ResourceManager.GetString("AUTHOR", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2.
+        ///   Looks up a localized string similar to biblio.
         /// </summary>
-        public static string DefaultMarkMaxLength {
+        public static string BIBLIO {
             get {
-                return ResourceManager.GetString("DefaultMarkMaxLength", resourceCulture);
+                return ResourceManager.GetString("BIBLIO", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 24.
+        ///   Looks up a localized string similar to city.
         /// </summary>
-        public static string DefaultMaxAcronym {
+        public static string CITY {
             get {
-                return ResourceManager.GetString("DefaultMaxAcronym", resourceCulture);
+                return ResourceManager.GetString("CITY", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 500.
+        ///   Looks up a localized string similar to claim.
         /// </summary>
-        public static string DefaultMaxDesc {
+        public static string CLAIM {
             get {
-                return ResourceManager.GetString("DefaultMaxDesc", resourceCulture);
+                return ResourceManager.GetString("CLAIM", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 10240.
+        ///   Looks up a localized string similar to country.
         /// </summary>
-        public static string DefaultMaxRaw {
+        public static string COUNTRY {
             get {
-                return ResourceManager.GetString("DefaultMaxRaw", resourceCulture);
+                return ResourceManager.GetString("COUNTRY", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 96.
+        ///   Looks up a localized string similar to course.
         /// </summary>
-        public static string DefaultMaxRoleName {
+        public static string COURSE {
             get {
-                return ResourceManager.GetString("DefaultMaxRoleName", resourceCulture);
+                return ResourceManager.GetString("COURSE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 72.
+        ///   Looks up a localized string similar to credit.
         /// </summary>
-        public static string DefaultMaxUserClaim {
+        public static string CREDIT {
             get {
-                return ResourceManager.GetString("DefaultMaxUserClaim", resourceCulture);
+                return ResourceManager.GetString("CREDIT", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 32.
+        ///   Looks up a localized string similar to cycle.
         /// </summary>
-        public static string DefaultPasswordMax {
+        public static string CYCLE {
             get {
-                return ResourceManager.GetString("DefaultPasswordMax", resourceCulture);
+                return ResourceManager.GetString("CYCLE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 144.
+        ///   Looks up a localized string similar to detail.
         /// </summary>
-        public static string DefaultTextMaxLength {
+        public static string DETAIL {
             get {
-                return ResourceManager.GetString("DefaultTextMaxLength", resourceCulture);
+                return ResourceManager.GetString("DETAIL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 72.
+        ///   Looks up a localized string similar to disclaimer.
         /// </summary>
-        public static string DefaultUserNameMax {
+        public static string DISCLAIMER {
             get {
-                return ResourceManager.GetString("DefaultUserNameMax", resourceCulture);
+                return ResourceManager.GetString("DISCLAIMER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to duration.
+        /// </summary>
+        public static string DURATION {
+            get {
+                return ResourceManager.GetString("DURATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to edition.
+        /// </summary>
+        public static string EDITION {
+            get {
+                return ResourceManager.GetString("EDITION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to effort.
+        /// </summary>
+        public static string EFFORT {
+            get {
+                return ResourceManager.GetString("EFFORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to image.
+        /// </summary>
+        public static string IMAGE {
+            get {
+                return ResourceManager.GetString("IMAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to language.
+        /// </summary>
+        public static string LANGUAGE {
+            get {
+                return ResourceManager.GetString("LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lecture.
+        /// </summary>
+        public static string LECTURE {
+            get {
+                return ResourceManager.GetString("LECTURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to line.
+        /// </summary>
+        public static string LINE {
+            get {
+                return ResourceManager.GetString("LINE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to period.
+        /// </summary>
+        public static string PERIOD {
+            get {
+                return ResourceManager.GetString("PERIOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pre.
+        /// </summary>
+        public static string PRE {
+            get {
+                return ResourceManager.GetString("PRE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to publisher.
+        /// </summary>
+        public static string PUBLISHER {
+            get {
+                return ResourceManager.GetString("PUBLISHER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to role.
+        /// </summary>
+        public static string ROLE {
+            get {
+                return ResourceManager.GetString("ROLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to section.
+        /// </summary>
+        public static string SECTION {
+            get {
+                return ResourceManager.GetString("SECTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to state.
+        /// </summary>
+        public static string STATE {
+            get {
+                return ResourceManager.GetString("STATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to teacher.
+        /// </summary>
+        public static string TEACHER {
+            get {
+                return ResourceManager.GetString("TEACHER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to title.
+        /// </summary>
+        public static string TITLE {
+            get {
+                return ResourceManager.GetString("TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to type.
+        /// </summary>
+        public static string TYPE {
+            get {
+                return ResourceManager.GetString("TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to unit.
+        /// </summary>
+        public static string UNIT {
+            get {
+                return ResourceManager.GetString("UNIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to url.
+        /// </summary>
+        public static string URL {
+            get {
+                return ResourceManager.GetString("URL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to user.
+        /// </summary>
+        public static string USER {
+            get {
+                return ResourceManager.GetString("USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to work.
+        /// </summary>
+        public static string WORK {
+            get {
+                return ResourceManager.GetString("WORK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to year.
+        /// </summary>
+        public static string YEAR {
+            get {
+                return ResourceManager.GetString("YEAR", resourceCulture);
             }
         }
     }

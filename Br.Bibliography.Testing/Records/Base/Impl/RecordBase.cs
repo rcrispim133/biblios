@@ -1,6 +1,5 @@
 ﻿using Br.Bibliography.Model.Entities.Base.Impl;
-using Br.Bibliography.Util.Helpers.Base;
-using Br.Bibliography.Util.Helpers.Impl;
+using Br.Bibliography.Util.Constants.Base;
 using Br.Bibliography.Web.Packets.Base.Interfaces;
 
 namespace Br.Bibliography.Testing.Records.Base.Impl
@@ -11,7 +10,7 @@ namespace Br.Bibliography.Testing.Records.Base.Impl
 
         public TEntity? EntityBaseNull => null;
 
-        public TEntity? EntityBaseZeroKey => new() { Key = HelperMath.ZERO };
+        public TEntity? EntityBaseZeroKey => new() { Key = Constant.Math.Zero };
 
         public TEntity? EntityBaseMinKey => new() { Key = int.MinValue };
 

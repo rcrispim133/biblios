@@ -1,18 +1,18 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Series;
-using Br.Bibliography.Core.Constants.Interfaces.Series;
-using Br.Bibliography.Core.Static;
+﻿
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Series;
-using Br.Bibliography.Model.Entities.Impl.Series;
 using Microsoft.EntityFrameworkCore;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Model.Entities.Impl.Series;
+using Br.Bibliography.Util.Fluent.Base;
 
 namespace Br.Bibliography.Data.Builders.Impl.Series
 {
     public class BuilderCourse : 
-        BuilderAcronymDesc<BuilderCourse, EntityCourse, IConstantCourse>, 
+        BuilderAcronymDesc<BuilderCourse, EntityCourse>, 
         IBuilderCourse<BuilderCourse>
     {
-        public override IConstantCourse Constant { get; init; } = ConstantCourse.Factory();
+        public override string[] EntityNameParts => [Constant.Base.COURSE];
 
         public override void Build(ModelBuilder builder)
         {
@@ -24,79 +24,79 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
 
             #region Table
 
-            e.ToTable(Constant.TableName);
+            e.ToTable(Fluent.TableNameFromParams(EntityNameParts));
 
             #endregion
 
             #region Keys
 
-            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
+            e.HasKey(x => x.Key).HasName(Fluent.PrimaryKeyConstraintFromParams(EntityNameParts));
 
             #endregion
 
             #region Index
 
-            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Fluent.PrimaryKeyIndexFromParams(EntityNameParts)).IsUnique();
 
             e.HasIndex(x => x.KeyUnit)
-                .HasDatabaseName(Constant.IndexDatabaseName(
-                    [StaticEntityNames.COURSE, StaticEntityNames.UNIT]))
+                .HasDatabaseName(Fluent.IndexDatabaseNameFromParams(
+                    [Constant.Base.COURSE, Constant.Base.UNIT]))
                 .IsUnique(false);
 
             e.HasIndex(x => x.KeyPeriod)
-                .HasDatabaseName(Constant.IndexDatabaseName(
-                    [StaticEntityNames.COURSE, StaticEntityNames.PERIOD]))
+                .HasDatabaseName(Fluent.IndexDatabaseNameFromParams(
+                    [Constant.Base.COURSE, Constant.Base.PERIOD]))
                 .IsUnique(false);
 
             e.HasIndex(x => x.KeyCycle)
-                .HasDatabaseName(Constant.IndexDatabaseName(
-                    [StaticEntityNames.COURSE, StaticEntityNames.CYCLE]))
+                .HasDatabaseName(Fluent.IndexDatabaseNameFromParams(
+                    [Constant.Base.COURSE, Constant.Base.CYCLE]))
                 .IsUnique(false);
 
             e.HasIndex(x => x.KeyDuration)
-                .HasDatabaseName(Constant.IndexDatabaseName(
-                    [StaticEntityNames.COURSE, StaticEntityNames.DURATION]))
+                .HasDatabaseName(Fluent.IndexDatabaseNameFromParams(
+                    [Constant.Base.COURSE, Constant.Base.DURATION]))
                 .IsUnique(false);
 
             #endregion
 
             #region Order
 
-            var order = Constant.BaseOrder;
+            var order = Constant.Math.Zero;
 
             #endregion
 
             #region Properties
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyColumnName)
+                .HasColumnName(Fluent.KeyColumnNameFromParams(EntityNameParts))
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.KeyUnit)
-                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.UNIT]))
+                .HasColumnName(Fluent.ForeignKeyColumnNameFromParams([Constant.Base.UNIT]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.KeyPeriod)
-                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.PERIOD]))
+                .HasColumnName(Fluent.ForeignKeyColumnNameFromParams([Constant.Base.PERIOD]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.KeyCycle)
-                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.CYCLE]))
+                .HasColumnName(Fluent.ForeignKeyColumnNameFromParams([Constant.Base.CYCLE]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.KeyDuration)
-                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.DURATION]))
+                .HasColumnName(Fluent.ForeignKeyColumnNameFromParams([Constant.Base.DURATION]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextColumnName)
-                .HasMaxLength(Constant.DefaultTextMaxLength)
+                .HasColumnName(Fluent.TextColumnNameFromParams(EntityNameParts))
+                .HasMaxLength(Constant.Max.MaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -108,31 +108,31 @@ namespace Br.Bibliography.Data.Builders.Impl.Series
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyUnit)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.UNIT]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.COURSE, Constant.Base.UNIT]));
 
             e.HasOne(x => x.EntityPeriod)
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyPeriod)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.PERIOD]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.COURSE, Constant.Base.PERIOD]));
 
             e.HasOne(x => x.EntityCycle)
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyCycle)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.CYCLE]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.COURSE, Constant.Base.CYCLE]));
 
             e.HasOne(x => x.EntityDuration)
                 .WithMany(x => x.EnumerableCourse)
                 .HasForeignKey(x => x.KeyDuration)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.DURATION]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.COURSE, Constant.Base.DURATION]));
 
             e.HasMany(x => x.EnumerableLectureCourse)
                 .WithOne(x => x.EntityCourse)
                 .HasForeignKey(x => x.KeyCourse)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.COURSE, StaticEntityNames.LECTURE, StaticEntityNames.COURSE]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.COURSE, Constant.Base.LECTURE, Constant.Base.COURSE]));
 
             #endregion
         }

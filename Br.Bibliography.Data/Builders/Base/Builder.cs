@@ -1,21 +1,22 @@
-﻿using Br.Bibliography.Core.Constants.Base;
+﻿using Microsoft.EntityFrameworkCore;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Util.Constants.Impl;
 using Br.Bibliography.Model.Entities.Base.Interfaces;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace Br.Bibliography.Data.Builders.Base
 {
-    public abstract class Builder<TBuilder, TEntity, TConstant> : 
-        IBuilder<TBuilder, TEntity, TConstant> 
-            where TBuilder : class, IBuilder<TBuilder, TEntity, TConstant>, new() 
+    public abstract class Builder<TBuilder, TEntity> : 
+        IBuilder<TBuilder, TEntity> 
+            where TBuilder : class, IBuilder<TBuilder, TEntity>, new() 
             where TEntity : class, IEntityBase<TEntity>
-            where TConstant : IConstant
     {
-        public abstract TConstant Constant { get; init; }
-
         public abstract void Build(ModelBuilder builder);
 
-        static IBuilder<TBuilder, TEntity, TConstant>? _singleton = null;
+        static IBuilder<TBuilder, TEntity>? _singleton = null;
 
-        public static IBuilder<TBuilder, TEntity, TConstant> Singleton = _singleton ?? new TBuilder();
+        public static IBuilder<TBuilder, TEntity> Singleton = _singleton ?? new TBuilder();
+
+        public abstract string[] EntityNameParts { get; }
     }
 }

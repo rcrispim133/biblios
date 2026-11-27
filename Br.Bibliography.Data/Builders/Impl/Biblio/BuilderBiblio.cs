@@ -1,16 +1,17 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Biblio;
-using Br.Bibliography.Core.Constants.Interfaces.Biblio;
-using Br.Bibliography.Core.Static;
-using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Biblio;
 using Br.Bibliography.Model.Entities.Impl.Biblio;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Util.Constants.Impl;
+using Br.Bibliography.Util.Fluent.Base;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace Br.Bibliography.Data.Builders.Impl.Biblio
 {
-    public class BuilderBiblio : BuilderBase<BuilderBiblio, EntityBiblio, IConstantBiblio>, IBuilderBiblio<BuilderBiblio>
+    public class BuilderBiblio : BuilderBase<BuilderBiblio, EntityBiblio>, IBuilderBiblio<BuilderBiblio>
     {
-        public override IConstantBiblio Constant { get; init; } = ConstantBiblio.Factory();
+        public override string[] EntityNameParts => [Constant.Base.BIBLIO];
 
         public override void Build(ModelBuilder builder)
         {
@@ -22,32 +23,32 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
 
             #region Table
 
-            e.ToTable(Constant.TableName);
+            e.ToTable(Fluent.TableNameFromParams(EntityNameParts));
 
             #endregion
 
             #region Keys
 
-            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
+            e.HasKey(x => x.Key).HasName(Fluent.PrimaryKeyConstraintFromParams(EntityNameParts));
 
             #endregion
 
             #region Index
 
-            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Fluent.PrimaryKeyIndexFromParams(EntityNameParts)).IsUnique();
 
             #endregion
 
             #region Order
 
-            var order = Constant.BaseOrder;
+            var order = Constant.Math.Zero;
 
             #endregion
 
             #region Properties
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyColumnName)
+                .HasColumnName(Fluent.KeyColumnNameFromParams(EntityNameParts))
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -60,25 +61,25 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
                 .WithOne(x => x.EntityBiblio)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.BIBLIO, StaticEntityNames.AUTHOR ]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([ Constant.Base.BIBLIO, Constant.Base.BIBLIO, Constant.Base.AUTHOR ]));
 
             e.HasMany(x => x.EnumerableTitleBiblio)
                 .WithOne(x => x.EntityBiblio)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.TITLE, StaticEntityNames.BIBLIO ]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([ Constant.Base.BIBLIO, Constant.Base.TITLE, Constant.Base.BIBLIO ]));
 
             e.HasMany(x => x.EnumerableBiblioImage)
                 .WithOne(x => x.EntityBiblio)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.BIBLIO, StaticEntityNames.IMAGE ]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([ Constant.Base.BIBLIO, Constant.Base.BIBLIO, Constant.Base.IMAGE ]));
 
             e.HasMany(x => x.EnumerableBiblioLecture)
                 .WithOne(x => x.EntityBiblio)
                 .HasForeignKey(x => x.KeyBiblio)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.BIBLIO, StaticEntityNames.BIBLIO, StaticEntityNames.LECTURE ]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([ Constant.Base.BIBLIO, Constant.Base.BIBLIO, Constant.Base.LECTURE ]));
 
             #endregion
         }

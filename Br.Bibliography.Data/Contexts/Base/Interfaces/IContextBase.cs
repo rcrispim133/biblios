@@ -1,5 +1,8 @@
-﻿using Br.Bibliography.Model.Entities.Base.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Util.Constants.Impl;
+using Br.Bibliography.Model.Entities.Base.Interfaces;
+
 
 namespace Br.Bibliography.Data.Contexts.Base.Interfaces
 {

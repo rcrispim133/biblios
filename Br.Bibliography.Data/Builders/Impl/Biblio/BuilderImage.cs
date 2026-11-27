@@ -1,16 +1,16 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Biblio;
-using Br.Bibliography.Core.Constants.Interfaces.Biblio;
-using Br.Bibliography.Core.Static;
-using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Biblio;
 using Br.Bibliography.Model.Entities.Impl.Biblio;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Util.Fluent.Base;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace Br.Bibliography.Data.Builders.Impl.Biblio
 {
-    public class BuilderImage : BuilderRaw<BuilderImage, EntityImage, IConstantImage>, IBuilderImage<BuilderImage>
+    public class BuilderImage : BuilderRaw<BuilderImage, EntityImage>, IBuilderImage<BuilderImage>
     {
-        public override IConstantImage Constant { get; init; } = ConstantImage.Factory();
+        public override string[] EntityNameParts => [Constant.Base.IMAGE];
 
         public override void Build(ModelBuilder builder)
         {
@@ -22,46 +22,46 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
 
             #region Table
 
-            e.ToTable(Constant.TableName);
+            e.ToTable(Fluent.TableNameFromParams(EntityNameParts));
 
             #endregion
 
             #region Keys
 
-            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
+            e.HasKey(x => x.Key).HasName(Fluent.PrimaryKeyConstraintFromParams(EntityNameParts));
 
             #endregion
 
             #region Index
 
-            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Fluent.PrimaryKeyIndexFromParams(EntityNameParts)).IsUnique();
 
             #endregion
 
             #region Order
 
-            var order = Constant.BaseOrder;
+            var order = Constant.Math.Zero;
 
             #endregion
 
             #region Properties
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyColumnName)
+                .HasColumnName(Fluent.KeyColumnNameFromParams(EntityNameParts))
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextColumnName)
+                .HasColumnName(Fluent.TextColumnNameFromParams(EntityNameParts))
                 .HasColumnOrder(order++)
-                .HasMaxLength(Constant.DefaultTextMaxLength)
+                .HasMaxLength(Constant.Max.MaxText)
                 .IsRequired();
 
             e.Property(x => x.Raw)
-                .HasColumnName(Constant.RawColumnName([ StaticEntityNames.IMAGE ]))
+                .HasColumnName(Fluent.RawColumnNameFromParams([ Constant.Base.IMAGE ]))
                 .HasColumnOrder(order++)
-                .HasMaxLength(Constant.DefaultMaxRaw)
+                .HasMaxLength(Constant.Max.MaxRaw)
                 .IsRequired();
 
             #endregion
@@ -72,7 +72,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Biblio
                 .WithOne(x => x.EntityImage)
                 .HasForeignKey(x => x.KeyImage)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.IMAGE, StaticEntityNames.BIBLIO, StaticEntityNames.IMAGE ]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([ Constant.Base.IMAGE, Constant.Base.BIBLIO, Constant.Base.IMAGE ]));
 
             #endregion
         }

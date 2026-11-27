@@ -1,18 +1,20 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Entitled;
-using Br.Bibliography.Core.Constants.Interfaces.Entitled;
-using Br.Bibliography.Core.Static;
+﻿
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Entitled;
-using Br.Bibliography.Model.Entities.Impl.Entitled;
 using Microsoft.EntityFrameworkCore;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Util.Constants.Impl;
+using Br.Bibliography.Model.Entities.Impl.Entitled;
+using Br.Bibliography.Util.Fluent.Base;
+
 
 namespace Br.Bibliography.Data.Builders.Impl.Entitled
 {
     public class BuilderYear : 
-        BuilderBase<BuilderYear, EntityYear, IConstantYear>, 
+        BuilderBase<BuilderYear, EntityYear>, 
         IBuilderYear<BuilderYear>
     {
-        public override IConstantYear Constant { get; init; } = ConstantYear.Factory();
+        public override string[] EntityNameParts => [Constant.Base.YEAR];
 
         public override void Build(ModelBuilder builder)
         {
@@ -24,32 +26,32 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
 
             #region Table
 
-            e.ToTable(Constant.TableName);
+            e.ToTable(Fluent.TableNameFromParams(EntityNameParts));
 
             #endregion
 
             #region Keys
 
-            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
+            e.HasKey(x => x.Key).HasName(Fluent.PrimaryKeyConstraintFromParams(EntityNameParts));
 
             #endregion
 
             #region Index
 
-            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Fluent.PrimaryKeyIndexFromParams(EntityNameParts)).IsUnique();
 
             #endregion
 
             #region Order
 
-            var order = Constant.BaseOrder;
+            var order = Constant.Math.Zero;
 
             #endregion
 
             #region Properties
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyColumnName)
+                .HasColumnName(Fluent.KeyColumnNameFromParams(EntityNameParts))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -61,7 +63,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Entitled
                 .WithOne(x => x.EntityYear)
                 .HasForeignKey(x => x.KeyYear)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.YEAR, StaticEntityNames.TITLE]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.YEAR, Constant.Base.TITLE]));
 
             #endregion
         }

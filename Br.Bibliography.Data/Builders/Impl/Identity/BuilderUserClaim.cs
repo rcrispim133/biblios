@@ -1,18 +1,17 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Identity;
-using Br.Bibliography.Core.Constants.Interfaces.Identity;
-using Br.Bibliography.Core.Static;
-using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Identity;
 using Br.Bibliography.Model.Entities.Impl.Identity;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Util.Fluent.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Identity
 {
     public class BuilderUserClaim : 
-        BuilderBase<BuilderUserClaim, EntityUserClaim, IConstantUserClaim>, 
+        BuilderBase<BuilderUserClaim, EntityUserClaim>, 
         IBuilderUserClaim<BuilderUserClaim>
     {
-        public override IConstantUserClaim Constant { get; init; } = ConstantUserClaim.Factory();
+        public override string[] EntityNameParts => [Constant.Base.USER, Constant.Base.CLAIM];
 
         public override void Build(ModelBuilder builder)
         {
@@ -24,65 +23,65 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
 
             #region Table
 
-            e.ToTable(Constant.TableName);
+            e.ToTable(Fluent.TableNameFromParams(EntityNameParts));
 
             #endregion
 
             #region Keys
 
-            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
+            e.HasKey(x => x.Key).HasName(Fluent.PrimaryKeyConstraintFromParams(EntityNameParts));
 
             #endregion
 
             #region Index
 
-            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Fluent.PrimaryKeyIndexFromParams(EntityNameParts)).IsUnique();
 
             e.HasIndex(x => x.Id)
-                .HasDatabaseName(Constant.IdentityDatabaseName(
-                    [StaticEntityNames.USER, StaticEntityNames.CLAIM ]))
+                .HasDatabaseName(Fluent.IdentityDatabaseNameFromParams(
+                    [Constant.Base.USER, Constant.Base.CLAIM ]))
                 .IsUnique();
 
             e.HasIndex(x => x.UserId)
-                .HasDatabaseName(Constant.IdentityDatabaseName(
-                    [StaticEntityNames.USER, StaticEntityNames.CLAIM, StaticEntityNames.USER ]))
+                .HasDatabaseName(Fluent.IdentityDatabaseNameFromParams(
+                    [Constant.Base.USER, Constant.Base.CLAIM, Constant.Base.USER ]))
                 .IsUnique(false);
 
             #endregion
 
             #region Order
 
-            var order = Constant.BaseOrder;
+            var order = Constant.Math.Zero;
 
             #endregion
 
             #region Properties
 
             e.Property(x => x.Id)
-                .HasColumnName(Constant.IdentityColumnName([StaticEntityNames.USER, StaticEntityNames.CLAIM]))
+                .HasColumnName(Fluent.IdentityColumnNameFromParams([Constant.Base.USER, Constant.Base.CLAIM]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyColumnName)
+                .HasColumnName(Fluent.KeyColumnNameFromParams(EntityNameParts))
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.UserId)
-                .HasColumnName(Constant.IdentityColumnName([StaticEntityNames.USER]))
+                .HasColumnName(Fluent.IdentityColumnNameFromParams([Constant.Base.USER]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.ClaimType)
-                .HasColumnName(Constant.TextColumnName([StaticEntityNames.USER, StaticEntityNames.CLAIM, StaticEntityNames.TYPE]))
-                .HasMaxLength(Constant.DefaultMaxUserClaim)
+                .HasColumnName(Fluent.TextColumnNameFromParams([Constant.Base.USER, Constant.Base.CLAIM, Constant.Base.TYPE]))
+                .HasMaxLength(Constant.Max.MaxClaim)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.ClaimValue)
-                .HasColumnName(Constant.TextColumnName([StaticEntityNames.USER, StaticEntityNames.CLAIM, StaticPropertyNames.VALUE ]))
-                .HasMaxLength(Constant.DefaultMaxUserClaim)
+                .HasColumnName(Fluent.TextColumnNameFromParams([Constant.Base.USER, Constant.Base.CLAIM, Constant.Properties.VALUE ]))
+                .HasMaxLength(Constant.Max.MaxClaim)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -94,7 +93,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .WithMany(x => x.EnumerableUserClaim)
                 .HasForeignKey(x => x.UserId)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.USER, StaticEntityNames.CLAIM, StaticEntityNames.USER]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.USER, Constant.Base.CLAIM, Constant.Base.USER]));
 
             #endregion
         }

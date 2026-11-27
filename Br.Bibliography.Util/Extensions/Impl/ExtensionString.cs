@@ -1,6 +1,4 @@
-﻿using Br.Bibliography.Util.Helpers.String;
-
-namespace Br.Bibliography.Util.Extensions.Impl
+﻿namespace Br.Bibliography.Util.Extensions.Impl
 {
     public static class ExtensionString
     {

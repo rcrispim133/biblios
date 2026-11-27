@@ -1,13 +1,12 @@
-﻿using Br.Bibliography.Core.Constants.Interfaces.Alumni;
-using Br.Bibliography.Data.Builders.Base;
+﻿using Br.Bibliography.Data.Builders.Base;
 using Br.Bibliography.Data.Builders.Base.Interfaces;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
 
 namespace Br.Bibliography.Data.Builders.Interfaces.Alumni
 {
     public interface IBuilderPre<TBuilder> : 
-        IBuilderBase<TBuilder, EntityPre, IConstantPre>
-            where TBuilder : class, IBuilder<TBuilder, EntityPre, IConstantPre>, new()
+        IBuilderBase<TBuilder, EntityPre>
+            where TBuilder : class, IBuilder<TBuilder, EntityPre>, new()
     {
     }
 }

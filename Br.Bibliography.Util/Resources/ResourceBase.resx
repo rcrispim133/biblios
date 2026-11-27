@@ -117,34 +117,97 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DefaultEmailMax" xml:space="preserve">
-    <value>96</value>
+  <data name="AUTHOR" xml:space="preserve">
+    <value>author</value>
   </data>
-  <data name="DefaultMaxAcronym" xml:space="preserve">
-    <value>24</value>
+  <data name="BIBLIO" xml:space="preserve">
+    <value>biblio</value>
   </data>
-  <data name="DefaultMaxDesc" xml:space="preserve">
-    <value>500</value>
+  <data name="CITY" xml:space="preserve">
+    <value>city</value>
   </data>
-  <data name="DefaultMaxRaw" xml:space="preserve">
-    <value>10240</value>
+  <data name="CLAIM" xml:space="preserve">
+    <value>claim</value>
   </data>
-  <data name="DefaultMaxRoleName" xml:space="preserve">
-    <value>96</value>
+  <data name="COUNTRY" xml:space="preserve">
+    <value>country</value>
   </data>
-  <data name="DefaultPasswordMax" xml:space="preserve">
-    <value>32</value>
+  <data name="COURSE" xml:space="preserve">
+    <value>course</value>
   </data>
-  <data name="DefaultTextMaxLength" xml:space="preserve">
-    <value>144</value>
+  <data name="CREDIT" xml:space="preserve">
+    <value>credit</value>
   </data>
-  <data name="DefaultUserNameMax" xml:space="preserve">
-    <value>72</value>
+  <data name="CYCLE" xml:space="preserve">
+    <value>cycle</value>
   </data>
-  <data name="DefaultMaxUserClaim" xml:space="preserve">
-    <value>72</value>
+  <data name="DETAIL" xml:space="preserve">
+    <value>detail</value>
   </data>
-  <data name="DefaultMarkMaxLength" xml:space="preserve">
-    <value>2</value>
+  <data name="DISCLAIMER" xml:space="preserve">
+    <value>disclaimer</value>
+  </data>
+  <data name="DURATION" xml:space="preserve">
+    <value>duration</value>
+  </data>
+  <data name="EDITION" xml:space="preserve">
+    <value>edition</value>
+  </data>
+  <data name="EFFORT" xml:space="preserve">
+    <value>effort</value>
+  </data>
+  <data name="IMAGE" xml:space="preserve">
+    <value>image</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>language</value>
+  </data>
+  <data name="LECTURE" xml:space="preserve">
+    <value>lecture</value>
+  </data>
+  <data name="LINE" xml:space="preserve">
+    <value>line</value>
+  </data>
+  <data name="PERIOD" xml:space="preserve">
+    <value>period</value>
+  </data>
+  <data name="PRE" xml:space="preserve">
+    <value>pre</value>
+  </data>
+  <data name="PUBLISHER" xml:space="preserve">
+    <value>publisher</value>
+  </data>
+  <data name="ROLE" xml:space="preserve">
+    <value>role</value>
+  </data>
+  <data name="SECTION" xml:space="preserve">
+    <value>section</value>
+  </data>
+  <data name="STATE" xml:space="preserve">
+    <value>state</value>
+  </data>
+  <data name="TEACHER" xml:space="preserve">
+    <value>teacher</value>
+  </data>
+  <data name="TITLE" xml:space="preserve">
+    <value>title</value>
+  </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>type</value>
+  </data>
+  <data name="UNIT" xml:space="preserve">
+    <value>unit</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>url</value>
+  </data>
+  <data name="USER" xml:space="preserve">
+    <value>user</value>
+  </data>
+  <data name="WORK" xml:space="preserve">
+    <value>work</value>
+  </data>
+  <data name="YEAR" xml:space="preserve">
+    <value>year</value>
   </data>
 </root>

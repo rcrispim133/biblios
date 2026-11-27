@@ -1,9 +1,10 @@
-﻿using Br.Bibliography.Model.Entities.Interfaces.Sector;
+﻿using Br.Bibliography.Model.Entities.Base.Impl;
+using Br.Bibliography.Model.Entities.Interfaces.Sector;
 using System.Text.Json.Serialization;
 
 namespace Br.Bibliography.Model.Entities.Impl.Sector
 {
-    public class EntityLine : Base.Impl.EntityLine<EntityLine>, IEntityLine
+    public class EntityLine : EntityLine<EntityLine>, IEntityLine
     {
         #region Keys
 

@@ -1,4 +1,4 @@
-﻿using Br.Bibliography.Util.Helpers.Impl;
+﻿using Br.Bibliography.Util.Constants.Base;
 
 namespace Br.Bibliography.Util.Extensions.Impl
 {
@@ -6,9 +6,9 @@ namespace Br.Bibliography.Util.Extensions.Impl
     {
         #region Private
 
-        static string JoinFromParams(params string[] array) => string.Join(HelperChar.SEPARATOR, array);
+        static string JoinFromParams(params string[] array) => string.Join(Constant.Char.SEPARATOR, array);
 
-        static string JoinFromParams(string[] array, string prefix) => string.Join(HelperChar.SEPARATOR, array.Prepend(prefix));
+        static string JoinFromParams(string[] array, string prefix) => string.Join(Constant.Char.SEPARATOR, array.Prepend(prefix));
 
         static string JoinFromParams(string[] array, string prefix, string enfix) => JoinFromParams(JoinFromParams(array, enfix), prefix);
 
@@ -22,103 +22,103 @@ namespace Br.Bibliography.Util.Extensions.Impl
 
         #region Table
 
-        public static string TableNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.TableNamePrefix);
+        public static string TableNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.TableNamePrefix);
 
         #endregion
 
         #region Primary Key
 
-        public static string PrimaryKeyConstraintFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.PrimaryKeyPrefix, HelperPrefix.KeyPrefix);
+        public static string PrimaryKeyConstraintFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.PrimaryKeyPrefix, Constant.Prefix.KeyPrefix);
 
         #endregion
 
         #region Index
 
-        public static string PrimaryKeyIndexFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.IndexPrefix, HelperPrefix.KeyPrefix);
+        public static string PrimaryKeyIndexFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.IndexPrefix, Constant.Prefix.KeyPrefix);
 
         #endregion
 
         #region Keys
 
-        public static string KeyColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.KeyPrefix);
+        public static string KeyColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.KeyPrefix);
 
         #endregion
 
         #region Text
 
-        public static string TextColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.TextPrefix);
+        public static string TextColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.TextPrefix);
 
         #endregion
 
         #region Acronym
 
-        public static string AcronymColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.AcronymPrefix);
+        public static string AcronymColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.AcronymPrefix);
 
         #endregion
 
         #region Constraint
 
-        public static string ForeignKeyConstraintNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.ForeignKeyPrefix);
+        public static string ForeignKeyConstraintNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.ForeignKeyPrefix);
 
         #endregion
 
         #region Index Database
 
-        public static string IndexDatabaseNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.IndexPrefix, HelperPrefix.KeyPrefix);
+        public static string IndexDatabaseNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.IndexPrefix, Constant.Prefix.KeyPrefix);
 
         #endregion
 
         #region Foreign Key Column Name
 
-        public static string ForeignKeyColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.KeyPrefix);
+        public static string ForeignKeyColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.KeyPrefix);
 
         #endregion
         
         #region Date
 
-        public static string DateTimeColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.DateTimePrefix);
+        public static string DateTimeColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.DateTimePrefix);
 
         #endregion
 
         #region Raw
 
-        public static string RawColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.RawPrefix);
+        public static string RawColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.RawPrefix);
 
         #endregion
 
         #region Raw
 
-        public static string DescColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.DescPrefix);
+        public static string DescColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.DescPrefix);
 
         #endregion
 
         #region Identity Index
 
-        public static string IdentityDatabaseNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.IndexPrefix, HelperPrefix.IdentityPrefix);
+        public static string IdentityDatabaseNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.IndexPrefix, Constant.Prefix.IdentityPrefix);
 
         #endregion
 
         #region Name
 
-        public static string NameColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.NamePrefix);
+        public static string NameColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.NamePrefix);
 
         #endregion
 
         #region Identity
 
-        public static string IdentityColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.IdentityPrefix);
+        public static string IdentityColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.IdentityPrefix);
 
         #endregion
 
         #region Logical
 
-        public static string LogicColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.LogicalPrefix);
+        public static string LogicalColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.LogicalPrefix);
 
         #endregion
 
         #region Logical
 
-        public static string NumberColumnNameFromParams(params string[] array) => JoinFromParams(array, HelperPrefix.NumberPrefix);
+        public static string NumberColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.NumberPrefix);
 
         #endregion
     }

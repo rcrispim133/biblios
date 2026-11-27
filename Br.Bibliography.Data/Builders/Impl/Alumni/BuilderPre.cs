@@ -1,16 +1,16 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Alumni;
-using Br.Bibliography.Core.Constants.Interfaces.Alumni;
-using Br.Bibliography.Core.Static;
-using Br.Bibliography.Data.Builders.Base.Impl;
+﻿using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Alumni;
 using Br.Bibliography.Model.Entities.Impl.Alumni;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Util.Constants.Impl;
+using Br.Bibliography.Util.Fluent.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Br.Bibliography.Data.Builders.Impl.Alumni
 {
-    public class BuilderPre: BuilderBase<BuilderPre, EntityPre, IConstantPre>, IBuilderPre<BuilderPre>
+    public class BuilderPre: BuilderBase<BuilderPre, EntityPre>, IBuilderPre<BuilderPre>
     {
-        public override IConstantPre Constant { get; init; } = ConstantPre.Factory();
+        public override string[] EntityNameParts => [ Constant.Base.PRE ];
 
         public override void Build(ModelBuilder builder)
         {
@@ -22,32 +22,32 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
 
             #region Table
 
-            e.ToTable(Constant.TableName);
+            e.ToTable(Fluent.TableNameFromParams(EntityNameParts));
 
             #endregion
 
             #region Keys
 
-            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
+            e.HasKey(x => x.Key).HasName(Fluent.PrimaryKeyConstraintFromParams(EntityNameParts));
 
             #endregion
 
             #region Index
 
-            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Fluent.PrimaryKeyIndexFromParams(EntityNameParts)).IsUnique();
 
             #endregion
 
             #region Order
 
-            var order = Constant.BaseOrder;
+            var order = Constant.Math.Zero;
 
             #endregion
 
             #region Properties
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyColumnName)
+                .HasColumnName(Fluent.KeyColumnNameFromParams(EntityNameParts))
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
@@ -60,7 +60,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Alumni
                 .WithOne(x => x.EntityPre)
                 .HasForeignKey(x => x.KeyPre)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([ StaticEntityNames.PRE, StaticEntityNames.LECTURE, StaticEntityNames.PRE ]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([ Constant.Base.PRE, Constant.Base.LECTURE, Constant.Base.PRE ]));
 
             #endregion
         }

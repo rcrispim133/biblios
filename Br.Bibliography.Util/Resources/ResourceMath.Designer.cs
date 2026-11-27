@@ -22,7 +22,7 @@ namespace Br.Bibliography.Util.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ResourceMath {
+    public class ResourceMath {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Br.Bibliography.Util.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Br.Bibliography.Util.Resources.ResourceMath", typeof(ResourceMath).Assembly);
@@ -51,7 +51,7 @@ namespace Br.Bibliography.Util.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,20 +61,11 @@ namespace Br.Bibliography.Util.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1.
-        /// </summary>
-        internal static string DEFAULT_KEY {
-            get {
-                return ResourceManager.GetString("DEFAULT_KEY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 0.
         /// </summary>
-        internal static string ZERO {
+        public static string Zero {
             get {
-                return ResourceManager.GetString("ZERO", resourceCulture);
+                return ResourceManager.GetString("Zero", resourceCulture);
             }
         }
     }

@@ -1,20 +1,18 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Locals;
-using Br.Bibliography.Core.Constants.Impl.Sector;
-using Br.Bibliography.Core.Constants.Interfaces.Locals;
-using Br.Bibliography.Core.Constants.Interfaces.Sector;
-using Br.Bibliography.Core.Static;
+﻿
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Sector;
-using Br.Bibliography.Model.Entities.Impl.Sector;
 using Microsoft.EntityFrameworkCore;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Model.Entities.Impl.Sector;
+using Br.Bibliography.Util.Fluent.Base;
 
 namespace Br.Bibliography.Data.Builders.Impl.Sector
 {
     public class BuilderDetail : 
-        BuilderText<BuilderDetail, EntityDetail, IConstantDetail>, 
+        BuilderText<BuilderDetail, EntityDetail>, 
         IBuilderDetail<BuilderDetail>
     {
-        public override IConstantDetail Constant { get; init; } = ConstantDetail.Factory();
+        public override string[] EntityNameParts => [Constant.Base.DETAIL];
 
         public override void Build(ModelBuilder builder)
         {
@@ -26,39 +24,39 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
 
             #region Table
 
-            e.ToTable(Constant.TableName);
+            e.ToTable(Fluent.TableNameFromParams(EntityNameParts));
 
             #endregion
 
             #region Keys
 
-            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
+            e.HasKey(x => x.Key).HasName(Fluent.PrimaryKeyConstraintFromParams(EntityNameParts));
 
             #endregion
 
             #region Index
 
-            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Fluent.PrimaryKeyIndexFromParams(EntityNameParts)).IsUnique();
 
             #endregion
 
             #region Order
 
-            var order = Constant.BaseOrder;
+            var order = Constant.Math.Zero;
 
             #endregion
 
             #region Properties
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyColumnName)
+                .HasColumnName(Fluent.KeyColumnNameFromParams(EntityNameParts))
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextColumnName)
-                .HasMaxLength(Constant.DefaultTextMaxLength)
+                .HasColumnName(Fluent.TextColumnNameFromParams(EntityNameParts))
+                .HasMaxLength(Constant.Max.MaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -70,7 +68,7 @@ namespace Br.Bibliography.Data.Builders.Impl.Sector
                 .WithOne(x => x.EntityDetail)
                 .HasForeignKey(x => x.KeyDetail)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.DETAIL, StaticEntityNames.SECTION]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.DETAIL, Constant.Base.SECTION]));
 
             #endregion
         }

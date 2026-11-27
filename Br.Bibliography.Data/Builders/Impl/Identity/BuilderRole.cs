@@ -1,18 +1,19 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Identity;
-using Br.Bibliography.Core.Constants.Interfaces.Identity;
-using Br.Bibliography.Core.Static;
+﻿
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Identity;
-using Br.Bibliography.Model.Entities.Impl.Identity;
 using Microsoft.EntityFrameworkCore;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Model.Entities.Impl.Identity;
+using Br.Bibliography.Util.Fluent.Base;
+
 
 namespace Br.Bibliography.Data.Builders.Impl.Identity
 {
     public class BuilderRole : 
-        BuilderBase<BuilderRole, EntityRole, IConstantRole>, 
+        BuilderBase<BuilderRole, EntityRole>, 
         IBuilderRole<BuilderRole>
     {
-        public override IConstantRole Constant { get; init; } = ConstantRole.Factory();
+        public override string[] EntityNameParts => [Constant.Base.ROLE];
 
         public override void Build(ModelBuilder builder)
         {
@@ -24,49 +25,49 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
 
             #region Table
 
-            e.ToTable(Constant.TableName);
+            e.ToTable(Fluent.TableNameFromParams(EntityNameParts));
 
             #endregion
 
             #region Keys
 
-            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
+            e.HasKey(x => x.Key).HasName(Fluent.PrimaryKeyConstraintFromParams(EntityNameParts));
 
             #endregion
 
             #region Index
 
-            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Fluent.PrimaryKeyIndexFromParams(EntityNameParts)).IsUnique();
 
             e.HasIndex(x => x.Id)
-                .HasDatabaseName(Constant.IdentityDatabaseName(
-                    [StaticEntityNames.ROLE]))
+                .HasDatabaseName(Fluent.IdentityDatabaseNameFromParams(
+                    [Constant.Base.ROLE]))
                 .IsUnique();
 
             #endregion
 
             #region Order
 
-            var order = Constant.BaseOrder;
+            var order = Constant.Math.Zero;
 
             #endregion
 
             #region Properties
 
             e.Property(x => x.Id)
-                .HasColumnName(Constant.IdentityColumnName([StaticEntityNames.ROLE]))
+                .HasColumnName(Fluent.IdentityColumnNameFromParams([Constant.Base.ROLE]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.ROLE]))
+                .HasColumnName(Fluent.ForeignKeyColumnNameFromParams([Constant.Base.ROLE]))
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.Name)
-                .HasColumnName(Constant.NameColumnName([StaticEntityNames.ROLE]))
-                .HasMaxLength(Constant.DefaultMaxRoleName)
+                .HasColumnName(Fluent.NameColumnNameFromParams([Constant.Base.ROLE]))
+                .HasMaxLength(Constant.Max.MaxName)
                 .HasColumnOrder(order++)
                 .IsRequired();
 

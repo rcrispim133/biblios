@@ -1,4 +1,5 @@
-﻿using Br.Bibliography.Model.Entities.Base.Interfaces;
+﻿using Br.Bibliography.Model.Entities.Base;
+using Br.Bibliography.Model.Entities.Base.Interfaces;
 
 namespace Br.Bibliography.Model.Entities.Base.Impl
 {

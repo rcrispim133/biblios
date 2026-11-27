@@ -1,18 +1,18 @@
-﻿using Br.Bibliography.Core.Constants.Impl.Locals;
-using Br.Bibliography.Core.Constants.Interfaces.Locals;
-using Br.Bibliography.Core.Static;
+﻿
 using Br.Bibliography.Data.Builders.Base.Impl;
 using Br.Bibliography.Data.Builders.Interfaces.Locals;
-using Br.Bibliography.Model.Entities.Impl.Locals;
 using Microsoft.EntityFrameworkCore;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Model.Entities.Impl.Locals;
+using Br.Bibliography.Util.Fluent.Base;
 
 namespace Br.Bibliography.Data.Builders.Impl.Locals
 {
     public class BuilderCity : 
-        BuilderText<BuilderCity, EntityCity, IConstantCity>, 
+        BuilderText<BuilderCity, EntityCity>, 
         IBuilderCity<BuilderCity>
     {
-        public override IConstantCity Constant { get; init; } = ConstantCity.Factory();
+        public override string[] EntityNameParts => [Constant.Base.CITY];
 
         public override void Build(ModelBuilder builder)
         {
@@ -24,49 +24,49 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
 
             #region Table
 
-            e.ToTable(Constant.TableName);
+            e.ToTable(Fluent.TableNameFromParams(EntityNameParts));
 
             #endregion
 
             #region Keys
 
-            e.HasKey(x => x.Key).HasName(Constant.PrimaryKeyName);
+            e.HasKey(x => x.Key).HasName(Fluent.PrimaryKeyConstraintFromParams(EntityNameParts));
 
             #endregion
 
             #region Index
 
-            e.HasIndex(x => x.Key).HasDatabaseName(Constant.PrimaryKeyIndexName).IsUnique();
+            e.HasIndex(x => x.Key).HasDatabaseName(Fluent.PrimaryKeyIndexFromParams(EntityNameParts)).IsUnique();
 
             e.HasIndex(x => x.KeyState)
-                .HasDatabaseName(Constant.IndexDatabaseName(
-                    [StaticEntityNames.CITY, StaticEntityNames.STATE]))
+                .HasDatabaseName(Fluent.IndexDatabaseNameFromParams(
+                    [Constant.Base.CITY, Constant.Base.STATE]))
                 .IsUnique(false);
 
             #endregion
 
             #region Order
 
-            var order = Constant.BaseOrder;
+            var order = Constant.Math.Zero;
 
             #endregion
 
             #region Properties
 
             e.Property(x => x.Key)
-                .HasColumnName(Constant.PropertyKeyColumnName)
+                .HasColumnName(Fluent.KeyColumnNameFromParams(EntityNameParts))
                 .HasColumnOrder(order++)
                 .UseAutoincrement()
                 .IsRequired();
 
             e.Property(x => x.KeyState)
-                .HasColumnName(Constant.ForeignKeyColumnName([StaticEntityNames.STATE]))
+                .HasColumnName(Fluent.ForeignKeyColumnNameFromParams([Constant.Base.STATE]))
                 .HasColumnOrder(order++)
                 .IsRequired();
 
             e.Property(x => x.Text)
-                .HasColumnName(Constant.PropertyTextColumnName)
-                .HasMaxLength(Constant.DefaultTextMaxLength)
+                .HasColumnName(Fluent.TextColumnNameFromParams(EntityNameParts))
+                .HasMaxLength(Constant.Max.MaxText)
                 .HasColumnOrder(order++)
                 .IsRequired();
 
@@ -78,13 +78,13 @@ namespace Br.Bibliography.Data.Builders.Impl.Locals
                 .WithMany(x => x.EnumerableCity)
                 .HasForeignKey(x => x.KeyState)
                 .HasPrincipalKey(x=> x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.CITY, StaticEntityNames.STATE]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.CITY, Constant.Base.STATE]));
 
             e.HasMany(x => x.EnumerablePublisher)
                 .WithOne(x => x.EntityCity)
                 .HasForeignKey(x => x.KeyCity)
                 .HasPrincipalKey(x => x.Key)
-                .HasConstraintName(Constant.ForeignKeyConstraintName([StaticEntityNames.CITY, StaticEntityNames.PUBLISHER]));
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.CITY, Constant.Base.PUBLISHER]));
 
             #endregion
         }

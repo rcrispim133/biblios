@@ -15,19 +15,22 @@ using Br.Bibliography.Data.Contexts.Interfaces.Identity;
 using Br.Bibliography.Data.Contexts.Interfaces.Locals;
 using Br.Bibliography.Data.Contexts.Interfaces.Sector;
 using Br.Bibliography.Data.Contexts.Interfaces.Series;
-using Br.Bibliography.Model.Entities.Impl.Alumni;
-using Br.Bibliography.Model.Entities.Impl.Biblio;
-using Br.Bibliography.Model.Entities.Impl.Duo;
-using Br.Bibliography.Model.Entities.Impl.Entitled;
-using Br.Bibliography.Model.Entities.Impl.Identity;
-using Br.Bibliography.Model.Entities.Impl.Locals;
-using Br.Bibliography.Model.Entities.Impl.Sector;
-using Br.Bibliography.Model.Entities.Impl.Series;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Br.Bibliography.Util.Constants.Base;
+using Br.Bibliography.Util.Constants.Impl;
+
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using Br.Bibliography.Model.Entities.Impl.Duo;
+using Br.Bibliography.Model.Entities.Impl.Alumni;
+using Br.Bibliography.Model.Entities.Impl.Identity;
+using Br.Bibliography.Model.Entities.Impl.Series;
+using Br.Bibliography.Model.Entities.Impl.Entitled;
+using Br.Bibliography.Model.Entities.Impl.Locals;
+using Br.Bibliography.Model.Entities.Impl.Sector;
+using Br.Bibliography.Model.Entities.Impl.Biblio;
 
 namespace Br.Bibliography.Data.Contexts.Base
 {
