@@ -44,6 +44,11 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                     [Constant.Base.ROLE]))
                 .IsUnique();
 
+            e.HasIndex(x => x.Name).HasDatabaseName(
+                Fluent.IndexDatabaseNameFromParams(
+                    [ Constant.Base.ROLE, Constant.Properties.NAME ]))
+                .IsUnique(true);
+
             #endregion
 
             #region Order

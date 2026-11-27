@@ -14,6 +14,8 @@
 
         string MARK { get; }
 
+        string NAME { get; }
+
         string ORDER { get; }
 
         string PASSWORD { get; }

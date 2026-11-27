@@ -6,11 +6,11 @@ namespace Br.Bibliography.Util.Extensions.Impl
     {
         #region Private
 
-        static string JoinFromParams(params string[] array) => string.Join(Constant.Char.SEPARATOR, array);
+        static string JoinFromParams(params string[] array) => ExtensionString.FromParams(Constant.Char.SEPARATOR, array);
 
-        static string JoinFromParams(string[] array, string prefix) => string.Join(Constant.Char.SEPARATOR, array.Prepend(prefix));
+        static string JoinFromParams(string[] array, string prefix) => ExtensionString.FromParams(Constant.Char.SEPARATOR, array, prefix);
 
-        static string JoinFromParams(string[] array, string prefix, string enfix) => JoinFromParams(JoinFromParams(array, enfix), prefix);
+        static string JoinFromParams(string[] array, string prefix, string enfix) => ExtensionString.FromParams(Constant.Char.SEPARATOR, array, prefix, enfix);
 
         #endregion
 
@@ -86,7 +86,7 @@ namespace Br.Bibliography.Util.Extensions.Impl
 
         #endregion
 
-        #region Raw
+        #region Desc
 
         public static string DescColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.DescPrefix);
 
@@ -116,7 +116,7 @@ namespace Br.Bibliography.Util.Extensions.Impl
 
         #endregion
 
-        #region Logical
+        #region Number
 
         public static string NumberColumnNameFromParams(params string[] array) => JoinFromParams(array, Constant.Prefix.NumberPrefix);
 

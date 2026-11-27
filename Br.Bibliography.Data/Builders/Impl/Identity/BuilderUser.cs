@@ -42,6 +42,16 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                     [Constant.Base.USER]))
                 .IsUnique();
 
+            e.HasIndex(x => x.Email).HasDatabaseName(
+                Fluent.IndexDatabaseNameFromParams(
+                    [Constant.Properties.EMAIL]))
+                .IsUnique(true);
+
+            e.HasIndex(x => x.UserName).HasDatabaseName(
+                Fluent.IndexDatabaseNameFromParams(
+                    [Constant.Properties.USERNAME]))
+                .IsUnique(true);
+
             #endregion
 
             #region Order

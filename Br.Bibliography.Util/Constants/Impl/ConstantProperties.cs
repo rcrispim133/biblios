@@ -28,6 +28,8 @@ namespace Br.Bibliography.Util.Constants.Impl
 
         public string MARK => "mark";
 
+        public string NAME => "name";
+
         public string ORDER => "order";
 
         public string PASSWORD => "password";
