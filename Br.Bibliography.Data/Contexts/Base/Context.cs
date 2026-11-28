@@ -15,22 +15,20 @@ using Br.Bibliography.Data.Contexts.Interfaces.Identity;
 using Br.Bibliography.Data.Contexts.Interfaces.Locals;
 using Br.Bibliography.Data.Contexts.Interfaces.Sector;
 using Br.Bibliography.Data.Contexts.Interfaces.Series;
+using Br.Bibliography.Model.Entities.Impl.Alumni;
+using Br.Bibliography.Model.Entities.Impl.Biblio;
+using Br.Bibliography.Model.Entities.Impl.Duo;
+using Br.Bibliography.Model.Entities.Impl.Entitled;
+using Br.Bibliography.Model.Entities.Impl.Identity;
+using Br.Bibliography.Model.Entities.Impl.Locals;
+using Br.Bibliography.Model.Entities.Impl.Sector;
+using Br.Bibliography.Model.Entities.Impl.Series;
+using Br.Bibliography.Util.Constants.Base;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Br.Bibliography.Util.Constants.Base;
-using Br.Bibliography.Util.Constants.Impl;
-
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
-using Br.Bibliography.Model.Entities.Impl.Duo;
-using Br.Bibliography.Model.Entities.Impl.Alumni;
-using Br.Bibliography.Model.Entities.Impl.Identity;
-using Br.Bibliography.Model.Entities.Impl.Series;
-using Br.Bibliography.Model.Entities.Impl.Entitled;
-using Br.Bibliography.Model.Entities.Impl.Locals;
-using Br.Bibliography.Model.Entities.Impl.Sector;
-using Br.Bibliography.Model.Entities.Impl.Biblio;
 
 namespace Br.Bibliography.Data.Contexts.Base
 {
@@ -39,8 +37,8 @@ namespace Br.Bibliography.Data.Contexts.Base
             EntityUser, 
             EntityRole,
             int,
-            EntityUserClaim, 
-            IdentityUserRole<int>, 
+            EntityUserClaim,
+            EntityUserRole, 
             IdentityUserLogin<int>, 
             IdentityRoleClaim<int>, 
             IdentityUserToken<int>, 
@@ -74,6 +72,7 @@ namespace Br.Bibliography.Data.Contexts.Base
         IContextUser,
         IContextRole,
         IContextUserClaim,
+        IContextUserRole,
         IContextCity,
         IContextCountry,
         IContextState,
@@ -351,6 +350,18 @@ namespace Br.Bibliography.Data.Contexts.Base
 
         #endregion
 
+        #region User Role
+
+        [JsonIgnore]
+        [NotMapped]
+        public override DbSet<EntityUserRole> UserRoles { get; set; }
+
+        public DbSet<EntityUserRole> DbSetUserRole => UserRoles;
+
+        DbSet<EntityUserRole> IContextBase<EntityUserRole>.DbSet => DbSetUserRole;
+
+        #endregion
+
         #endregion
 
         #region Locals
@@ -518,6 +529,8 @@ namespace Br.Bibliography.Data.Contexts.Base
             BuilderUser.Singleton.Build(builder);
 
             BuilderUserClaim.Singleton.Build(builder);
+
+            BuilderUserRole.Singleton.Build(builder);
 
             #endregion
 

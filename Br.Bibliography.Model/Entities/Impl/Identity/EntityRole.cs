@@ -22,6 +22,28 @@ namespace Br.Bibliography.Model.Entities.Impl.Identity
 
         #endregion
 
+        #region Impl
+
+        #region Associations
+
+        [JsonIgnore]
+        public IEnumerable<EntityUserRole>? EnumerableUserRole { get; init; }
+            = new HashSet<EntityUserRole>();
+
+        #endregion
+
+        #endregion
+
+        #region Scaffold
+
+        #region Associaitons
+
+        IEnumerable<IEntityUserRole>? IEntityRole.IEnumerableUserRole => EnumerableUserRole;
+
+        #endregion
+
+        #endregion
+
         #region Ignore
 
         [JsonIgnore]

@@ -107,6 +107,12 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .HasPrincipalKey(x => x.Id)
                 .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.USER, Constant.Base.USER, Constant.Base.CLAIM ]));
 
+            e.HasMany(x => x.EnumerableUserRole)
+                .WithOne(x => x.EntityUser)
+                .HasForeignKey(x => x.UserId)
+                .HasPrincipalKey(x => x.Id)
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.USER, Constant.Base.USER, Constant.Base.ROLE]));
+
             #endregion
         }
     }

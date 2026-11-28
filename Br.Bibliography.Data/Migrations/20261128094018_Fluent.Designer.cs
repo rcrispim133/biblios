@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Br.Bibliography.Data.Migrations;
 
 [DbContext(typeof(Context))]
-[Migration("20261127200537_Fluent")]
-partial class _20261127200537_Fluent
+[Migration("20261128094018_Fluent")]
+partial class _20261128094018_Fluent
 {
     /// <inheritdoc />
     protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -959,8 +959,6 @@ partial class _20261127200537_Fluent
                 b.HasKey("Key")
                     .HasName("pk_key_user");
 
-                b.HasAlternateKey("Id");
-
                 b.HasIndex("Email")
                     .IsUnique()
                     .HasDatabaseName("idx_key_email");
@@ -1036,6 +1034,42 @@ partial class _20261127200537_Fluent
                     .HasDatabaseName("idx_id_user_claim_user");
 
                 b.ToTable("tbl_user_claim");
+            });
+
+        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUserRole", b =>
+            {
+                var key = b.Property<int>("Key")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("INTEGER")
+                    .HasColumnName("key_user_role")
+                    .HasColumnOrder(0);
+
+                SqlitePropertyBuilderExtensions.UseAutoincrement(key);
+
+                b.Property<int>("RoleId")
+                    .HasColumnType("INTEGER")
+                    .HasColumnName("id_role")
+                    .HasColumnOrder(2);
+
+                b.Property<int>("UserId")
+                    .HasColumnType("INTEGER")
+                    .HasColumnName("id_user")
+                    .HasColumnOrder(1);
+
+                b.HasKey("Key")
+                    .HasName("pk_key_user_role");
+
+                b.HasIndex("Key")
+                    .IsUnique()
+                    .HasDatabaseName("idx_key_user_role");
+
+                b.HasIndex("RoleId")
+                    .HasDatabaseName("idx_id_user_role_role");
+
+                b.HasIndex("UserId")
+                    .HasDatabaseName("idx_id_user_role_user");
+
+                b.ToTable("tbl_user_role");
             });
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
@@ -1465,21 +1499,6 @@ partial class _20261127200537_Fluent
                 b.ToTable("AspNetUserLogins");
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
-            {
-                b.Property<int>("UserId")
-                    .HasColumnType("INTEGER");
-
-                b.Property<int>("RoleId")
-                    .HasColumnType("INTEGER");
-
-                b.HasKey("UserId", "RoleId");
-
-                b.HasIndex("RoleId");
-
-                b.ToTable("AspNetUserRoles");
-            });
-
         modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
             {
                 b.Property<int>("UserId")
@@ -1766,6 +1785,29 @@ partial class _20261127200537_Fluent
                 b.Navigation("EntityUser");
             });
 
+        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUserRole", b =>
+            {
+                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", "EntityRole")
+                    .WithMany("EnumerableUserRole")
+                    .HasForeignKey("RoleId")
+                    .HasPrincipalKey("Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired()
+                    .HasConstraintName("fk_user_role_role");
+
+                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", "EntityUser")
+                    .WithMany("EnumerableUserRole")
+                    .HasForeignKey("UserId")
+                    .HasPrincipalKey("Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired()
+                    .HasConstraintName("fk_user_role_user");
+
+                b.Navigation("EntityRole");
+
+                b.Navigation("EntityUser");
+            });
+
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
             {
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Locals.EntityState", "EntityState")
@@ -1871,21 +1913,6 @@ partial class _20261127200537_Fluent
 
         modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
-                    .WithMany()
-                    .HasForeignKey("UserId")
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired();
-            });
-
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
-            {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", null)
-                    .WithMany()
-                    .HasForeignKey("RoleId")
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired();
-
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
                     .WithMany()
                     .HasForeignKey("UserId")
@@ -2003,9 +2030,16 @@ partial class _20261127200537_Fluent
                 b.Navigation("EnumerableTitle");
             });
 
+        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", b =>
+            {
+                b.Navigation("EnumerableUserRole");
+            });
+
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", b =>
             {
                 b.Navigation("EnumerableUserClaim");
+
+                b.Navigation("EnumerableUserRole");
             });
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>

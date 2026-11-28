@@ -77,6 +77,16 @@ namespace Br.Bibliography.Data.Builders.Impl.Identity
                 .IsRequired();
 
             #endregion
+
+            #region Relationships
+
+            e.HasMany(x => x.EnumerableUserRole)
+                .WithOne(x => x.EntityRole)
+                .HasForeignKey(x => x.RoleId)
+                .HasPrincipalKey(x => x.Id)
+                .HasConstraintName(Fluent.ForeignKeyConstraintNameFromParams([Constant.Base.USER, Constant.Base.ROLE, Constant.Base.ROLE]));
+
+            #endregion
         }
     }
 }
