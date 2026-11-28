@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Br.Bibliography.Data.Migrations;
 
 /// <inheritdoc />
-public partial class _20261127200537_Fluent : Migration
+public partial class _20261128094018_Fluent : Migration
 {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder)
@@ -207,6 +207,7 @@ public partial class _20261127200537_Fluent : Migration
             constraints: table =>
             {
                 table.PrimaryKey("pk_key_role", x => x.key_role);
+                table.UniqueConstraint("AK_tbl_role_id_role", x => x.id_role);
             });
 
         migrationBuilder.CreateTable(
@@ -465,30 +466,6 @@ public partial class _20261127200537_Fluent : Migration
             });
 
         migrationBuilder.CreateTable(
-            name: "AspNetUserRoles",
-            columns: table => new
-            {
-                UserId = table.Column<int>(type: "INTEGER", nullable: false),
-                RoleId = table.Column<int>(type: "INTEGER", nullable: false)
-            },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
-                table.ForeignKey(
-                    name: "FK_AspNetUserRoles_tbl_role_RoleId",
-                    column: x => x.RoleId,
-                    principalTable: "tbl_role",
-                    principalColumn: "key_role",
-                    onDelete: ReferentialAction.Cascade);
-                table.ForeignKey(
-                    name: "FK_AspNetUserRoles_tbl_user_UserId",
-                    column: x => x.UserId,
-                    principalTable: "tbl_user",
-                    principalColumn: "key_user",
-                    onDelete: ReferentialAction.Cascade);
-            });
-
-        migrationBuilder.CreateTable(
             name: "AspNetUserTokens",
             columns: table => new
             {
@@ -527,6 +504,32 @@ public partial class _20261127200537_Fluent : Migration
                     column: x => x.id_user,
                     principalTable: "tbl_user",
                     principalColumn: "key_user",
+                    onDelete: ReferentialAction.Cascade);
+            });
+
+        migrationBuilder.CreateTable(
+            name: "tbl_user_role",
+            columns: table => new
+            {
+                key_user_role = table.Column<int>(type: "INTEGER", nullable: false)
+                    .Annotation("Sqlite:Autoincrement", true),
+                id_user = table.Column<int>(type: "INTEGER", nullable: false),
+                id_role = table.Column<int>(type: "INTEGER", nullable: false)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("pk_key_user_role", x => x.key_user_role);
+                table.ForeignKey(
+                    name: "fk_user_role_role",
+                    column: x => x.id_role,
+                    principalTable: "tbl_role",
+                    principalColumn: "id_role",
+                    onDelete: ReferentialAction.Cascade);
+                table.ForeignKey(
+                    name: "fk_user_role_user",
+                    column: x => x.id_user,
+                    principalTable: "tbl_user",
+                    principalColumn: "id_user",
                     onDelete: ReferentialAction.Cascade);
             });
 
@@ -869,11 +872,6 @@ public partial class _20261127200537_Fluent : Migration
             name: "IX_AspNetUserLogins_UserId",
             table: "AspNetUserLogins",
             column: "UserId");
-
-        migrationBuilder.CreateIndex(
-            name: "IX_AspNetUserRoles_RoleId",
-            table: "AspNetUserRoles",
-            column: "RoleId");
 
         migrationBuilder.CreateIndex(
             name: "idx_key_author",
@@ -1331,6 +1329,22 @@ public partial class _20261127200537_Fluent : Migration
             unique: true);
 
         migrationBuilder.CreateIndex(
+            name: "idx_id_user_role_role",
+            table: "tbl_user_role",
+            column: "id_role");
+
+        migrationBuilder.CreateIndex(
+            name: "idx_id_user_role_user",
+            table: "tbl_user_role",
+            column: "id_user");
+
+        migrationBuilder.CreateIndex(
+            name: "idx_key_user_role",
+            table: "tbl_user_role",
+            column: "key_user_role",
+            unique: true);
+
+        migrationBuilder.CreateIndex(
             name: "idx_key_work",
             table: "tbl_work",
             column: "key_work",
@@ -1351,9 +1365,6 @@ public partial class _20261127200537_Fluent : Migration
 
         migrationBuilder.DropTable(
             name: "AspNetUserLogins");
-
-        migrationBuilder.DropTable(
-            name: "AspNetUserRoles");
 
         migrationBuilder.DropTable(
             name: "AspNetUserTokens");
@@ -1389,7 +1400,7 @@ public partial class _20261127200537_Fluent : Migration
             name: "tbl_user_claim");
 
         migrationBuilder.DropTable(
-            name: "tbl_role");
+            name: "tbl_user_role");
 
         migrationBuilder.DropTable(
             name: "tbl_author");
@@ -1417,6 +1428,9 @@ public partial class _20261127200537_Fluent : Migration
 
         migrationBuilder.DropTable(
             name: "tbl_url");
+
+        migrationBuilder.DropTable(
+            name: "tbl_role");
 
         migrationBuilder.DropTable(
             name: "tbl_user");

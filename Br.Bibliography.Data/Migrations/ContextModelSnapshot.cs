@@ -16,7 +16,7 @@ partial class ContextModelSnapshot : ModelSnapshot
     // If you encounter a merge conflict in the line below, it means you need to
     // discard one of the migration branches and recreate its migrations on top of
     // the other branch. See https://aka.ms/efcore-docs-migrations-conflicts for more info.
-    public override string LastMigrationId => "20261127200537_Fluent";
+    public override string LastMigrationId => "20261128094018_Fluent";
 
     protected override void BuildModel(ModelBuilder modelBuilder)
     {
@@ -961,8 +961,6 @@ partial class ContextModelSnapshot : ModelSnapshot
                 b.HasKey("Key")
                     .HasName("pk_key_user");
 
-                b.HasAlternateKey("Id");
-
                 b.HasIndex("Email")
                     .IsUnique()
                     .HasDatabaseName("idx_key_email");
@@ -1038,6 +1036,42 @@ partial class ContextModelSnapshot : ModelSnapshot
                     .HasDatabaseName("idx_id_user_claim_user");
 
                 b.ToTable("tbl_user_claim");
+            });
+
+        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUserRole", b =>
+            {
+                var key = b.Property<int>("Key")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("INTEGER")
+                    .HasColumnName("key_user_role")
+                    .HasColumnOrder(0);
+
+                SqlitePropertyBuilderExtensions.UseAutoincrement(key);
+
+                b.Property<int>("RoleId")
+                    .HasColumnType("INTEGER")
+                    .HasColumnName("id_role")
+                    .HasColumnOrder(2);
+
+                b.Property<int>("UserId")
+                    .HasColumnType("INTEGER")
+                    .HasColumnName("id_user")
+                    .HasColumnOrder(1);
+
+                b.HasKey("Key")
+                    .HasName("pk_key_user_role");
+
+                b.HasIndex("Key")
+                    .IsUnique()
+                    .HasDatabaseName("idx_key_user_role");
+
+                b.HasIndex("RoleId")
+                    .HasDatabaseName("idx_id_user_role_role");
+
+                b.HasIndex("UserId")
+                    .HasDatabaseName("idx_id_user_role_user");
+
+                b.ToTable("tbl_user_role");
             });
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
@@ -1467,21 +1501,6 @@ partial class ContextModelSnapshot : ModelSnapshot
                 b.ToTable("AspNetUserLogins");
             });
 
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
-            {
-                b.Property<int>("UserId")
-                    .HasColumnType("INTEGER");
-
-                b.Property<int>("RoleId")
-                    .HasColumnType("INTEGER");
-
-                b.HasKey("UserId", "RoleId");
-
-                b.HasIndex("RoleId");
-
-                b.ToTable("AspNetUserRoles");
-            });
-
         modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
             {
                 b.Property<int>("UserId")
@@ -1768,6 +1787,29 @@ partial class ContextModelSnapshot : ModelSnapshot
                 b.Navigation("EntityUser");
             });
 
+        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUserRole", b =>
+            {
+                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", "EntityRole")
+                    .WithMany("EnumerableUserRole")
+                    .HasForeignKey("RoleId")
+                    .HasPrincipalKey("Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired()
+                    .HasConstraintName("fk_user_role_role");
+
+                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", "EntityUser")
+                    .WithMany("EnumerableUserRole")
+                    .HasForeignKey("UserId")
+                    .HasPrincipalKey("Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired()
+                    .HasConstraintName("fk_user_role_user");
+
+                b.Navigation("EntityRole");
+
+                b.Navigation("EntityUser");
+            });
+
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>
             {
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Locals.EntityState", "EntityState")
@@ -1873,21 +1915,6 @@ partial class ContextModelSnapshot : ModelSnapshot
 
         modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
             {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
-                    .WithMany()
-                    .HasForeignKey("UserId")
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired();
-            });
-
-        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
-            {
-                b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", null)
-                    .WithMany()
-                    .HasForeignKey("RoleId")
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired();
-
                 b.HasOne("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", null)
                     .WithMany()
                     .HasForeignKey("UserId")
@@ -2005,9 +2032,16 @@ partial class ContextModelSnapshot : ModelSnapshot
                 b.Navigation("EnumerableTitle");
             });
 
+        modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityRole", b =>
+            {
+                b.Navigation("EnumerableUserRole");
+            });
+
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Identity.EntityUser", b =>
             {
                 b.Navigation("EnumerableUserClaim");
+
+                b.Navigation("EnumerableUserRole");
             });
 
         modelBuilder.Entity("Br.Bibliography.Model.Entities.Impl.Locals.EntityCity", b =>

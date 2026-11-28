@@ -36,6 +36,10 @@ namespace Br.Bibliography.Model.Entities.Impl.Identity
         public IEnumerable<EntityUserClaim>? EnumerableUserClaim { get; init; }
             = new HashSet<EntityUserClaim>();
 
+        [JsonIgnore]
+        public IEnumerable<EntityUserRole>? EnumerableUserRole { get; init; }
+            = new HashSet<EntityUserRole>();
+
         #endregion
 
         #endregion
@@ -46,6 +50,8 @@ namespace Br.Bibliography.Model.Entities.Impl.Identity
 
         [JsonIgnore]
         IEnumerable<IEntityUserClaim>? IEntityUser.IIEnumerableLecture => EnumerableUserClaim;
+
+        IEnumerable<IEntityUserRole>? IEntityUser.IEnumerableUserRole => EnumerableUserRole;
 
         #endregion
 

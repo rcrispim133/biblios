@@ -13,6 +13,9 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Identity
         [JsonIgnore]
         IEnumerable<EntityUserClaim>? EnumerableUserClaim { get; init; }
 
+        [JsonIgnore]
+        IEnumerable<EntityUserRole>? EnumerableUserRole { get; init; }
+
         #endregion
 
         #endregion
@@ -23,6 +26,9 @@ namespace Br.Bibliography.Model.Entities.Interfaces.Identity
 
         [JsonIgnore]
         IEnumerable<IEntityUserClaim>? IIEnumerableLecture { get; }
+        
+        [JsonIgnore]
+        IEnumerable<IEntityUserRole>? IEnumerableUserRole { get; }
 
         #endregion
 

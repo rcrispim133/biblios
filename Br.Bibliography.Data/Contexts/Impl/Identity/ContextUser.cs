@@ -1,10 +1,8 @@
 ﻿using Br.Bibliography.Data.Contexts.Base;
 using Br.Bibliography.Data.Contexts.Base.Impl;
 using Br.Bibliography.Data.Contexts.Interfaces.Identity;
-using Microsoft.EntityFrameworkCore;
-using Br.Bibliography.Util.Constants.Base;
-using Br.Bibliography.Util.Constants.Impl;
 using Br.Bibliography.Model.Entities.Impl.Identity;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Br.Bibliography.Data.Contexts.Impl.Identity
